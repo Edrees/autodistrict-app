@@ -8,6 +8,9 @@ export const theme = createTheme({
     secondary: {
       main: '#1e58af',
     },
+    background: {
+      default: '#f1f1f1',
+    },
   },
   components: {
     MuiAppBar: {

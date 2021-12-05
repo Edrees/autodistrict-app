@@ -1,5 +1,4 @@
 import * as React from 'react'
-// import Image from 'next/image'
 import {
   AppBar,
   Box,
@@ -15,7 +14,12 @@ import MenuIcon from '@mui/icons-material/Menu'
 import TopBar from './TopBar'
 import logo from '../../assets/autodist-logo.png'
 
-const pages = [
+interface PagesProps {
+  name: string
+  pageLink: string
+}
+
+const pages: PagesProps[] = [
   { name: 'Over ons', pageLink: 'over-ons' },
   { name: 'Service', pageLink: 'diensten' },
   { name: 'Contact', pageLink: 'contact' },

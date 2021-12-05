@@ -1,9 +1,5 @@
-import React from 'react'
 import { makeStyles } from '@mui/styles'
-import { useTheme } from '@mui/material'
-import Box from '@mui/material/Box'
-import Container from '@mui/material/Container'
-import Link from '@mui/material/Link'
+import { useTheme, Box, Container, Link } from '@mui/material'
 import MailIcon from '@mui/icons-material/Mail'
 import PhoneIcon from '@mui/icons-material/Phone'
 
@@ -35,7 +31,7 @@ const TopBar = ({ email, phoneNumber }: TopBarProps) => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          height: useTheme().spacing(4),
+          height: useTheme().spacing(5),
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
