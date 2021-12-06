@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.js": "/static/js/main.9954e890.chunk.js",
+    "main.js.map": "/static/js/main.9954e890.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.329168ff.js",
+    "runtime-main.js.map": "/static/js/runtime-main.329168ff.js.map",
+    "static/css/2.19627560.chunk.css": "/static/css/2.19627560.chunk.css",
+    "static/js/2.207d9e62.chunk.js": "/static/js/2.207d9e62.chunk.js",
+    "static/js/2.207d9e62.chunk.js.map": "/static/js/2.207d9e62.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.19627560.chunk.css.map": "/static/css/2.19627560.chunk.css.map",
+    "static/js/2.207d9e62.chunk.js.LICENSE.txt": "/static/js/2.207d9e62.chunk.js.LICENSE.txt",
+    "static/media/autodist-logo.40c815f4.png": "/static/media/autodist-logo.40c815f4.png",
+    "static/media/caro-1.4bfa3283.jpg": "/static/media/caro-1.4bfa3283.jpg",
+    "static/media/caro-2.68489384.jpg": "/static/media/caro-2.68489384.jpg",
+    "static/media/caro-3.659d68fd.jpg": "/static/media/caro-3.659d68fd.jpg",
+    "static/media/slick-theme.css": "/static/media/slick.c94f7671.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.329168ff.js",
+    "static/css/2.19627560.chunk.css",
+    "static/js/2.207d9e62.chunk.js",
+    "static/js/main.9954e890.chunk.js"
+  ]
+}
