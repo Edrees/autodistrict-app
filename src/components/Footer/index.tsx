@@ -55,11 +55,11 @@ function Footer() {
   return (
     <Box className={classes.footerRoot}>
       <Container fixed maxWidth="lg">
-        <Grid spacing={2} mb={2}>
+        <Grid mb={2}>
           <Grid item xs={12} md={6}>
             <List dense>
-              {footerLinks.map((item) => (
-                <ListItem>
+              {footerLinks.map((item, index) => (
+                <ListItem key={`footer-link-${index}`}>
                   <Link href={item.url}>
                     <ListItemText primary={item.text} />
                   </Link>

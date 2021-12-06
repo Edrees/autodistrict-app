@@ -1,5 +1,5 @@
 import { makeStyles } from '@mui/styles'
-import { useTheme, Box, Container, Link } from '@mui/material'
+import { useTheme, Box, Container, Link, Typography } from '@mui/material'
 import MailIcon from '@mui/icons-material/Mail'
 import PhoneIcon from '@mui/icons-material/Phone'
 
@@ -15,6 +15,10 @@ const useStyles = makeStyles(() => ({
   topBarLink: {
     color: useTheme().palette.common.white,
     marginLeft: useTheme().spacing(1),
+
+    '& svg': {
+      marginRight: useTheme().spacing(1),
+    },
   },
 }))
 
@@ -34,24 +38,34 @@ const TopBar = ({ email, phoneNumber }: TopBarProps) => {
           height: useTheme().spacing(5),
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Link
+          href={`mailto:${email}`}
+          className={classes.topBarLink}
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
           <MailIcon />
-          <Link
-            href={`mailto:${email}`}
-            className={classes.topBarLink}
+          <Typography
             sx={{
-              display: { xs: 'none', sm: 'block' },
+              display: { xs: 'none', sm: 'inline-block' },
             }}
           >
             {email}
-          </Link>
-        </Box>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          </Typography>
+        </Link>
+        <Link
+          href={`tel:${phoneNumber}`}
+          className={classes.topBarLink}
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
           <PhoneIcon />
-          <Link href={`tel:${phoneNumber}`} className={classes.topBarLink}>
-            {phoneNumber}
-          </Link>
-        </Box>
+          {phoneNumber}
+        </Link>
       </Container>
     </Box>
   )

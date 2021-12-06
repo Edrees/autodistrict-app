@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {
+  useTheme,
   AppBar,
   Box,
   Container,
@@ -8,7 +9,6 @@ import {
   Menu,
   MenuItem,
   Toolbar,
-  Typography,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import TopBar from './TopBar'
@@ -46,7 +46,14 @@ const Navigation = () => {
               <img alt="Auto District" src={logo} width="100%" />
             </Link>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'flex', md: 'none' },
+              justifyContent: 'flex-end',
+              color: useTheme().palette.primary.main,
+            }}
+          >
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -76,7 +83,10 @@ const Navigation = () => {
               }}
             >
               {pages.map((page, index) => (
-                <MenuItem key={index} onClick={handleCloseNavMenu}>
+                <MenuItem
+                  key={`menu-item-${index}`}
+                  onClick={handleCloseNavMenu}
+                >
                   <Link
                     href={page.pageLink}
                     key={index}
@@ -92,14 +102,6 @@ const Navigation = () => {
               ))}
             </Menu>
           </Box>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-          >
-            LOGO MOBILE
-          </Typography>
           <Box
             sx={{
               flexGrow: 1,
@@ -110,7 +112,7 @@ const Navigation = () => {
             {pages.map((page, index) => (
               <Link
                 href={page.pageLink}
-                key={index}
+                key={`mobile-link-${index}`}
                 onClick={handleCloseNavMenu}
                 sx={{
                   ml: 2,
