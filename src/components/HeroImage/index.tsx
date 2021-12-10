@@ -1,10 +1,18 @@
-import React from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import caro1 from '../../assets/caro-1.jpg'
-import caro2 from '../../assets/caro-2.jpg'
-import caro3 from '../../assets/caro-3.jpg'
+import pic1 from '../../assets/heroImage1.png'
+import pic2 from '../../assets/heroImage2.png'
+import pic3 from '../../assets/heroImage3.png'
+import pic4 from '../../assets/heroImage4.png'
+// import { useTheme } from '@mui/material'
+import { makeStyles } from '@mui/styles'
+
+const useStyles = makeStyles(() => ({
+  heroImage: {
+    objectFit: 'none',
+  },
+}))
 
 export default function HeroImage() {
   var settings = {
@@ -16,11 +24,15 @@ export default function HeroImage() {
     slidesToShow: 1,
     slidesToScroll: 1,
   }
+
+  const classes = useStyles()
+
   return (
     <Slider {...settings}>
-      <img alt="Auto District" src={caro1} />
-      <img alt="Auto District" src={caro2} />
-      <img alt="Auto District" src={caro3} />
+      <img className={classes.heroImage} alt="Auto District" src={pic1} />
+      <img className={classes.heroImage} alt="Auto District" src={pic2} />
+      <img className={classes.heroImage} alt="Auto District" src={pic3} />
+      <img className={classes.heroImage} alt="Auto District" src={pic4} />
     </Slider>
   )
 }
