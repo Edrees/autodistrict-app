@@ -13,11 +13,15 @@ const useStyles = makeStyles(() => ({
     background: useTheme().palette.primary.main,
   },
   topBarLink: {
-    color: useTheme().palette.common.white,
-    marginLeft: useTheme().spacing(1),
+    '&&': {
+      color: useTheme().palette.common.white,
+      marginLeft: useTheme().spacing(1),
+      display: 'flex',
+      alignItems: 'center',
 
-    '& svg': {
-      marginRight: useTheme().spacing(1),
+      '& svg': {
+        marginRight: useTheme().spacing(1),
+      },
     },
   },
 }))
@@ -31,21 +35,13 @@ const TopBar = ({ email, phoneNumber }: TopBarProps) => {
         fixed
         maxWidth="lg"
         sx={{
-          // display: { xs: 'none', md: 'flex' },
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
           height: useTheme().spacing(5),
         }}
       >
-        <Link
-          href={`mailto:${email}`}
-          className={classes.topBarLink}
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
+        <Link href={`mailto:${email}`} className={classes.topBarLink}>
           <MailIcon />
           <Typography
             sx={{
@@ -55,14 +51,7 @@ const TopBar = ({ email, phoneNumber }: TopBarProps) => {
             {email}
           </Typography>
         </Link>
-        <Link
-          href={`tel:${phoneNumber}`}
-          className={classes.topBarLink}
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
+        <Link href={`tel:${phoneNumber}`} className={classes.topBarLink}>
           <PhoneIcon />
           {phoneNumber}
         </Link>

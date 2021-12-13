@@ -1,18 +1,21 @@
 import * as React from 'react'
+import { makeStyles } from '@mui/styles'
 import {
   useTheme,
   AppBar,
   Box,
   Container,
+  Drawer,
   IconButton,
   Link,
-  Menu,
-  MenuItem,
+  List,
+  ListItem,
   Toolbar,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import TopBar from './TopBar'
 import logo from '../../assets/autodist-logo.png'
+import SideBar from './SideBar'
 
 interface PagesProps {
   name: string
@@ -25,83 +28,106 @@ const pages: PagesProps[] = [
   { name: 'Contact', pageLink: 'contact' },
 ]
 
+const useStyles = makeStyles(() => ({
+  listItem: {
+    borderBottom: 'none',
+    '&:not(:last-child)': {
+      borderBottom: `1px solid ${useTheme().palette.grey[200]}`,
+    },
+  },
+}))
+
 const Navigation = () => {
+  const classes = useStyles()
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
+  const [drawerState, setDrawerState] = React.useState({
+    top: false,
+  })
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget)
-  }
+  const toggleDrawer =
+    (anchor: string, open: boolean) =>
+    (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event.type === 'keydown' &&
+        ((event as React.KeyboardEvent).key === 'Tab' ||
+          (event as React.KeyboardEvent).key === 'Shift')
+      ) {
+        return
+      }
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null)
-  }
+      setDrawerState({ ...drawerState, [anchor]: open })
+    }
+
+  // const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+  //   toggleDrawer('top', true)
+  //   setAnchorElNav(event.currentTarget)
+  // }
+
+  // const handleCloseNavMenu = () => {
+  //   setAnchorElNav(null)
+  // }
+
+  const appLogo = (
+    <Box sx={{ width: 150 }}>
+      <Link href="/">
+        <img alt="Auto District" src={logo} width="100%" />
+      </Link>
+    </Box>
+  )
+
+  const mobileMenu = (
+    <Box
+      sx={{
+        flexGrow: 1,
+        display: { xs: 'flex', md: 'none' },
+        justifyContent: 'flex-end',
+        color: useTheme().palette.primary.main,
+      }}
+    >
+      <IconButton
+        size="large"
+        aria-label="account of current user"
+        aria-controls="menu-appbar"
+        aria-haspopup="true"
+        onClick={toggleDrawer('top', true)}
+        color="inherit"
+      >
+        <MenuIcon />
+      </IconButton>
+      <Drawer
+        anchor="top"
+        open={drawerState['top']}
+        onClose={toggleDrawer('top', false)}
+      >
+        <List sx={{ padding: 0 }}>
+          <ListItem className={classes.listItem}>{appLogo}</ListItem>
+          {pages.map((page, index) => (
+            <ListItem key={`mobile-menu-${index}`} className={classes.listItem}>
+              <Link
+                href={page.pageLink}
+                key={index}
+                // onClick={handleCloseNavMenu}
+                sx={{
+                  display: 'block',
+                  textDecoration: 'none',
+                }}
+              >
+                {page.name}
+              </Link>
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
+    </Box>
+  )
 
   return (
     <AppBar position="sticky">
       <TopBar email="info@autodistrict.nl" phoneNumber="+31681483303" />
       <Container fixed maxWidth="lg">
         <Toolbar disableGutters>
-          <Box sx={{ width: 150 }}>
-            <Link href="/">
-              <img alt="Auto District" src={logo} width="100%" />
-            </Link>
-          </Box>
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: 'flex', md: 'none' },
-              justifyContent: 'flex-end',
-              color: useTheme().palette.primary.main,
-            }}
-          >
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page, index) => (
-                <MenuItem
-                  key={`menu-item-${index}`}
-                  onClick={handleCloseNavMenu}
-                >
-                  <Link
-                    href={page.pageLink}
-                    key={index}
-                    onClick={handleCloseNavMenu}
-                    sx={{
-                      display: 'block',
-                      textDecoration: 'none',
-                    }}
-                  >
-                    {page.name}
-                  </Link>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+          {appLogo}
+          {mobileMenu}
           <Box
             sx={{
               flexGrow: 1,
@@ -112,8 +138,8 @@ const Navigation = () => {
             {pages.map((page, index) => (
               <Link
                 href={page.pageLink}
-                key={`mobile-link-${index}`}
-                onClick={handleCloseNavMenu}
+                key={`desktop-link-${index}`}
+                // onClick={handleCloseNavMenu}
                 sx={{
                   ml: 2,
                   display: 'block',

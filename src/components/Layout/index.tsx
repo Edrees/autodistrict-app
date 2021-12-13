@@ -25,6 +25,7 @@ export default function Layout({ children }: LayoutProps) {
           sx={{
             minHeight: useTheme().spacing(50),
             padding: useTheme().spacing(3),
+            borderRadius: 0,
           }}
         >
           {children}
