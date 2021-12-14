@@ -1,55 +1,3 @@
-// const useStyles = makeStyles(() => ({
-//   heroImage: {
-//     objectFit: 'none',
-//     width: '100%',
-//   },
-//   heroButtonWrapper: {
-//     '&&': {
-//       height: '100%',
-//       padding: useTheme().spacing(2),
-//       position: 'absolute',
-//       top: 0,
-//       left: 0,
-//       right: 0,
-//       display: 'flex',
-//       flexDirection: 'column',
-//       justifyContent: 'center',
-//       alignItems: 'center',
-//     },
-//   },
-//   heroText: {
-//     '&&': {
-//       fontWeight: 400,
-//       [useTheme().breakpoints.up('sm')]: {},
-//     },
-//   },
-// }))
-
-//       <Box sx={{ position: 'relative' }}>
-//         <img
-//           className={classes.heroImage}
-//           alt="Auto District"
-//           src={pic1}
-//           // style={{ width: 1280 }}
-//         />
-//         <Box className={classes.heroButtonWrapper}>
-//           <Button
-//             variant="contained"
-//             color="error"
-//             href="/diensten"
-//             size={isSmallOrLarger ? 'medium' : 'small'}
-//           >
-//             <Typography
-//               variant={isSmallOrLarger ? 'h5' : 'body1'}
-//               component="div"
-//               className={classes.heroText}
-//             >
-//               Onderhoud
-//             </Typography>
-//           </Button>
-//         </Box>
-//       </Box>
-
 import { makeStyles } from '@mui/styles'
 import { Box, Button, Typography, useMediaQuery, useTheme } from '@mui/material'
 // Import Swiper React components
@@ -65,9 +13,6 @@ import 'swiper/swiper.min.css'
 import 'swiper/modules/pagination/pagination.min.css'
 
 import './styles.css'
-
-// import Swiper core and required modules
-// import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper'
 
 // install Swiper modules
 SwiperCore.use([Autoplay, Pagination, Navigation])
