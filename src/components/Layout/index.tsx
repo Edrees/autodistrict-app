@@ -2,9 +2,10 @@ import { useTheme, Container, Card } from '@mui/material'
 import { Header } from '../Header'
 import HeroImage from '../HeroImage'
 import Footer from '../Footer'
+import { Outlet } from 'react-router'
 
 interface LayoutProps {
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 export default function Layout({ children }: LayoutProps) {
@@ -28,7 +29,7 @@ export default function Layout({ children }: LayoutProps) {
             borderRadius: 0,
           }}
         >
-          {children}
+          <Outlet />
         </Card>
       </Container>
       <Footer />
