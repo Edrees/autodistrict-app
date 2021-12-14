@@ -4,11 +4,7 @@ import HeroImage from '../HeroImage'
 import Footer from '../Footer'
 import { Outlet } from 'react-router'
 
-interface LayoutProps {
-  children?: React.ReactNode
-}
-
-export default function Layout({ children }: LayoutProps) {
+export default function Layout() {
   return (
     <>
       <Header />
@@ -19,7 +15,10 @@ export default function Layout({ children }: LayoutProps) {
         disableGutters
         sx={{
           position: 'relative',
-          margin: useTheme().spacing(-5, 'auto', 5),
+          margin: {
+            xs: useTheme().spacing(0, 'auto', 5),
+            sm: useTheme().spacing(-5, 'auto', 5),
+          },
         }}
       >
         <Card

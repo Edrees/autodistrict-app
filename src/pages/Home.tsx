@@ -30,28 +30,11 @@ export default function Home() {
         de toekomst!
       </Typography>
       <Grid container spacing={2}>
-        <Grid
-          item
-          xs={0}
-          md={1}
-          sx={{ display: { xs: 'none', sm: 'block' } }}
-        ></Grid>
-        <Grid
-          item
-          xs={12}
-          md={10}
-          sx={{ display: 'flex', justifyContent: 'center' }}
-        >
-          <Box sx={{ maxWidth: 800, py: 2 }}>
+        <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Box sx={{ maxWidth: 800, pt: 2 }}>
             <img src={homePagePic} alt="Auto District Poeldijk" width="100%" />
           </Box>
         </Grid>
-        <Grid
-          item
-          xs={0}
-          md={1}
-          sx={{ display: { xs: 'none', sm: 'block' } }}
-        ></Grid>
       </Grid>
     </Container>
   )

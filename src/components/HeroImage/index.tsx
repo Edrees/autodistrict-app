@@ -1,6 +1,5 @@
 import { makeStyles } from '@mui/styles'
 import { Box, Button, Typography, useMediaQuery, useTheme } from '@mui/material'
-// Import Swiper React components
 import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
 
@@ -14,7 +13,6 @@ import 'swiper/modules/pagination/pagination.min.css'
 
 import './styles.css'
 
-// install Swiper modules
 SwiperCore.use([Autoplay, Pagination, Navigation])
 
 const useStyles = makeStyles(() => ({
@@ -25,7 +23,7 @@ const useStyles = makeStyles(() => ({
   heroButtonWrapper: {
     '&&': {
       height: '100%',
-      padding: useTheme().spacing(2),
+      // padding: useTheme().spacing(2),
       position: 'absolute',
       top: 0,
       left: 0,
