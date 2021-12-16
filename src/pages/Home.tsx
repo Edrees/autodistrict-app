@@ -21,7 +21,7 @@ export default function Home() {
           fontWeight: useTheme().typography.fontWeightBold,
         }}
       >
-        Welkom bij Auto District
+        Welkom bij Auto District!
       </Typography>
       <Typography variant="body1" component="div" align="justify">
         Auto District staat voor een langdurige relatie met de klant op basis
