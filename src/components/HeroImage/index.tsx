@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@mui/styles'
 import { Box, Button, Typography, useMediaQuery, useTheme } from '@mui/material'
 import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper'
@@ -40,6 +41,9 @@ const useStyles = makeStyles(() => ({
       [useTheme().breakpoints.up('sm')]: {},
     },
   },
+  heroLink: {
+    textDecoration: 'none',
+  },
 }))
 
 export default function App() {
@@ -64,77 +68,81 @@ export default function App() {
         <SwiperSlide>
           <img alt="Auto District" src={pic1} />
           <Box className={classes.heroButtonWrapper}>
-            <Button
-              variant="contained"
-              color="error"
-              href="/diensten"
-              size={isSmallOrLarger ? 'medium' : 'small'}
-            >
-              <Typography
-                variant={isSmallOrLarger ? 'h5' : 'body1'}
-                component="div"
-                className={classes.heroText}
+            <Link to="/diensten" className={classes.heroLink}>
+              <Button
+                variant="contained"
+                color="error"
+                size={isSmallOrLarger ? 'medium' : 'small'}
               >
-                Onderhoud
-              </Typography>
-            </Button>
+                <Typography
+                  variant={isSmallOrLarger ? 'h5' : 'body1'}
+                  component="div"
+                  className={classes.heroText}
+                >
+                  Onderhoud
+                </Typography>
+              </Button>
+            </Link>
           </Box>
         </SwiperSlide>
         <SwiperSlide>
           <img alt="Auto District" src={pic2} />
           <Box className={classes.heroButtonWrapper}>
-            <Button
-              variant="contained"
-              color="error"
-              href="/diensten"
-              size={isSmallOrLarger ? 'medium' : 'small'}
-            >
-              <Typography
-                variant={isSmallOrLarger ? 'h5' : 'body1'}
-                component="div"
-                className={classes.heroText}
+            <Link to="/diensten" className={classes.heroLink}>
+              <Button
+                variant="contained"
+                color="error"
+                size={isSmallOrLarger ? 'medium' : 'small'}
               >
-                Reparatie
-              </Typography>
-            </Button>
+                <Typography
+                  variant={isSmallOrLarger ? 'h5' : 'body1'}
+                  component="div"
+                  className={classes.heroText}
+                >
+                  Reparatie
+                </Typography>
+              </Button>
+            </Link>
           </Box>
         </SwiperSlide>
         <SwiperSlide>
           <img alt="Auto District" src={pic3} />
           <Box className={classes.heroButtonWrapper}>
-            <Button
-              variant="contained"
-              color="error"
-              href="/diensten"
-              size={isSmallOrLarger ? 'medium' : 'small'}
-            >
-              <Typography
-                variant={isSmallOrLarger ? 'h5' : 'body1'}
-                component="div"
-                className={classes.heroText}
+            <Link to="/diensten" className={classes.heroLink}>
+              <Button
+                variant="contained"
+                color="error"
+                size={isSmallOrLarger ? 'medium' : 'small'}
               >
-                APK
-              </Typography>
-            </Button>
+                <Typography
+                  variant={isSmallOrLarger ? 'h5' : 'body1'}
+                  component="div"
+                  className={classes.heroText}
+                >
+                  APK
+                </Typography>
+              </Button>
+            </Link>
           </Box>
         </SwiperSlide>
         <SwiperSlide>
           <img alt="Auto District" src={pic4} />
           <Box className={classes.heroButtonWrapper}>
-            <Button
-              variant="contained"
-              color="error"
-              href="/contact"
-              size={isSmallOrLarger ? 'medium' : 'small'}
-            >
-              <Typography
-                variant={isSmallOrLarger ? 'h5' : 'body1'}
-                component="div"
-                className={classes.heroText}
+            <Link to="/contact" className={classes.heroLink}>
+              <Button
+                variant="contained"
+                color="error"
+                size={isSmallOrLarger ? 'medium' : 'small'}
               >
-                Contact
-              </Typography>
-            </Button>
+                <Typography
+                  variant={isSmallOrLarger ? 'h5' : 'body1'}
+                  component="div"
+                  className={classes.heroText}
+                >
+                  Contact
+                </Typography>
+              </Button>
+            </Link>
           </Box>
         </SwiperSlide>
       </Swiper>

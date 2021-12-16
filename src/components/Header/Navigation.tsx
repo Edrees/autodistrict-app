@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@mui/styles'
 import {
   useTheme,
@@ -7,7 +8,6 @@ import {
   Container,
   Drawer,
   IconButton,
-  Link,
   List,
   ListItem,
   Toolbar,
@@ -33,6 +33,13 @@ const useStyles = makeStyles(() => ({
     borderBottom: 'none',
     '&:not(:last-child)': {
       borderBottom: `1px solid ${useTheme().palette.grey[200]}`,
+    },
+  },
+  naviLinkItem: {
+    color: 'initial',
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'underline',
     },
   },
 }))
@@ -69,7 +76,7 @@ const Navigation = () => {
 
   const appLogo = (
     <Box sx={{ width: 150 }}>
-      <Link href="/">
+      <Link to="/">
         <img alt="Auto District" src={logo} width="100%" />
       </Link>
     </Box>
@@ -104,13 +111,9 @@ const Navigation = () => {
           {pages.map((page, index) => (
             <ListItem key={`mobile-menu-${index}`} className={classes.listItem}>
               <Link
-                href={page.pageLink}
+                to={page.pageLink}
                 key={index}
-                // onClick={handleCloseNavMenu}
-                sx={{
-                  display: 'block',
-                  textDecoration: 'none',
-                }}
+                className={classes.naviLinkItem}
               >
                 {page.name}
               </Link>
@@ -136,18 +139,15 @@ const Navigation = () => {
             }}
           >
             {pages.map((page, index) => (
-              <Link
-                href={page.pageLink}
-                key={`desktop-link-${index}`}
-                // onClick={handleCloseNavMenu}
-                sx={{
-                  ml: 2,
-                  display: 'block',
-                  textDecoration: 'none',
-                }}
-              >
-                {page.name}
-              </Link>
+              <Box ml={2}>
+                <Link
+                  to={page.pageLink}
+                  key={`desktop-link-${index}`}
+                  className={classes.naviLinkItem}
+                >
+                  {page.name}
+                </Link>
+              </Box>
             ))}
           </Box>
         </Toolbar>
