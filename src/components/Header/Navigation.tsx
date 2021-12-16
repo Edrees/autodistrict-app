@@ -65,14 +65,14 @@ const Navigation = () => {
       setDrawerState({ ...drawerState, [anchor]: open })
     }
 
-  // const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-  //   toggleDrawer('top', true)
-  //   setAnchorElNav(event.currentTarget)
-  // }
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    toggleDrawer('top', true)
+    setAnchorElNav(event.currentTarget)
+  }
 
-  // const handleCloseNavMenu = () => {
-  //   setAnchorElNav(null)
-  // }
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null)
+  }
 
   const appLogo = (
     <Box sx={{ width: 150 }}>
@@ -114,6 +114,7 @@ const Navigation = () => {
                 to={page.pageLink}
                 key={index}
                 className={classes.naviLinkItem}
+                onClick={toggleDrawer('top', false)}
               >
                 {page.name}
               </Link>
