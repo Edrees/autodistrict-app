@@ -54,10 +54,11 @@ function Footer() {
 
   return (
     <Box className={classes.footerRoot}>
-      <Container fixed maxWidth="lg">
-        <Grid mb={2}>
+      <Container fixed maxWidth="lg" disableGutters>
+        <Grid container py={2}>
           <Grid item xs={12} md={6}>
             <List dense>
+              <ListItem sx={{ fontWeight: 'bold' }}>Links</ListItem>
               {footerLinks.map((item, index) => (
                 <ListItem key={`footer-link-${index}`}>
                   <Link href={item.url}>
@@ -65,6 +66,14 @@ function Footer() {
                   </Link>
                 </ListItem>
               ))}
+            </List>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <List dense>
+              <ListItem sx={{ fontWeight: 'bold' }}>Adres</ListItem>
+              <ListItem>Auto District</ListItem>
+              <ListItem>Jupiter 39-B</ListItem>
+              <ListItem>2685 LV Poeldijk</ListItem>
             </List>
           </Grid>
         </Grid>
