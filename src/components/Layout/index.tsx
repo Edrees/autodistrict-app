@@ -1,4 +1,4 @@
-import { useTheme, Container, Card } from '@mui/material'
+import { useTheme, Box, Container, Card } from '@mui/material'
 import { Header } from '../Header'
 import HeroImage from '../HeroImage'
 import Footer from '../Footer'
@@ -8,7 +8,9 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <HeroImage />
+      <Box sx={{ overflow: 'hidden' }}>
+        <HeroImage />
+      </Box>
       <Container
         fixed
         maxWidth="lg"

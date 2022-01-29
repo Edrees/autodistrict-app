@@ -1,20 +1,20 @@
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@mui/styles'
 import { Box, Button, Typography, useMediaQuery, useTheme } from '@mui/material'
-import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper'
+import SwiperCore, { Autoplay, Navigation, FreeMode } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
 
-import pic1 from '../../assets/homepageHeroImage1.png'
-import pic2 from '../../assets/homepageHeroImage2.png'
-import pic3 from '../../assets/homepageHeroImage3.png'
-import pic4 from '../../assets/homepageHeroImage4.png'
+import pic1 from '../../assets/hpHeroImage1.jpeg'
+import pic2 from '../../assets/hpHeroImage2.jpeg'
+import pic3 from '../../assets/hpHeroImage3.jpeg'
+import pic4 from '../../assets/hpHeroImage4.jpeg'
 
 import 'swiper/swiper.min.css'
 import 'swiper/modules/pagination/pagination.min.css'
 
 import './styles.css'
 
-SwiperCore.use([Autoplay, Pagination, Navigation])
+SwiperCore.use([Autoplay, Navigation])
 
 const useStyles = makeStyles(() => ({
   heroImage: {
@@ -53,7 +53,7 @@ export default function App() {
   return (
     <>
       <Swiper
-        spaceBetween={30}
+        spaceBetween={0}
         centeredSlides={true}
         autoplay={{
           delay: 4000,
@@ -61,6 +61,10 @@ export default function App() {
         }}
         navigation={true}
         className="mySwiper"
+        modules={[FreeMode]}
+        freeMode={true}
+        slidesPerView={3}
+        loop={true}
       >
         <SwiperSlide>
           <img alt="Auto District" src={pic1} />
