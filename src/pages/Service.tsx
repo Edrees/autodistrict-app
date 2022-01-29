@@ -60,7 +60,7 @@ function Service() {
           <Box sx={{ maxWidth: '100%', pt: 2 }}>
             <Swiper
               slidesPerView={3}
-              spaceBetween={16}
+              spaceBetween={8}
               centeredSlides={true}
               loop={true}
               loopFillGroupWithBlank={true}
@@ -69,7 +69,6 @@ function Service() {
                 disableOnInteraction: false,
               }}
               navigation={true}
-              className="mySwiper"
             >
               <SwiperSlide>
                 <img src={slider1} alt="Auto District Poeldijk" width="100%" />

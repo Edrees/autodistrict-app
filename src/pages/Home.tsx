@@ -26,8 +26,7 @@ export default function Home() {
       <Typography variant="body1" component="div" align="justify">
         Auto District staat voor een langdurige relatie met de klant op basis
         van eerlijkheid & helder zaken doen. Kwaliteit & deskundigheid staan bij
-        ons hoog in het vaandel. Wij hopen u graag van dienst te mogen zijn in
-        de toekomst!
+        ons hoog in het vaandel. Wij hopen u graag van dienst te mogen zijn!
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>

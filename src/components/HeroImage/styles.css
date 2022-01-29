@@ -1,4 +1,4 @@
-.swiper {
+.hero-image-swiper {
   width: 200%;
   height: 100%;
   z-index: 0;
@@ -32,11 +32,11 @@
   object-fit: cover;
 }
 
-.swiper-slide.swiper-slide-active {
+.hero-image-swiper.swiper-slide-active {
   box-shadow: 0px 0px 30px 15px #000;
   z-index: 1;
 }
 
-.swiper-slide:not(.swiper-slide-active) {
+.hero-image-swiper:not(.swiper-slide-active) {
   opacity: 0.5;
 }

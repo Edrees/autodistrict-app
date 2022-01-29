@@ -53,6 +53,7 @@ export default function App() {
   return (
     <>
       <Swiper
+        className="hero-image-swiper"
         spaceBetween={0}
         centeredSlides={true}
         autoplay={{
@@ -60,7 +61,6 @@ export default function App() {
           disableOnInteraction: false,
         }}
         navigation={true}
-        className="mySwiper"
         modules={[FreeMode]}
         freeMode={true}
         slidesPerView={3}
