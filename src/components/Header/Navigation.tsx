@@ -15,7 +15,6 @@ import {
 import MenuIcon from '@mui/icons-material/Menu'
 import TopBar from './TopBar'
 import logo from '../../assets/autodist-logo.png'
-import SideBar from './SideBar'
 
 interface PagesProps {
   name: string
@@ -46,7 +45,6 @@ const useStyles = makeStyles(() => ({
 
 const Navigation = () => {
   const classes = useStyles()
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
   const [drawerState, setDrawerState] = React.useState({
     top: false,
   })
@@ -64,15 +62,6 @@ const Navigation = () => {
 
       setDrawerState({ ...drawerState, [anchor]: open })
     }
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    toggleDrawer('top', true)
-    setAnchorElNav(event.currentTarget)
-  }
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null)
-  }
 
   const appLogo = (
     <Box sx={{ width: 150 }}>
