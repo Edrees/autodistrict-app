@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { makeStyles } from '@mui/styles'
 import {
   useTheme,
@@ -47,16 +48,35 @@ const useStyles = makeStyles(() => ({
     color: useTheme().palette.common.white,
     textAlign: 'center',
   },
+  reviewWdigetLink: {
+    margin: '0 auto',
+    '& a': {
+      border: 0,
+    },
+  },
 }))
 
 function Footer() {
   const classes = useStyles()
 
+  useEffect(() => {
+    const script = document.createElement('script')
+
+    script.src = 'https://grwapi.net/widget.min.js'
+    script.async = true
+
+    document.body.appendChild(script)
+
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
+
   return (
     <Box className={classes.footerRoot}>
       <Container fixed maxWidth="lg" disableGutters>
         <Grid container py={2}>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={4}>
             <List dense>
               <ListItem sx={{ fontWeight: 'bold' }}>Links</ListItem>
               {footerLinks.map((item, index) => (
@@ -68,13 +88,42 @@ function Footer() {
               ))}
             </List>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={4}>
             <List dense>
-              <ListItem sx={{ fontWeight: 'bold' }}>Adres</ListItem>
+              <ListItem
+                sx={{ fontWeight: 'bold', alignItems: { sm: 'flex-end' } }}
+              >
+                Adres
+              </ListItem>
               <ListItem>Auto District</ListItem>
               <ListItem>Jupiter 39-B</ListItem>
               <ListItem>2685 LV Poeldijk</ListItem>
             </List>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Box className={classes.reviewWdigetLink}>
+              <div
+                className="review-widget_net"
+                data-uuid="89c01f66-4b4a-4fc8-a8f8-efcc4bc3fbcc"
+                data-template="10"
+                data-filter=""
+                data-lang="en"
+                data-theme="light"
+              >
+                <a
+                  href="https://www.review-widget.net/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src="https://grwapi.net/assets/spinner/spin.svg"
+                    title="Review Widget"
+                    alt="review-widget.net"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+            </Box>
           </Grid>
         </Grid>
       </Container>
