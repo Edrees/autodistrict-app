@@ -26,7 +26,7 @@ export default function Layout() {
         <Card
           sx={{
             minHeight: useTheme().spacing(50),
-            padding: useTheme().spacing(3),
+            padding: { xs: useTheme().spacing(4), md: useTheme().spacing(8) },
             borderRadius: 0,
           }}
         >

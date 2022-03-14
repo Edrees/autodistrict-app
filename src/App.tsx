@@ -3,6 +3,7 @@ import Layout from './components/Layout'
 import Home from './pages/Home'
 import AboutUs from './pages/AboutUs'
 import Service from './pages/Service'
+import Storage from './pages/Storage'
 import Contact from './pages/Contact'
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="over-ons/" element={<AboutUs />} />
         <Route path="diensten/" element={<Service />} />
+        <Route path="wielopslag/" element={<Storage />} />
         <Route path="contact/" element={<Contact />} />
       </Route>
     </Routes>

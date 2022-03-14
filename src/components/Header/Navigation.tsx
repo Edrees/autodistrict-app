@@ -14,7 +14,7 @@ import {
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import TopBar from './TopBar'
-import logo from '../../assets/autodist-logo.png'
+import logo from '../../assets/auto-district-logo.png'
 
 interface PagesProps {
   name: string
@@ -24,6 +24,8 @@ interface PagesProps {
 const pages: PagesProps[] = [
   { name: 'Over ons', pageLink: 'over-ons' },
   { name: 'Service', pageLink: 'diensten' },
+  { name: 'Wielopslag', pageLink: 'wielopslag' },
+  // { name: 'DSG', pageLink: 'dsg' },
   { name: 'Contact', pageLink: 'contact' },
 ]
 
