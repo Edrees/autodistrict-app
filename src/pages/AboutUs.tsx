@@ -33,9 +33,9 @@ function AboutUs() {
         </Grid>
         <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
           <Paper
-            elevation={4}
+            elevation={2}
             sx={{
-              padding: 1,
+              padding: 2,
               display: 'flex',
             }}
           >

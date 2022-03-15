@@ -56,9 +56,9 @@ export default function Home() {
           mb={8}
         >
           <Paper
-            elevation={4}
+            elevation={2}
             sx={{
-              padding: 1,
+              padding: 2,
               display: 'flex',
             }}
           >
@@ -78,7 +78,6 @@ export default function Home() {
             elevation={2}
             sx={{
               padding: 4,
-              backgroundColor: '#f6f6f6',
             }}
           >
             <Typography variant="h4" sx={{ alignSelf: 'center' }}>
@@ -121,17 +120,13 @@ export default function Home() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Paper
-            elevation={4}
+            elevation={2}
             sx={{
-              padding: 1,
+              padding: 2,
               display: 'flex',
             }}
           >
-            <img
-              src={homePagePicRdw}
-              alt="Auto District Poeldijk"
-              width="100%"
-            />
+            <img src={homePagePicRdw} alt="Auto District RDW" width="100%" />
           </Paper>
         </Grid>
       </Grid>

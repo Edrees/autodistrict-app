@@ -6,6 +6,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  Paper,
   Typography,
   useMediaQuery,
   useTheme,
@@ -81,17 +82,25 @@ export default function Contact() {
           </List>
         </Grid>
         <Grid item xs={12} md={6} lg={8}>
-          <Link
-            href="https://g.page/autodistrict"
-            underline="hover"
-            target="_blank"
+          <Paper
+            elevation={2}
+            sx={{
+              padding: 2,
+            }}
           >
-            <img
-              src={googleMapsPic}
-              alt="Auto District Poeldijk"
-              width="100%"
-            />
-          </Link>
+            <Link
+              href="https://g.page/autodistrict"
+              underline="hover"
+              target="_blank"
+              sx={{ display: 'flex' }}
+            >
+              <img
+                src={googleMapsPic}
+                alt="Auto District Poeldijk"
+                width="100%"
+              />
+            </Link>
+          </Paper>
         </Grid>
       </Grid>
     </Container>
