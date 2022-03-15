@@ -6,7 +6,7 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material'
-import storagePagePic from '../assets/auto-district-overons.jpeg'
+// import storagePagePic from '../assets/auto-district-overons.jpeg'
 
 function Storage() {
   const isSmallOrLarger = useMediaQuery(useTheme().breakpoints.up('sm'))
