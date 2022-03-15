@@ -8,7 +8,7 @@ import {
 } from '@mui/material'
 // import storagePagePic from '../assets/auto-district-overons.jpeg'
 
-function Storage() {
+function Wielopslag() {
   const isSmallOrLarger = useMediaQuery(useTheme().breakpoints.up('sm'))
   return (
     <Container maxWidth={false} disableGutters>
@@ -42,4 +42,4 @@ function Storage() {
   )
 }
 
-export default Storage
+export default Wielopslag

@@ -80,7 +80,7 @@ export default function App() {
                   component="div"
                   className={classes.heroText}
                 >
-                  Onderhoud
+                  Diensten
                 </Typography>
               </Button>
             </Link>
@@ -89,7 +89,7 @@ export default function App() {
         <SwiperSlide>
           <img alt="Auto District" src={pic2} />
           <Box className={classes.heroButtonWrapper}>
-            <Link to="/diensten" className={classes.heroLink}>
+            <Link to="/airco" className={classes.heroLink}>
               <Button
                 variant="contained"
                 color="error"
@@ -100,7 +100,7 @@ export default function App() {
                   component="div"
                   className={classes.heroText}
                 >
-                  Reparatie
+                  Airco
                 </Typography>
               </Button>
             </Link>
@@ -109,7 +109,7 @@ export default function App() {
         <SwiperSlide>
           <img alt="Auto District" src={pic3} />
           <Box className={classes.heroButtonWrapper}>
-            <Link to="/diensten" className={classes.heroLink}>
+            <Link to="/wielopslag" className={classes.heroLink}>
               <Button
                 variant="contained"
                 color="error"
@@ -120,7 +120,7 @@ export default function App() {
                   component="div"
                   className={classes.heroText}
                 >
-                  APK
+                  Wielopslag
                 </Typography>
               </Button>
             </Link>

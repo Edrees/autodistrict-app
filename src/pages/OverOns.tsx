@@ -8,7 +8,7 @@ import {
 } from '@mui/material'
 import aboutUsPagePic from '../assets/auto-district-overons.jpeg'
 
-function AboutUs() {
+function OverOns() {
   const isSmallOrLarger = useMediaQuery(useTheme().breakpoints.up('sm'))
 
   return (
@@ -52,4 +52,4 @@ function AboutUs() {
   )
 }
 
-export default AboutUs
+export default OverOns
