@@ -18,7 +18,6 @@ export default function Home() {
         <Grid item xs={12}>
           <Typography
             variant={isSmallOrLarger ? 'h6' : 'body1'}
-            component="div"
             gutterBottom
             sx={{
               fontWeight: useTheme().typography.fontWeightBold,
@@ -26,7 +25,7 @@ export default function Home() {
           >
             Welkom bij Auto District
           </Typography>
-          <Typography variant="body1" component="div" align="justify">
+          <Typography sx={{ textAlign: { md: 'justify' } }}>
             Auto District staat voor een langdurige relatie met de klant op
             basis van eerlijkheid & helder zaken doen. Kwaliteit & deskundigheid
             staan bij ons hoog in het vaandel. Wij hopen u graag van dienst te

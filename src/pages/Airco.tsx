@@ -25,19 +25,19 @@ function Airco() {
           >
             Airco service
           </Typography>
-          <Typography variant="body1" component="div" align="justify" mb={2}>
+          <Typography sx={{ textAlign: { md: 'justify' } }} mb={2}>
             Met onze MAHLE aircomachines kunnen het onderhoud uitvoeren van uw
             auto. Heeft u een ouder systeem met R134a of een nieuwer systeem met
             R1234yf? Dat maakt voor ons niet uit bij beide systemen kunnen we
             het onderhoud uitvoeren.
           </Typography>
-          <Typography variant="body1" component="div" align="justify" mb={2}>
+          <Typography sx={{ textAlign: { md: 'justify' } }} mb={2}>
             Heeft u een niet werkende of leeg airco systeem. Dan kunnen wij
             diagnose stellen met ons afpersset met formeergas en onze
             lekdetector. Is het systeem al gevuld met UV dan hebben we ook
             hiervoor de juiste benodigdheden om de lekkage op te sporen.
           </Typography>
-          <Typography variant="body1" component="div" align="justify" mb={2}>
+          <Typography sx={{ textAlign: { md: 'justify' } }} mb={2}>
             Nadat alles netjes werkt en gecontroleerd is. Krijgt u van ons een
             uitdraai met specificaties.
           </Typography>

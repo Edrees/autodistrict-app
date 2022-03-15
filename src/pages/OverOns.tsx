@@ -17,7 +17,6 @@ function OverOns() {
         <Grid item xs={12}>
           <Typography
             variant={isSmallOrLarger ? 'h6' : 'body1'}
-            component="div"
             gutterBottom
             sx={{
               fontWeight: useTheme().typography.fontWeightBold,
@@ -25,7 +24,7 @@ function OverOns() {
           >
             Wie zijn we
           </Typography>
-          <Typography variant="body1" component="div" align="justify">
+          <Typography sx={{ textAlign: { md: 'justify' } }}>
             We zijn een jong gemotiveerd team met veel passie voor het vak. Na
             16 jaar ervaring blijven we telkens weer bijscholen op het gebied
             van de allernieuwste technieken in de autowereld met als doel u zo

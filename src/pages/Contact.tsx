@@ -41,7 +41,6 @@ export default function Contact() {
     <Container maxWidth={false} disableGutters>
       <Typography
         variant={isSmallOrLarger ? 'h6' : 'body1'}
-        component="div"
         gutterBottom
         sx={{
           fontWeight: useTheme().typography.fontWeightBold,
@@ -57,9 +56,7 @@ export default function Contact() {
           lg={4}
           sx={{ marginBottom: { xs: 2, md: 0 } }}
         >
-          <Typography variant="body1" component="div" align="justify">
-            Auto District
-          </Typography>
+          <Typography>Auto District</Typography>
           <List>
             <ListItem disablePadding>
               <ListItemIcon>

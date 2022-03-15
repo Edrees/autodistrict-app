@@ -14,7 +14,6 @@ function Wielopslag() {
     <Container maxWidth={false} disableGutters>
       <Typography
         variant={isSmallOrLarger ? 'h6' : 'body1'}
-        component="div"
         gutterBottom
         sx={{
           fontWeight: useTheme().typography.fontWeightBold,
@@ -22,7 +21,7 @@ function Wielopslag() {
       >
         Wielopslag
       </Typography>
-      <Typography variant="body1" component="div" align="justify">
+      <Typography sx={{ textAlign: { md: 'justify' } }}>
         De zomer en winter banden of wielen kunnen we voor u opslaan. De wielen
         liggen droog in ons magazijn. Hierdoor hoeft u de wielen niet zelf elke
         wissel mee te nemen en u houd ook nog extra opberg ruimte over.
