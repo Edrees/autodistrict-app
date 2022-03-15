@@ -10,6 +10,7 @@ import aboutUsPagePic from '../assets/auto-district-overons.jpeg'
 
 function AboutUs() {
   const isSmallOrLarger = useMediaQuery(useTheme().breakpoints.up('sm'))
+
   return (
     <Container maxWidth={false} disableGutters>
       <Grid container spacing={2}>

@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import {
   Container,
   Grid,
@@ -12,19 +11,6 @@ import homePagePicRdw from '../assets/auto-district-rdw.jpeg'
 
 export default function Home() {
   const isSmallOrLarger = useMediaQuery(useTheme().breakpoints.up('sm'))
-
-  useEffect(() => {
-    const script = document.createElement('script')
-
-    script.src = 'https://grwapi.net/widget.min.js'
-    script.async = true
-
-    document.body.appendChild(script)
-
-    return () => {
-      document.body.removeChild(script)
-    }
-  }, [])
 
   return (
     <Container maxWidth={false} disableGutters>
@@ -40,8 +26,6 @@ export default function Home() {
           >
             Welkom bij Auto District
           </Typography>
-          {/* </Grid>
-        <Grid item xs={12}> */}
           <Typography variant="body1" component="div" align="justify">
             Auto District staat voor een langdurige relatie met de klant op
             basis van eerlijkheid & helder zaken doen. Kwaliteit & deskundigheid
@@ -63,47 +47,6 @@ export default function Home() {
             }}
           >
             <img src={homePagePic} alt="Auto District Poeldijk" width="100%" />
-          </Paper>
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          mb={8}
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
-          <Paper
-            elevation={2}
-            sx={{
-              padding: 4,
-            }}
-          >
-            <Typography variant="h4" sx={{ alignSelf: 'center' }}>
-              Google Reviews
-            </Typography>
-            <div
-              className="review-widget_net"
-              data-uuid="89c01f66-4b4a-4fc8-a8f8-efcc4bc3fbcc"
-              data-template="2"
-              data-filter=""
-              data-lang="en"
-              data-theme="light"
-            >
-              <a
-                href="https://www.review-widget.net/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img
-                  src="https://grwapi.net/assets/spinner/spin.svg"
-                  title="Review Widget"
-                  alt="review-widget.net"
-                  loading="lazy"
-                />
-              </a>
-            </div>
           </Paper>
         </Grid>
         <Grid item xs={12} md={6}>
