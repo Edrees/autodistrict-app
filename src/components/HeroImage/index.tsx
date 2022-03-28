@@ -1,6 +1,3 @@
-import { Link } from 'react-router-dom'
-import { makeStyles } from '@mui/styles'
-import { Box, Button, Typography, useMediaQuery, useTheme } from '@mui/material'
 import SwiperCore, { Autoplay, Navigation, FreeMode } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
 
@@ -16,39 +13,8 @@ import './styles.css'
 
 SwiperCore.use([Autoplay, Navigation])
 
-const useStyles = makeStyles(() => ({
-  heroImage: {
-    objectFit: 'none',
-    width: '100%',
-  },
-  heroButtonWrapper: {
-    '&&': {
-      height: '100%',
-      // padding: useTheme().spacing(2),
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-  },
-  heroText: {
-    '&&': {
-      fontWeight: 400,
-      [useTheme().breakpoints.up('sm')]: {},
-    },
-  },
-  heroLink: {
-    textDecoration: 'none',
-  },
-}))
-
 export default function App() {
-  const classes = useStyles()
-  const isSmallOrLarger = useMediaQuery(useTheme().breakpoints.up('sm'))
+  const heroImages = [pic1, pic2, pic3, pic4]
 
   return (
     <>
@@ -66,86 +32,11 @@ export default function App() {
         slidesPerView={3}
         loop={true}
       >
-        <SwiperSlide>
-          <img alt="Auto District" src={pic1} />
-          <Box className={classes.heroButtonWrapper}>
-            <Link to="/diensten" className={classes.heroLink}>
-              <Button
-                variant="contained"
-                color="error"
-                size={isSmallOrLarger ? 'medium' : 'small'}
-              >
-                <Typography
-                  variant={isSmallOrLarger ? 'h5' : 'body1'}
-                  component="div"
-                  className={classes.heroText}
-                >
-                  Diensten
-                </Typography>
-              </Button>
-            </Link>
-          </Box>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img alt="Auto District" src={pic2} />
-          <Box className={classes.heroButtonWrapper}>
-            <Link to="/airco" className={classes.heroLink}>
-              <Button
-                variant="contained"
-                color="error"
-                size={isSmallOrLarger ? 'medium' : 'small'}
-              >
-                <Typography
-                  variant={isSmallOrLarger ? 'h5' : 'body1'}
-                  component="div"
-                  className={classes.heroText}
-                >
-                  Airco
-                </Typography>
-              </Button>
-            </Link>
-          </Box>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img alt="Auto District" src={pic3} />
-          <Box className={classes.heroButtonWrapper}>
-            <Link to="/wielopslag" className={classes.heroLink}>
-              <Button
-                variant="contained"
-                color="error"
-                size={isSmallOrLarger ? 'medium' : 'small'}
-              >
-                <Typography
-                  variant={isSmallOrLarger ? 'h5' : 'body1'}
-                  component="div"
-                  className={classes.heroText}
-                >
-                  Wielopslag
-                </Typography>
-              </Button>
-            </Link>
-          </Box>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img alt="Auto District" src={pic4} />
-          <Box className={classes.heroButtonWrapper}>
-            <Link to="/contact" className={classes.heroLink}>
-              <Button
-                variant="contained"
-                color="error"
-                size={isSmallOrLarger ? 'medium' : 'small'}
-              >
-                <Typography
-                  variant={isSmallOrLarger ? 'h5' : 'body1'}
-                  component="div"
-                  className={classes.heroText}
-                >
-                  Contact
-                </Typography>
-              </Button>
-            </Link>
-          </Box>
-        </SwiperSlide>
+        {heroImages.map((img, index) => (
+          <SwiperSlide key={index}>
+            <img alt="Auto District" src={img} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   )

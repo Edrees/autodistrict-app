@@ -1,8 +1,8 @@
+import { Outlet } from 'react-router'
 import { useTheme, Box, Container, Card } from '@mui/material'
 import { Header } from '../Header'
 import HeroImage from '../HeroImage'
 import Footer from '../Footer'
-import { Outlet } from 'react-router'
 
 export default function Layout() {
   return (

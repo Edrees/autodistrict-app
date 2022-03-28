@@ -25,8 +25,8 @@ const pages: PagesProps[] = [
   { name: 'Over ons', pageLink: 'over-ons' },
   { name: 'Diensten', pageLink: 'diensten' },
   // { name: 'Reparatie', pageLink: 'reparatie' },
-  { name: 'Airco service', pageLink: 'airco' },
-  { name: 'Wielopslag', pageLink: 'wielopslag' },
+  { name: 'Airco', pageLink: 'airco' },
+  { name: 'Bandenopslag', pageLink: 'bandenopslag' },
   { name: 'Contact', pageLink: 'contact' },
 ]
 
@@ -132,7 +132,7 @@ const Navigation = () => {
             }}
           >
             {pages.map((page, index) => (
-              <Box ml={2}>
+              <Box ml={2} key={`desktop-menu-${index}`}>
                 <Link
                   to={page.pageLink}
                   key={`desktop-link-${index}`}
