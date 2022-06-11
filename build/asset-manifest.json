@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9e35b4b5.chunk.css",
+    "main.js": "/static/js/main.8c6f4a60.chunk.js",
+    "main.js.map": "/static/js/main.8c6f4a60.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.329168ff.js",
+    "runtime-main.js.map": "/static/js/runtime-main.329168ff.js.map",
+    "static/css/2.f3504276.chunk.css": "/static/css/2.f3504276.chunk.css",
+    "static/js/2.2d92fef8.chunk.js": "/static/js/2.2d92fef8.chunk.js",
+    "static/js/2.2d92fef8.chunk.js.map": "/static/js/2.2d92fef8.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.f3504276.chunk.css.map": "/static/css/2.f3504276.chunk.css.map",
+    "static/css/main.9e35b4b5.chunk.css.map": "/static/css/main.9e35b4b5.chunk.css.map",
+    "static/js/2.2d92fef8.chunk.js.LICENSE.txt": "/static/js/2.2d92fef8.chunk.js.LICENSE.txt",
+    "static/media/auto-district-airco.d5d014bd.jpeg": "/static/media/auto-district-airco.d5d014bd.jpeg",
+    "static/media/auto-district-bandenopslag.4fe207f2.jpeg": "/static/media/auto-district-bandenopslag.4fe207f2.jpeg",
+    "static/media/auto-district-homepage.1ed3f4ce.jpeg": "/static/media/auto-district-homepage.1ed3f4ce.jpeg",
+    "static/media/auto-district-logo.40c815f4.png": "/static/media/auto-district-logo.40c815f4.png",
+    "static/media/auto-district-maps.69c61566.png": "/static/media/auto-district-maps.69c61566.png",
+    "static/media/auto-district-overons.173fb204.jpeg": "/static/media/auto-district-overons.173fb204.jpeg",
+    "static/media/auto-district-rdw.3101e580.jpeg": "/static/media/auto-district-rdw.3101e580.jpeg",
+    "static/media/hpHeroImage1.b23ce9c3.jpeg": "/static/media/hpHeroImage1.b23ce9c3.jpeg",
+    "static/media/hpHeroImage2.eceef46e.jpeg": "/static/media/hpHeroImage2.eceef46e.jpeg",
+    "static/media/hpHeroImage3.d7152d01.jpeg": "/static/media/hpHeroImage3.d7152d01.jpeg",
+    "static/media/hpHeroImage4.b4a66dea.jpeg": "/static/media/hpHeroImage4.b4a66dea.jpeg",
+    "static/media/slider-1.c8633692.jpeg": "/static/media/slider-1.c8633692.jpeg",
+    "static/media/slider-2.1c019c09.jpeg": "/static/media/slider-2.1c019c09.jpeg",
+    "static/media/slider-3.129d6b30.jpeg": "/static/media/slider-3.129d6b30.jpeg",
+    "static/media/slider-4.5d293335.jpeg": "/static/media/slider-4.5d293335.jpeg",
+    "static/media/slider-5.a700c648.jpeg": "/static/media/slider-5.a700c648.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.329168ff.js",
+    "static/css/2.f3504276.chunk.css",
+    "static/js/2.2d92fef8.chunk.js",
+    "static/css/main.9e35b4b5.chunk.css",
+    "static/js/main.8c6f4a60.chunk.js"
+  ]
+}
