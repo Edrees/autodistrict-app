@@ -23,8 +23,10 @@ interface PagesProps {
 
 const pages: PagesProps[] = [
   { name: 'Over ons', pageLink: 'over-ons' },
-  { name: 'Diensten', pageLink: 'diensten' },
-  // { name: 'Reparatie', pageLink: 'reparatie' },
+  { name: 'Onderhoud', pageLink: 'onderhoud' },
+  { name: 'Reparatie', pageLink: 'reparatie' },
+  { name: 'Storingen', pageLink: 'storingen' },
+  { name: 'DSG', pageLink: 'dsg' },
   { name: 'Airco', pageLink: 'airco' },
   { name: 'Bandenopslag', pageLink: 'bandenopslag' },
   { name: 'Contact', pageLink: 'contact' },
