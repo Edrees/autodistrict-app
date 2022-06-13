@@ -8,7 +8,7 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material'
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import slider1 from '../assets/slider-1.jpeg'
 import slider2 from '../assets/slider-2.jpeg'
 import slider3 from '../assets/slider-3.jpeg'

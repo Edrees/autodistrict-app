@@ -1,13 +1,13 @@
 import SwiperCore, { Autoplay, Navigation, FreeMode } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 import pic1 from '../../assets/hpHeroImage1.jpeg'
 import pic2 from '../../assets/hpHeroImage2.jpeg'
 import pic3 from '../../assets/hpHeroImage3.jpeg'
 import pic4 from '../../assets/hpHeroImage4.jpeg'
 
-import 'swiper/swiper.min.css'
-import 'swiper/modules/pagination/pagination.min.css'
+import 'swiper/css'
+import 'swiper/css/pagination'
 
 import './styles.css'
 
