@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.343c765f.css",
-    "main.js": "/static/js/main.195e2897.js",
+    "main.js": "/static/js/main.97dfd4a0.js",
     "static/media/auto-district-maps.png": "/static/media/auto-district-maps.69c61566be03dd9cb00e.png",
     "static/media/slider-1.jpeg": "/static/media/slider-1.c8633692ec1a58d19d42.jpeg",
     "static/media/slider-5.jpeg": "/static/media/slider-5.a700c648be92c14e74cf.jpeg",
@@ -20,10 +20,10 @@
     "static/media/auto-district-logo.png": "/static/media/auto-district-logo.40c815f494616281787e.png",
     "index.html": "/index.html",
     "main.343c765f.css.map": "/static/css/main.343c765f.css.map",
-    "main.195e2897.js.map": "/static/js/main.195e2897.js.map"
+    "main.97dfd4a0.js.map": "/static/js/main.97dfd4a0.js.map"
   },
   "entrypoints": [
     "static/css/main.343c765f.css",
-    "static/js/main.195e2897.js"
+    "static/js/main.97dfd4a0.js"
   ]
 }
