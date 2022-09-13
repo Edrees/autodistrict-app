@@ -2,7 +2,7 @@
   "name": "autodistrict-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://edrees.github.io/autodistrict-app/",
+  "homepage": ".",
   "dependencies": {
     "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",
