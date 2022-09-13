@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/autodistrict-app/static/css/main.343c765f.css",
-    "main.js": "/autodistrict-app/static/js/main.df1f2c45.js",
-    "static/media/auto-district-maps.png": "/autodistrict-app/static/media/auto-district-maps.69c61566be03dd9cb00e.png",
-    "static/media/slider-1.jpeg": "/autodistrict-app/static/media/slider-1.c8633692ec1a58d19d42.jpeg",
-    "static/media/slider-5.jpeg": "/autodistrict-app/static/media/slider-5.a700c648be92c14e74cf.jpeg",
-    "static/media/auto-district-airco.jpeg": "/autodistrict-app/static/media/auto-district-airco.d5d014bd9b21230b7ec4.jpeg",
-    "static/media/slider-2.jpeg": "/autodistrict-app/static/media/slider-2.1c019c09a678eda02763.jpeg",
-    "static/media/slider-3.jpeg": "/autodistrict-app/static/media/slider-3.129d6b300590d781b0ac.jpeg",
-    "static/media/hpHeroImage3.jpeg": "/autodistrict-app/static/media/hpHeroImage3.d7152d01cf28ffb5b21e.jpeg",
-    "static/media/slider-4.jpeg": "/autodistrict-app/static/media/slider-4.5d293335b225f6ba1ba6.jpeg",
-    "static/media/auto-district-bandenopslag.jpeg": "/autodistrict-app/static/media/auto-district-bandenopslag.4fe207f2e9e0e80c061e.jpeg",
-    "static/media/hpHeroImage4.jpeg": "/autodistrict-app/static/media/hpHeroImage4.b4a66dea6386be9ce449.jpeg",
-    "static/media/hpHeroImage1.jpeg": "/autodistrict-app/static/media/hpHeroImage1.b23ce9c3136e93d9c5bb.jpeg",
-    "static/media/auto-district-rdw.jpeg": "/autodistrict-app/static/media/auto-district-rdw.3101e580c74aeec8f997.jpeg",
-    "static/media/hpHeroImage2.jpeg": "/autodistrict-app/static/media/hpHeroImage2.eceef46e5b83b22c15e8.jpeg",
-    "static/media/auto-district-homepage.jpeg": "/autodistrict-app/static/media/auto-district-homepage.1ed3f4cecacf414cc42c.jpeg",
-    "static/media/auto-district-overons.jpeg": "/autodistrict-app/static/media/auto-district-overons.173fb204ffbf0bcb24c0.jpeg",
-    "static/media/auto-district-logo.png": "/autodistrict-app/static/media/auto-district-logo.40c815f494616281787e.png",
-    "index.html": "/autodistrict-app/index.html",
-    "main.343c765f.css.map": "/autodistrict-app/static/css/main.343c765f.css.map",
-    "main.df1f2c45.js.map": "/autodistrict-app/static/js/main.df1f2c45.js.map"
+    "main.css": "/static/css/main.343c765f.css",
+    "main.js": "/static/js/main.195e2897.js",
+    "static/media/auto-district-maps.png": "/static/media/auto-district-maps.69c61566be03dd9cb00e.png",
+    "static/media/slider-1.jpeg": "/static/media/slider-1.c8633692ec1a58d19d42.jpeg",
+    "static/media/slider-5.jpeg": "/static/media/slider-5.a700c648be92c14e74cf.jpeg",
+    "static/media/auto-district-airco.jpeg": "/static/media/auto-district-airco.d5d014bd9b21230b7ec4.jpeg",
+    "static/media/slider-2.jpeg": "/static/media/slider-2.1c019c09a678eda02763.jpeg",
+    "static/media/slider-3.jpeg": "/static/media/slider-3.129d6b300590d781b0ac.jpeg",
+    "static/media/hpHeroImage3.jpeg": "/static/media/hpHeroImage3.d7152d01cf28ffb5b21e.jpeg",
+    "static/media/slider-4.jpeg": "/static/media/slider-4.5d293335b225f6ba1ba6.jpeg",
+    "static/media/auto-district-bandenopslag.jpeg": "/static/media/auto-district-bandenopslag.4fe207f2e9e0e80c061e.jpeg",
+    "static/media/hpHeroImage4.jpeg": "/static/media/hpHeroImage4.b4a66dea6386be9ce449.jpeg",
+    "static/media/hpHeroImage1.jpeg": "/static/media/hpHeroImage1.b23ce9c3136e93d9c5bb.jpeg",
+    "static/media/auto-district-rdw.jpeg": "/static/media/auto-district-rdw.3101e580c74aeec8f997.jpeg",
+    "static/media/hpHeroImage2.jpeg": "/static/media/hpHeroImage2.eceef46e5b83b22c15e8.jpeg",
+    "static/media/auto-district-homepage.jpeg": "/static/media/auto-district-homepage.1ed3f4cecacf414cc42c.jpeg",
+    "static/media/auto-district-overons.jpeg": "/static/media/auto-district-overons.173fb204ffbf0bcb24c0.jpeg",
+    "static/media/auto-district-logo.png": "/static/media/auto-district-logo.40c815f494616281787e.png",
+    "index.html": "/index.html",
+    "main.343c765f.css.map": "/static/css/main.343c765f.css.map",
+    "main.195e2897.js.map": "/static/js/main.195e2897.js.map"
   },
   "entrypoints": [
     "static/css/main.343c765f.css",
-    "static/js/main.df1f2c45.js"
+    "static/js/main.195e2897.js"
   ]
 }
