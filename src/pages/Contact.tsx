@@ -27,7 +27,7 @@ export default function Contact() {
 
   const mobile = (
     <Link href="tel:+31681483303" underline="hover">
-      +31681483303
+      +31654977850
     </Link>
   )
 
