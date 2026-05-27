@@ -8,7 +8,6 @@
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^9.0.1",
     "@mui/material": "^9.0.1",
-    "@mui/styles": "^6.4.8",
     "@mui/system": "^9.0.1",
     "gh-pages": "^6.3.0",
     "react": "^19.2.6",
@@ -28,7 +27,7 @@
     "@vitejs/plugin-react": "^4.3.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
-    "prettier": "^2.8.8",
+    "prettier": "^3.8.3",
     "typescript": "^6.0.3",
     "vite": "^5.4.21"
   },

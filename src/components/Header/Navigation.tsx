@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import { makeStyles } from '@mui/styles'
 import {
   useTheme,
   AppBar,
@@ -32,27 +31,9 @@ const pages: PagesProps[] = [
   { name: 'Contact', pageLink: 'contact' },
 ]
 
-const useStyles = makeStyles(() => ({
-  listItem: {
-    borderBottom: 'none',
-    '&:not(:last-child)': {
-      borderBottom: `1px solid ${useTheme().palette.grey[200]}`,
-    },
-  },
-  naviLinkItem: {
-    color: 'initial',
-    textDecoration: 'none',
-    '&:hover': {
-      textDecoration: 'underline',
-    },
-  },
-}))
-
 const Navigation = () => {
-  const classes = useStyles()
-  const [drawerState, setDrawerState] = React.useState({
-    top: false,
-  })
+  const theme = useTheme()
+  const [drawerState, setDrawerState] = React.useState({ top: false })
 
   const toggleDrawer =
     (anchor: string, open: boolean) =>
@@ -64,9 +45,14 @@ const Navigation = () => {
       ) {
         return
       }
-
       setDrawerState({ ...drawerState, [anchor]: open })
     }
+
+  const linkStyle = {
+    color: 'initial',
+    textDecoration: 'none',
+    '&:hover': { textDecoration: 'underline' },
+  }
 
   const appLogo = (
     <Box sx={{ width: 150 }}>
@@ -82,12 +68,12 @@ const Navigation = () => {
         flexGrow: 1,
         display: { xs: 'flex', md: 'none' },
         justifyContent: 'flex-end',
-        color: useTheme().palette.primary.main,
+        color: theme.palette.primary.main,
       }}
     >
       <IconButton
         size="large"
-        aria-label="account of current user"
+        aria-label="menu"
         aria-controls="menu-appbar"
         aria-haspopup="true"
         onClick={toggleDrawer('top', true)}
@@ -101,13 +87,20 @@ const Navigation = () => {
         onClose={toggleDrawer('top', false)}
       >
         <List sx={{ padding: 0 }}>
-          <ListItem className={classes.listItem}>{appLogo}</ListItem>
+          <ListItem
+            sx={{ borderBottom: `1px solid ${theme.palette.grey[200]}` }}
+          >
+            {appLogo}
+          </ListItem>
           {pages.map((page, index) => (
-            <ListItem key={`mobile-menu-${index}`} className={classes.listItem}>
+            <ListItem
+              key={`mobile-menu-${index}`}
+              sx={{ borderBottom: `1px solid ${theme.palette.grey[200]}` }}
+            >
               <Link
                 to={page.pageLink}
                 key={index}
-                className={classes.naviLinkItem}
+                style={{ color: 'initial', textDecoration: 'none' }}
                 onClick={toggleDrawer('top', false)}
               >
                 {page.name}
@@ -134,11 +127,11 @@ const Navigation = () => {
             }}
           >
             {pages.map((page, index) => (
-              <Box ml={2} key={`desktop-menu-${index}`}>
+              <Box sx={{ ml: 2 }} key={`desktop-menu-${index}`}>
                 <Link
                   to={page.pageLink}
                   key={`desktop-link-${index}`}
-                  className={classes.naviLinkItem}
+                  style={{ color: 'initial', textDecoration: 'none' }}
                 >
                   {page.name}
                 </Link>
@@ -150,4 +143,5 @@ const Navigation = () => {
     </AppBar>
   )
 }
+
 export default Navigation

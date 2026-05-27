@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { makeStyles } from '@mui/styles'
 import {
   useTheme,
   Box,
@@ -31,52 +30,31 @@ const footerLinks: FooterLinkProps[] = [
   },
 ]
 
-const useStyles = makeStyles(() => ({
-  footerRoot: {
-    // position: 'fixed',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    background: useTheme().palette.common.white,
-  },
-  footerText: {
-    height: useTheme().spacing(5),
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    background: useTheme().palette.primary.main,
-    color: useTheme().palette.common.white,
-    textAlign: 'center',
-  },
-  reviewWdigetLink: {
-    margin: '0 auto',
-    '& a': {
-      border: 0,
-    },
-  },
-}))
-
 function Footer() {
-  const classes = useStyles()
+  const theme = useTheme()
 
   useEffect(() => {
     const script = document.createElement('script')
-
     script.src = 'https://grwapi.net/widget.min.js'
     script.async = true
-
     document.body.appendChild(script)
-
     return () => {
       document.body.removeChild(script)
     }
   }, [])
 
   return (
-    <Box className={classes.footerRoot}>
+    <Box
+      sx={{
+        bottom: 0,
+        left: 0,
+        right: 0,
+        background: theme.palette.common.white,
+      }}
+    >
       <Container fixed maxWidth="lg" disableGutters>
-        <Grid container py={2}>
-          <Grid xs={12} md={4}>
+        <Grid container sx={{ py: 2 }}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <List dense>
               <ListItem sx={{ fontWeight: 'bold' }}>Links</ListItem>
               {footerLinks.map((item, index) => (
@@ -88,7 +66,7 @@ function Footer() {
               ))}
             </List>
           </Grid>
-          <Grid xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <List dense>
               <ListItem
                 sx={{ fontWeight: 'bold', alignItems: { sm: 'flex-end' } }}
@@ -100,8 +78,8 @@ function Footer() {
               <ListItem>2685 LV Poeldijk</ListItem>
             </List>
           </Grid>
-          <Grid xs={12} md={4}>
-            <Box className={classes.reviewWdigetLink}>
+          <Grid size={{ xs: 12, md: 4 }}>
+            <Box sx={{ margin: '0 auto', '& a': { border: 0 } }}>
               <div
                 className="review-widget_net"
                 data-uuid="89c01f66-4b4a-4fc8-a8f8-efcc4bc3fbcc"
@@ -127,7 +105,17 @@ function Footer() {
           </Grid>
         </Grid>
       </Container>
-      <Box className={classes.footerText}>
+      <Box
+        sx={{
+          height: theme.spacing(5),
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          background: theme.palette.primary.main,
+          color: theme.palette.common.white,
+          textAlign: 'center',
+        }}
+      >
         All Rights Reserved. Auto District 2021
       </Box>
     </Box>

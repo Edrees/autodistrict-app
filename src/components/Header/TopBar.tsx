@@ -1,4 +1,3 @@
-import { makeStyles } from '@mui/styles'
 import { useTheme, Box, Container, Link, Typography } from '@mui/material'
 import MailIcon from '@mui/icons-material/Mail'
 import PhoneIcon from '@mui/icons-material/Phone'
@@ -8,29 +7,19 @@ interface TopBarProps {
   phoneNumber: string
 }
 
-const useStyles = makeStyles(() => ({
-  topBar: {
-    background: useTheme().palette.primary.main,
-  },
-  topBarLink: {
-    '&&': {
-      color: useTheme().palette.common.white,
-      marginLeft: useTheme().spacing(1),
-      display: 'flex',
-      alignItems: 'center',
-
-      '& svg': {
-        marginRight: useTheme().spacing(1),
-      },
-    },
-  },
-}))
-
 const TopBar = ({ email, phoneNumber }: TopBarProps) => {
-  const classes = useStyles()
+  const theme = useTheme()
+
+  const linkSx = {
+    color: theme.palette.common.white,
+    ml: 1,
+    display: 'flex',
+    alignItems: 'center',
+    '& svg': { mr: 1 },
+  }
 
   return (
-    <Box className={classes.topBar}>
+    <Box sx={{ background: theme.palette.primary.main }}>
       <Container
         fixed
         maxWidth="lg"
@@ -38,20 +27,16 @@ const TopBar = ({ email, phoneNumber }: TopBarProps) => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          height: useTheme().spacing(5),
+          height: theme.spacing(5),
         }}
       >
-        <Link href={`mailto:${email}`} className={classes.topBarLink}>
+        <Link href={`mailto:${email}`} sx={linkSx}>
           <MailIcon />
-          <Typography
-            sx={{
-              display: { xs: 'none', sm: 'inline-block' },
-            }}
-          >
+          <Typography sx={{ display: { xs: 'none', sm: 'inline-block' } }}>
             {email}
           </Typography>
         </Link>
-        <Link href={`tel:${phoneNumber}`} className={classes.topBarLink}>
+        <Link href={`tel:${phoneNumber}`} sx={linkSx}>
           <PhoneIcon />
           {phoneNumber}
         </Link>
