@@ -8,7 +8,7 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <Box sx={{ overflow: 'hidden' }}>
+      <Box sx={{ overflow: 'hidden', position: 'relative' }}>
         <HeroImage />
       </Box>
       <Container

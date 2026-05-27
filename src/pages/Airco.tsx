@@ -14,7 +14,7 @@ function Airco() {
   return (
     <Container maxWidth={false} disableGutters>
       <Grid container spacing={2}>
-        <Grid item xs={12}>
+        <Grid xs={12}>
           <Typography
             variant={isSmallOrLarger ? 'h6' : 'body1'}
             component="div"
@@ -42,7 +42,7 @@ function Airco() {
             uitdraai met specificaties.
           </Typography>
         </Grid>
-        <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Grid xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
           <Paper
             elevation={2}
             sx={{

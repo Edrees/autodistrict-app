@@ -1,8 +1,9 @@
 .hero-image-swiper {
   width: 200%;
-  height: 100%;
+  height: 500px;
   z-index: 0;
   margin-left: -50%;
+  /* overflow: visible; */
 }
 
 .swiper-slide {
@@ -28,7 +29,7 @@
 .swiper-slide img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 500px;
   object-fit: cover;
 }
 

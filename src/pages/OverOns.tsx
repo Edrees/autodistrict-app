@@ -14,7 +14,7 @@ function OverOns() {
   return (
     <Container maxWidth={false} disableGutters>
       <Grid container spacing={2}>
-        <Grid item xs={12}>
+        <Grid xs={12}>
           <Typography
             variant={isSmallOrLarger ? 'h6' : 'body1'}
             gutterBottom
@@ -31,7 +31,7 @@ function OverOns() {
             goed mogelijk van dienst te kunnen zijn.
           </Typography>
         </Grid>
-        <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Grid xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
           <Paper
             elevation={2}
             sx={{

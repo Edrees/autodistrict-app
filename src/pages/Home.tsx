@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <Container maxWidth={false} disableGutters>
       <Grid container spacing={2}>
-        <Grid item xs={12}>
+        <Grid xs={12}>
           <Typography
             variant={isSmallOrLarger ? 'h6' : 'body1'}
             gutterBottom
@@ -48,7 +48,7 @@ export default function Home() {
             <img src={homePagePic} alt="Auto District Poeldijk" width="100%" />
           </Paper>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid xs={12} md={6}>
           <Typography mb={2} align="justify">
             Auto District is een RDW erkend garagebedrijf en voert de APK uit
             aan alle voertuigen die onder APK2 vallen.
@@ -60,7 +60,7 @@ export default function Home() {
             Algemen Periodieke Keuring.
           </Typography>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid xs={12} md={6}>
           <Paper
             elevation={2}
             sx={{

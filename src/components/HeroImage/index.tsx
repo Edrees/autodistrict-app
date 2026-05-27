@@ -1,4 +1,4 @@
-import SwiperCore, { Autoplay, Navigation, FreeMode } from 'swiper'
+import { Autoplay, Navigation, FreeMode } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import pic1 from '../../assets/hpHeroImage1.jpeg'
@@ -7,27 +7,27 @@ import pic3 from '../../assets/hpHeroImage3.jpeg'
 import pic4 from '../../assets/hpHeroImage4.jpeg'
 
 import 'swiper/css'
+import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import 'swiper/css/free-mode'
 
 import './styles.css'
 
-SwiperCore.use([Autoplay, Navigation])
-
 export default function App() {
-  const heroImages = [pic1, pic2, pic3, pic4]
+  const heroImages = [pic1, pic2, pic3, pic4, pic1, pic2, pic3, pic4]
 
   return (
-    <>
+    <div style={{ position: 'relative', overflow: 'hidden', width: '100%' }}>
       <Swiper
         className="hero-image-swiper"
-        spaceBetween={0}
+        spaceBetween={30}
         centeredSlides={true}
         autoplay={{
           delay: 4000,
           disableOnInteraction: false,
         }}
         navigation={true}
-        modules={[FreeMode]}
+        modules={[Autoplay, Navigation, FreeMode]}
         freeMode={true}
         slidesPerView={3}
         loop={true}
@@ -38,6 +38,6 @@ export default function App() {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
   )
 }

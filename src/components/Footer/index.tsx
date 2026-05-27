@@ -76,7 +76,7 @@ function Footer() {
     <Box className={classes.footerRoot}>
       <Container fixed maxWidth="lg" disableGutters>
         <Grid container py={2}>
-          <Grid item xs={12} md={4}>
+          <Grid xs={12} md={4}>
             <List dense>
               <ListItem sx={{ fontWeight: 'bold' }}>Links</ListItem>
               {footerLinks.map((item, index) => (
@@ -88,7 +88,7 @@ function Footer() {
               ))}
             </List>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid xs={12} md={4}>
             <List dense>
               <ListItem
                 sx={{ fontWeight: 'bold', alignItems: { sm: 'flex-end' } }}
@@ -100,7 +100,7 @@ function Footer() {
               <ListItem>2685 LV Poeldijk</ListItem>
             </List>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid xs={12} md={4}>
             <Box className={classes.reviewWdigetLink}>
               <div
                 className="review-widget_net"
