@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <Container maxWidth={false} disableGutters>
       <Grid container spacing={2}>
-        <Grid xs={12}>
+        <Grid size={{ xs: 12 }}>
           <Typography
             variant={isSmallOrLarger ? 'h6' : 'body1'}
             gutterBottom
@@ -33,10 +33,8 @@ export default function Home() {
           </Typography>
         </Grid>
         <Grid
-          item
-          xs={12}
-          sx={{ display: 'flex', justifyContent: 'center' }}
-          mb={8}
+          size={{ xs: 12 }}
+          sx={{ display: 'flex', justifyContent: 'center', mb: 8 }}
         >
           <Paper
             elevation={2}
@@ -48,8 +46,8 @@ export default function Home() {
             <img src={homePagePic} alt="Auto District Poeldijk" width="100%" />
           </Paper>
         </Grid>
-        <Grid xs={12} md={6}>
-          <Typography mb={2} align="justify">
+        <Grid size={{ xs: 12, md: 6 }}>
+          <Typography sx={{ mb: 2 }} align="justify">
             Auto District is een RDW erkend garagebedrijf en voert de APK uit
             aan alle voertuigen die onder APK2 vallen.
           </Typography>
@@ -60,7 +58,7 @@ export default function Home() {
             Algemen Periodieke Keuring.
           </Typography>
         </Grid>
-        <Grid xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Paper
             elevation={2}
             sx={{

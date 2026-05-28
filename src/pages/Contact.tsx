@@ -78,7 +78,7 @@ export default function Contact() {
             </ListItem>
           </List>
         </Grid>
-        <Grid xs={12} md={6} lg={8}>
+        <Grid size={{ xs: 12 }} md={6} lg={8}>
           <Paper
             elevation={2}
             sx={{

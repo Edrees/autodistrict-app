@@ -19,7 +19,7 @@ export default function Layout() {
           position: 'relative',
           margin: {
             xs: useTheme().spacing(0, 'auto', 5),
-            sm: useTheme().spacing(-5, 'auto', 5),
+            sm: useTheme().spacing(0, 'auto', 5),
           },
         }}
       >
@@ -27,7 +27,7 @@ export default function Layout() {
           sx={{
             minHeight: useTheme().spacing(50),
             padding: { xs: useTheme().spacing(4), md: useTheme().spacing(8) },
-            borderRadius: 0,
+            borderRadius: 1,
           }}
         >
           <Outlet />

@@ -20,7 +20,7 @@ export default function App() {
     <div style={{ position: 'relative', overflow: 'hidden', width: '100%' }}>
       <Swiper
         className="hero-image-swiper"
-        spaceBetween={30}
+        spaceBetween={24}
         centeredSlides={true}
         autoplay={{
           delay: 4000,
@@ -38,6 +38,25 @@ export default function App() {
           </SwiperSlide>
         ))}
       </Swiper>
+      <div
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 10,
+          textAlign: 'center',
+          color: 'white',
+          textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
+          fontSize: '2rem',
+          fontWeight: 'bold',
+          pointerEvents: 'none',
+          width: '100%',
+          backgroundColor: 'rgba(255, 255, 255, 0.3)',
+        }}
+      >
+        Betrouwbaar auto-onderhoud & reparatie in Poeldijk
+      </div>
     </div>
   )
 }

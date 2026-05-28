@@ -113,7 +113,12 @@ const Navigation = () => {
   )
 
   return (
-    <AppBar position="sticky">
+    <AppBar
+      position="sticky"
+      sx={{
+        boxShadow: '0px 2px 4px #999',
+      }}
+    >
       <TopBar email="info@autodistrict.nl" phoneNumber="+31654977850" />
       <Container fixed maxWidth="lg">
         <Toolbar disableGutters>

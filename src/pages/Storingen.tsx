@@ -31,15 +31,15 @@ function Storingen() {
         <ListItem disablePadding>- Autel voor alle auto merken</ListItem>
         <ListItem disablePadding>- Delphi voor alle auto merken</ListItem>
       </List>
-      <Typography sx={{ textAlign: { md: 'justify' } }} mb={2}>
+      <Typography sx={{ textAlign: { md: 'justify' }, mb: 2 }}>
         We kunnen uw storing uitlezen, diagnose stellen en als de storing is
         verholpen weer wissen.
       </Typography>
-      <Typography sx={{ textAlign: { md: 'justify' } }} mb={2}>
+      <Typography sx={{ textAlign: { md: 'justify' }, mb: 2 }}>
         Ook hebben we een GYS acculader. Hiermee zorgen we dat de accu geladen
         blijft tijdens de diagnose zodat de accu niet leeg raakt.
       </Typography>
-      <Typography sx={{ textAlign: { md: 'justify' } }} mb={2}>
+      <Typography sx={{ textAlign: { md: 'justify' }, mb: 2 }}>
         Uiteraard maken we eerst een offerte en vragen we toestemming voordat we
         de reparatie uitvoeren.
       </Typography>

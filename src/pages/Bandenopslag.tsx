@@ -13,7 +13,7 @@ function Bandenopslag() {
   return (
     <Container maxWidth={false} disableGutters>
       <Grid container spacing={2}>
-        <Grid xs={12}>
+        <Grid size={{ xs: 12 }}>
           <Typography
             variant={isSmallOrLarger ? 'h6' : 'body1'}
             gutterBottom
@@ -30,7 +30,10 @@ function Bandenopslag() {
             over.
           </Typography>
         </Grid>
-        <Grid xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Grid
+          size={{ xs: 12 }}
+          sx={{ display: 'flex', justifyContent: 'center' }}
+        >
           <Paper
             elevation={2}
             sx={{
