@@ -10,7 +10,7 @@ createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <BrowserRouter>
+      <BrowserRouter basename="/autodistrict-app/">
         <App />
       </BrowserRouter>
     </ThemeProvider>
