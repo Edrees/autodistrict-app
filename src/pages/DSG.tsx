@@ -19,6 +19,8 @@ import slider5 from '../assets/slider-5.jpeg'
 
 function DSG() {
   const isSmallOrLarger = useMediaQuery(useTheme().breakpoints.up('sm'))
+  const sliderImages: string[] = [slider1, slider2, slider3, slider4, slider5]
+
   return (
     <Container
       maxWidth={false}
@@ -79,21 +81,11 @@ function DSG() {
               navigation={true}
               modules={[Autoplay]}
             >
-              <SwiperSlide>
-                <img src={slider1} alt="Auto District Poeldijk" width="100%" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={slider2} alt="Auto District Poeldijk" width="100%" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={slider3} alt="Auto District Poeldijk" width="100%" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={slider4} alt="Auto District Poeldijk" width="100%" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={slider5} alt="Auto District Poeldijk" width="100%" />
-              </SwiperSlide>
+              {sliderImages.map((img, index) => (
+                <SwiperSlide key={index}>
+                  <img src={img} alt="Auto District Poeldijk" width="100%" />
+                </SwiperSlide>
+              ))}
             </Swiper>
           </Box>
         </Grid>

@@ -4,37 +4,53 @@ import {
   useTheme,
   AppBar,
   Box,
+  Button,
   Container,
   Drawer,
   IconButton,
   List,
   ListItem,
+  Menu,
+  MenuItem,
   Paper,
   Toolbar,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import TopBar from './TopBar'
 import logo from '../../assets/auto-district-logo.png'
 
-interface PagesProps {
+interface PageProps {
   name: string
   pageLink: string
 }
 
-const pages: PagesProps[] = [
-  { name: 'Over ons', pageLink: 'over-ons' },
+const services: PageProps[] = [
   { name: 'Onderhoud', pageLink: 'onderhoud' },
   { name: 'Reparatie', pageLink: 'reparatie' },
   { name: 'Storingen', pageLink: 'storingen' },
   { name: 'DSG', pageLink: 'dsg' },
-  { name: 'Airco', pageLink: 'airco' },
+  { name: 'Airco Service', pageLink: 'airco' },
   { name: 'Bandenopslag', pageLink: 'bandenopslag' },
+]
+
+const pages: PageProps[] = [
+  { name: 'Over ons', pageLink: 'over-ons' },
   { name: 'Contact', pageLink: 'contact' },
 ]
 
 const Navigation = () => {
   const theme = useTheme()
   const [drawerState, setDrawerState] = React.useState({ top: false })
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+
+  const handleServicesOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget)
+  }
+
+  const handleServicesClose = () => {
+    setAnchorEl(null)
+  }
 
   const toggleDrawer =
     (anchor: string, open: boolean) =>
@@ -48,12 +64,6 @@ const Navigation = () => {
       }
       setDrawerState({ ...drawerState, [anchor]: open })
     }
-
-  const linkStyle = {
-    color: 'initial',
-    textDecoration: 'none',
-    '&:hover': { textDecoration: 'underline' },
-  }
 
   const appLogo = (
     <Box sx={{ width: 150 }}>
@@ -93,6 +103,34 @@ const Navigation = () => {
           >
             {appLogo}
           </ListItem>
+          <ListItem
+            sx={{
+              borderBottom: `1px solid ${theme.palette.grey[200]}`,
+              fontWeight: 500,
+              color: theme.palette.text.secondary,
+              fontSize: 16,
+              pl: 2,
+            }}
+          >
+            Diensten
+          </ListItem>
+          {services.map((service, index) => (
+            <ListItem
+              key={`mobile-service-${index}`}
+              sx={{
+                borderBottom: `1px solid ${theme.palette.grey[200]}`,
+                pl: 4,
+              }}
+            >
+              <Link
+                to={service.pageLink}
+                style={{ color: 'initial', textDecoration: 'none' }}
+                onClick={toggleDrawer('top', false)}
+              >
+                {service.name}
+              </Link>
+            </ListItem>
+          ))}
           {pages.map((page, index) => (
             <ListItem
               key={`mobile-menu-${index}`}
@@ -100,7 +138,6 @@ const Navigation = () => {
             >
               <Link
                 to={page.pageLink}
-                key={index}
                 style={{ color: 'initial', textDecoration: 'none' }}
                 onClick={toggleDrawer('top', false)}
               >
@@ -126,13 +163,41 @@ const Navigation = () => {
                 flexGrow: 1,
                 display: { xs: 'none', md: 'flex' },
                 justifyContent: 'flex-end',
+                alignItems: 'center',
               }}
             >
+              <Button
+                onClick={handleServicesOpen}
+                endIcon={<KeyboardArrowDownIcon />}
+                sx={{
+                  color: 'initial',
+                  textTransform: 'none',
+                  fontSize: 16,
+                  fontWeight: 400,
+                }}
+              >
+                Diensten
+              </Button>
+              <Menu
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={handleServicesClose}
+              >
+                {services.map((service, index) => (
+                  <MenuItem
+                    key={`service-${index}`}
+                    component={Link}
+                    to={service.pageLink}
+                    onClick={handleServicesClose}
+                  >
+                    {service.name}
+                  </MenuItem>
+                ))}
+              </Menu>
               {pages.map((page, index) => (
                 <Box sx={{ ml: 2 }} key={`desktop-menu-${index}`}>
                   <Link
                     to={page.pageLink}
-                    key={`desktop-link-${index}`}
                     style={{ color: 'initial', textDecoration: 'none' }}
                   >
                     {page.name}
