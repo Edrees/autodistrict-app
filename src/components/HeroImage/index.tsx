@@ -12,6 +12,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/free-mode'
 
 import './styles.css'
+import { Typography } from '@mui/material'
 
 export default function App() {
   const heroImages = [pic1, pic2, pic3, pic4, pic1, pic2, pic3, pic4]
@@ -56,6 +57,9 @@ export default function App() {
         }}
       >
         Betrouwbaar auto-onderhoud & reparatie in Poeldijk
+        <Typography sx={{ mb: 1, fontWeight: 500 }}>
+          Vakkundige service voor alle merken & modellen
+        </Typography>
       </div>
     </div>
   )

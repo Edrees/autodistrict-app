@@ -9,6 +9,7 @@ import {
   IconButton,
   List,
   ListItem,
+  Paper,
   Toolbar,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
@@ -113,39 +114,36 @@ const Navigation = () => {
   )
 
   return (
-    <AppBar
-      position="sticky"
-      sx={{
-        boxShadow: '0px 2px 4px #999',
-      }}
-    >
-      <TopBar email="info@autodistrict.nl" phoneNumber="+31654977850" />
-      <Container fixed maxWidth="lg">
-        <Toolbar disableGutters>
-          {appLogo}
-          {mobileMenu}
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: 'none', md: 'flex' },
-              justifyContent: 'flex-end',
-            }}
-          >
-            {pages.map((page, index) => (
-              <Box sx={{ ml: 2 }} key={`desktop-menu-${index}`}>
-                <Link
-                  to={page.pageLink}
-                  key={`desktop-link-${index}`}
-                  style={{ color: 'initial', textDecoration: 'none' }}
-                >
-                  {page.name}
-                </Link>
-              </Box>
-            ))}
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+    <Paper>
+      <AppBar position="sticky">
+        <TopBar email="info@autodistrict.nl" phoneNumber="+31654977850" />
+        <Container fixed maxWidth="lg">
+          <Toolbar disableGutters>
+            {appLogo}
+            {mobileMenu}
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: 'none', md: 'flex' },
+                justifyContent: 'flex-end',
+              }}
+            >
+              {pages.map((page, index) => (
+                <Box sx={{ ml: 2 }} key={`desktop-menu-${index}`}>
+                  <Link
+                    to={page.pageLink}
+                    key={`desktop-link-${index}`}
+                    style={{ color: 'initial', textDecoration: 'none' }}
+                  >
+                    {page.name}
+                  </Link>
+                </Box>
+              ))}
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </Paper>
   )
 }
 

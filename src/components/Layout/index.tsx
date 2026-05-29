@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router'
 import { useTheme, Box, Container, Card } from '@mui/material'
+
 import { Header } from '../Header'
 import HeroImage from '../HeroImage'
 import Footer from '../Footer'
@@ -23,15 +24,7 @@ export default function Layout() {
           },
         }}
       >
-        <Card
-          sx={{
-            minHeight: useTheme().spacing(50),
-            padding: { xs: useTheme().spacing(4), md: useTheme().spacing(8) },
-            borderRadius: 1,
-          }}
-        >
-          <Outlet />
-        </Card>
+        <Outlet />
       </Container>
       <Footer />
     </>
