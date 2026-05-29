@@ -47,10 +47,6 @@ function Footer() {
     <Box
       sx={{
         zIndex: 99,
-        position: 'fixed',
-        bottom: 0,
-        left: 0,
-        right: 0,
         background: theme.palette.common.white,
       }}
     >

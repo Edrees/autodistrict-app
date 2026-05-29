@@ -7,9 +7,9 @@ import Footer from '../Footer'
 
 export default function Layout() {
   return (
-    <>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header />
-      <Box sx={{ overflow: 'hidden', position: 'relative' }}>
+      <Box sx={{ overflow: 'hidden' }}>
         <HeroImage />
       </Box>
       <Container
@@ -17,16 +17,17 @@ export default function Layout() {
         maxWidth="lg"
         disableGutters
         sx={{
+          flex: 1,
           position: 'relative',
           margin: {
             xs: useTheme().spacing(0, 'auto', 5),
-            sm: useTheme().spacing(0, 'auto', 34),
+            sm: useTheme().spacing(0, 'auto', 4),
           },
         }}
       >
         <Outlet />
       </Container>
       <Footer />
-    </>
+    </Box>
   )
 }
