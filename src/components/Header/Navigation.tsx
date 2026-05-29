@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import {
   useTheme,
   AppBar,
@@ -44,6 +44,12 @@ const Navigation = () => {
   const [drawerState, setDrawerState] = React.useState({ top: false })
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
+  // Setting Active Link Via Router
+  const location = useLocation()
+  const isServicesActive = services.some((s) =>
+    location.pathname.includes(s.pageLink)
+  )
+
   const handleServicesOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
   }
@@ -67,9 +73,9 @@ const Navigation = () => {
 
   const appLogo = (
     <Box sx={{ width: 150 }}>
-      <Link to="/">
+      <NavLink to="/">
         <img alt="Auto District" src={logo} width="100%" />
-      </Link>
+      </NavLink>
     </Box>
   )
 
@@ -122,13 +128,20 @@ const Navigation = () => {
                 pl: 4,
               }}
             >
-              <Link
+              <NavLink
                 to={service.pageLink}
-                style={{ color: 'initial', textDecoration: 'none' }}
                 onClick={toggleDrawer('top', false)}
+                style={({ isActive }) => ({
+                  color: isActive ? theme.palette.secondary.main : 'initial',
+                  textDecoration: 'none',
+                  fontWeight: isActive ? 700 : 400,
+                  borderBottom: isActive
+                    ? `2px solid ${theme.palette.secondary.main}`
+                    : 'none',
+                })}
               >
                 {service.name}
-              </Link>
+              </NavLink>
             </ListItem>
           ))}
           {pages.map((page, index) => (
@@ -136,13 +149,20 @@ const Navigation = () => {
               key={`mobile-menu-${index}`}
               sx={{ borderBottom: `1px solid ${theme.palette.grey[200]}` }}
             >
-              <Link
+              <NavLink
                 to={page.pageLink}
-                style={{ color: 'initial', textDecoration: 'none' }}
+                style={({ isActive }) => ({
+                  color: isActive ? theme.palette.secondary.main : 'initial',
+                  textDecoration: 'none',
+                  fontWeight: isActive ? 700 : 400,
+                  borderBottom: isActive
+                    ? `2px solid ${theme.palette.secondary.main}`
+                    : 'none',
+                })}
                 onClick={toggleDrawer('top', false)}
               >
                 {page.name}
-              </Link>
+              </NavLink>
             </ListItem>
           ))}
         </List>
@@ -170,10 +190,16 @@ const Navigation = () => {
                 onClick={handleServicesOpen}
                 endIcon={<KeyboardArrowDownIcon />}
                 sx={{
-                  color: 'initial',
+                  color: isServicesActive
+                    ? theme.palette.secondary.main
+                    : 'initial',
+                  fontWeight: isServicesActive ? 500 : 400,
                   textTransform: 'none',
+                  borderBottom: isServicesActive
+                    ? `2px solid ${theme.palette.secondary.main}`
+                    : 'none',
+                  borderRadius: 0,
                   fontSize: 16,
-                  fontWeight: 400,
                 }}
               >
                 Diensten
@@ -183,25 +209,46 @@ const Navigation = () => {
                 open={Boolean(anchorEl)}
                 onClose={handleServicesClose}
               >
-                {services.map((service, index) => (
-                  <MenuItem
-                    key={`service-${index}`}
-                    component={Link}
-                    to={service.pageLink}
-                    onClick={handleServicesClose}
-                  >
-                    {service.name}
-                  </MenuItem>
-                ))}
+                {services.map((service, index) => {
+                  const isActive = location.pathname.includes(service.pageLink)
+                  return (
+                    <MenuItem
+                      key={`service-${index}`}
+                      component={NavLink}
+                      to={service.pageLink}
+                      onClick={handleServicesClose}
+                      sx={{
+                        color: isActive
+                          ? theme.palette.secondary.main
+                          : 'initial',
+                        fontWeight: isActive ? 500 : 400,
+                        borderLeft: isActive
+                          ? `3px solid ${theme.palette.secondary.main}`
+                          : '3px solid transparent',
+                      }}
+                    >
+                      {service.name}
+                    </MenuItem>
+                  )
+                })}
               </Menu>
               {pages.map((page, index) => (
                 <Box sx={{ ml: 2 }} key={`desktop-menu-${index}`}>
-                  <Link
+                  <NavLink
                     to={page.pageLink}
-                    style={{ color: 'initial', textDecoration: 'none' }}
+                    style={({ isActive }) => ({
+                      color: isActive
+                        ? theme.palette.secondary.main
+                        : 'initial',
+                      textDecoration: 'none',
+                      fontWeight: isActive ? 700 : 400,
+                      borderBottom: isActive
+                        ? `2px solid ${theme.palette.secondary.main}`
+                        : 'none',
+                    })}
                   >
                     {page.name}
-                  </Link>
+                  </NavLink>
                 </Box>
               ))}
             </Box>
