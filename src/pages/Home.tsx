@@ -191,11 +191,13 @@ export default function Home() {
           ))}
         </Grid>
       </Container>
-      <Card
+      <Container
         sx={{
           minHeight: useTheme().spacing(50),
           padding: { xs: useTheme().spacing(4), md: useTheme().spacing(5) },
           borderRadius: 1,
+          backgroundColor: 'white',
+          boxShadow: 1,
         }}
       >
         <Grid container spacing={5}>
@@ -308,7 +310,7 @@ export default function Home() {
             </Paper>
           </Grid>
         </Grid>
-      </Card>
+      </Container>
       <Paper
         sx={{
           maxWidth: 400,

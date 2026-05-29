@@ -46,6 +46,8 @@ function Footer() {
   return (
     <Box
       sx={{
+        zIndex: 99,
+        position: 'fixed',
         bottom: 0,
         left: 0,
         right: 0,
@@ -116,7 +118,7 @@ function Footer() {
           textAlign: 'center',
         }}
       >
-        All Rights Reserved. Auto District 2021
+        © {new Date().getFullYear()} Auto District. Alle rechten voorbehouden.
       </Box>
     </Box>
   )

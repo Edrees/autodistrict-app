@@ -38,7 +38,17 @@ export default function Contact() {
   )
 
   return (
-    <Container maxWidth={false} disableGutters>
+    <Container
+      maxWidth={false}
+      disableGutters
+      sx={{
+        minHeight: useTheme().spacing(50),
+        padding: { xs: useTheme().spacing(4), md: useTheme().spacing(5) },
+        borderRadius: 1,
+        backgroundColor: 'white',
+        boxShadow: 1,
+      }}
+    >
       <Typography
         variant={isSmallOrLarger ? 'h6' : 'body1'}
         gutterBottom
@@ -50,10 +60,7 @@ export default function Contact() {
       </Typography>
       <Grid container>
         <Grid
-          item
-          xs={12}
-          md={6}
-          lg={4}
+          size={{ xs: 12, md: 4, lg: 3 }}
           sx={{ marginBottom: { xs: 2, md: 0 } }}
         >
           <Typography>Auto District</Typography>
@@ -78,7 +85,7 @@ export default function Contact() {
             </ListItem>
           </List>
         </Grid>
-        <Grid size={{ xs: 12 }} md={6} lg={8}>
+        <Grid size={{ xs: 12, md: 8, lg: 9 }}>
           <Paper
             elevation={2}
             sx={{

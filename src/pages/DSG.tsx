@@ -9,6 +9,8 @@ import {
   useTheme,
 } from '@mui/material'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay } from 'swiper/modules'
+
 import slider1 from '../assets/slider-1.jpeg'
 import slider2 from '../assets/slider-2.jpeg'
 import slider3 from '../assets/slider-3.jpeg'
@@ -18,7 +20,17 @@ import slider5 from '../assets/slider-5.jpeg'
 function DSG() {
   const isSmallOrLarger = useMediaQuery(useTheme().breakpoints.up('sm'))
   return (
-    <Container maxWidth={false} disableGutters>
+    <Container
+      maxWidth={false}
+      disableGutters
+      sx={{
+        minHeight: useTheme().spacing(50),
+        padding: { xs: useTheme().spacing(4), md: useTheme().spacing(5) },
+        borderRadius: 1,
+        backgroundColor: 'white',
+        boxShadow: 1,
+      }}
+    >
       <Typography
         variant={isSmallOrLarger ? 'h6' : 'body1'}
         component="div"
@@ -60,12 +72,12 @@ function DSG() {
               spaceBetween={8}
               centeredSlides={true}
               loop={true}
-              loopFillGroupWithBlank={true}
               autoplay={{
                 delay: 6000,
                 disableOnInteraction: false,
               }}
               navigation={true}
+              modules={[Autoplay]}
             >
               <SwiperSlide>
                 <img src={slider1} alt="Auto District Poeldijk" width="100%" />

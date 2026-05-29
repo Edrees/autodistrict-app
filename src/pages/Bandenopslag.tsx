@@ -11,7 +11,17 @@ import storagePagePic from '../assets/auto-district-bandenopslag.jpeg'
 function Bandenopslag() {
   const isSmallOrLarger = useMediaQuery(useTheme().breakpoints.up('sm'))
   return (
-    <Container maxWidth={false} disableGutters>
+    <Container
+      maxWidth={false}
+      disableGutters
+      sx={{
+        minHeight: useTheme().spacing(50),
+        padding: { xs: useTheme().spacing(4), md: useTheme().spacing(5) },
+        borderRadius: 1,
+        backgroundColor: 'white',
+        boxShadow: 1,
+      }}
+    >
       <Grid container spacing={2}>
         <Grid size={{ xs: 12 }}>
           <Typography

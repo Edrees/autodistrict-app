@@ -3,7 +3,17 @@ import { Container, Typography, useMediaQuery, useTheme } from '@mui/material'
 function Onderhoud() {
   const isSmallOrLarger = useMediaQuery(useTheme().breakpoints.up('sm'))
   return (
-    <Container maxWidth={false} disableGutters>
+    <Container
+      maxWidth={false}
+      disableGutters
+      sx={{
+        minHeight: useTheme().spacing(50),
+        padding: { xs: useTheme().spacing(4), md: useTheme().spacing(5) },
+        borderRadius: 1,
+        backgroundColor: 'white',
+        boxShadow: 1,
+      }}
+    >
       <Typography
         variant={isSmallOrLarger ? 'h6' : 'body1'}
         gutterBottom

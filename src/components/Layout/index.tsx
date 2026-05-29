@@ -20,7 +20,7 @@ export default function Layout() {
           position: 'relative',
           margin: {
             xs: useTheme().spacing(0, 'auto', 5),
-            sm: useTheme().spacing(0, 'auto', 5),
+            sm: useTheme().spacing(0, 'auto', 34),
           },
         }}
       >
