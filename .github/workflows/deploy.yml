@@ -2,7 +2,7 @@ name: Deploy Vite App to Pages
 
 on:
   push:
-    branches: ["main"] # Verander naar "master" als je hoofdbranch zo heet
+    branches: ['main'] # Pas aan naar "master" als je branch zo heet
   workflow_dispatch:
 
 permissions:
@@ -11,14 +11,11 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -36,10 +33,13 @@ jobs:
       - name: Build website
         run: npm run build
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # Vite bouwt standaard naar de dist map
+          path: './dist' # Zorgt dat GitHub de GEBOUWDE bestanden pakt
 
       - name: Deploy to GitHub Pages
         id: deployment
