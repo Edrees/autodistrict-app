@@ -249,7 +249,7 @@ export default function Home() {
 
             <List>
               {servicesUSP.map((usp, index) => (
-                <ListItem>
+                <ListItem key={index}>
                   <ListItemIcon>
                     <CircleIcon fontSize="small" color="primary" />
                   </ListItemIcon>
