@@ -15,7 +15,7 @@ import './styles.css'
 import { Typography } from '@mui/material'
 
 export default function App() {
-  const heroImages = [pic1, pic2, pic3, pic4, pic1, pic2, pic3, pic4]
+  const heroImages: string[] = [pic1, pic2, pic3, pic4, pic1, pic2, pic3, pic4]
 
   return (
     <div style={{ position: 'relative', overflow: 'hidden', width: '100%' }}>
