@@ -7,6 +7,6 @@ export default defineConfig({
   base: '/autodistrict-app/',
   build: {
     sourcemap: false, // Dit voorkomt de 'eval' CSP-fout
-    minify: 'esbuild', // Maakt gebruik van de ingebouwde bundelaar, zodat de Terser-fout verdwijnt
+    minify: 'oxc', // Maakt gebruik van de ingebouwde bundelaar, zodat de Terser-fout verdwijnt
   },
 })
