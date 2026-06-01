@@ -156,12 +156,12 @@ export default function Home() {
         <Grid container spacing={2} sx={{ mb: 4, justifyContent: 'center' }}>
           {services.map((service, index) => (
             <Grid size={{ xs: 6, sm: 4, md: 3, lg: 2 }} key={index}>
-              <Paper>
+              <Paper sx={{ maxWidth: '180px', margin: '0 auto' }}>
                 <Card
                   component={Link}
                   to={service.pageLink}
                   sx={{
-                    width: 190,
+                    width: 180,
                     height: 120,
                     margin: '0 auto',
                     borderRadius: 2,
@@ -173,7 +173,7 @@ export default function Home() {
                   }}
                   variant="outlined"
                 >
-                  <CardContent>
+                  <CardContent sx={{ pl: 1, pr: 1 }}>
                     {service.icon}
                     <Typography variant="body1" sx={{ fontWeight: '500' }}>
                       {service.name}
