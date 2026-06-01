@@ -33,23 +33,25 @@ function Airco() {
               fontWeight: useTheme().typography.fontWeightBold,
             }}
           >
-            Airco service
+            Professionele Airco Service bij Auto District
           </Typography>
           <Typography sx={{ textAlign: { md: 'justify' }, mb: 2 }}>
-            Met onze MAHLE aircomachines kunnen het onderhoud uitvoeren van uw
-            auto. Heeft u een ouder systeem met R134a of een nieuwer systeem met
-            R1234yf? Dat maakt voor ons niet uit bij beide systemen kunnen we
-            het onderhoud uitvoeren.
-          </Typography>
-          <Typography sx={{ textAlign: { md: 'justify' }, mb: 2 }}>
-            Heeft u een niet werkende of leeg airco systeem. Dan kunnen wij
-            diagnose stellen met ons afpersset met formeergas en onze
-            lekdetector. Is het systeem al gevuld met UV dan hebben we ook
-            hiervoor de juiste benodigdheden om de lekkage op te sporen.
-          </Typography>
-          <Typography sx={{ textAlign: { md: 'justify' }, mb: 2 }}>
-            Nadat alles netjes werkt en gecontroleerd is. Krijgt u van ons een
-            uitdraai met specificaties.
+            Werkt uw airconditioning niet meer optimaal, blaast deze lauwe lucht
+            of wilt u storingen in de zomer voorkomen? Bij{' '}
+            <strong>Auto District Poeldijk</strong> bent u aan het juiste adres
+            voor compleet en vakkundig airco-onderhoud. Met onze geavanceerde{' '}
+            <strong>MAHLE aircomachines</strong>
+            onderhouden en vullen wij aircosystemen van elk type voertuig. Of uw
+            auto nu is uitgerust met het oudere{' '}
+            <strong>R134a koudemiddel</strong> of het modernere,
+            milieuvriendelijke <strong>R1234yf koudemiddel</strong>: wij hebben
+            voor beide systemen de juiste expertise en apparatuur in huis. Mocht
+            uw airco defect of volledig leeg zijn, dan sporen wij lekkages
+            nauwkeurig op met behulp van een gespecialiseerde afpersset met
+            formeergas, een elektronische lekdetector of via{' '}
+            <strong>UV-detectie</strong>. Na afloop van de servicebeurt ontvangt
+            u van ons altijd een officiële uitdraai met de exacte specificaties
+            van het onderhoud.
           </Typography>
         </Grid>
         <Grid

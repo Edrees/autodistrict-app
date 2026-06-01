@@ -38,29 +38,26 @@ function Reparatie() {
           fontWeight: useTheme().typography.fontWeightBold,
         }}
       >
-        Reparatie
+        Professionele Autoreparatie bij Auto District
       </Typography>
       <Typography sx={{ textAlign: { md: 'justify' }, mb: 2 }}>
-        Heeft u andere problemen met de auto of constateren we defecten. Ook die
-        kunnen we oplossen. Van het vervangen van uw koppeling tot aan de
-        distributie.
+        Heeft uw auto een defect of zijn er onderdelen aan vervanging toe? Van
+        het vernieuwen van remmen tot het vervangen van de distributieriem: bij
+        Auto District Poeldijk lossen we elk probleem vakkundig op zodat u snel
+        weer veilig de weg op kunt. Wij werken volledig transparant en geven u
+        altijd vooraf een duidelijke prijsopgave. Hierbij heeft u zelf de keuze
+        tussen originele fabrieksonderdelen via Partslink of voordeligere,
+        hoogwaardige A-merk onderdelen die voldoen aan de strengste
+        fabriekseisen.
         <br />
         <br />
-        Wij zorgen dat de auto weer gemaakt is en uw veilig de weg op kan.
-        <br />
-        <br />
-        Wilt u liever alles origineel ook dat is geen probleem. Wij werken met
-        Partslink en daardoor kunnen we alles via de dealer krijgen wat mogelijk
-        is.
-        <br />
-        <br />
-        Uiteraard vullen we uw service/onderhoudsboekje in na het uitvoeren van
-        het onderhoud. Beschikt u niet over een boekje ook die kunnen we
-        universeel leveren.
-        <br />
-        <br />
-        Als alles netjes gedaan is stofzuigen we de auto zodat u in een schone
-        auto weer naar huis kan.
+        Na de reparatie zorgen wij dat uw administratie direct klopt door de
+        werkzaamheden netjes te noteren in uw fysieke onderhoudsboekje of
+        officieel te registreren in het Digitaal Service Register (DSR) van de
+        fabriek. Als extra service van het huis leveren we uw auto niet alleen
+        technisch hersteld af, maar stofzuigen wij uw auto ook nog volledig uit.
+        Neem vandaag nog contact met ons op voor een afspraak of een
+        vrijblijvende prijsopgave op maat!
       </Typography>
 
       <Grid container spacing={2}>

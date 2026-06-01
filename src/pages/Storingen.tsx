@@ -1,7 +1,6 @@
 import {
   Container,
-  List,
-  ListItem,
+  Link,
   Typography,
   useMediaQuery,
   useTheme,
@@ -29,37 +28,40 @@ function Storingen() {
           fontWeight: useTheme().typography.fontWeightBold,
         }}
       >
-        Storingen
+        Diagnose & Storingen Uitlezen bij Auto District
       </Typography>
       <Typography component="div" sx={{ textAlign: { md: 'justify' }, mb: 2 }}>
-        Heeft u een storingslampje wat brand of een melding in uw auto? Dat is
-        geen probleem we hebben diverse uitleesapparaat waaronder:
-        <List dense component="ul" sx={{ listStyleType: 'disc', pl: 4 }}>
-          <ListItem disablePadding sx={{ display: 'list-item' }}>
-            ODIS voor de VAG modellen
-          </ListItem>
-          <ListItem disablePadding sx={{ display: 'list-item' }}>
-            VCDS voor de VAG modellen
-          </ListItem>
-          <ListItem disablePadding sx={{ display: 'list-item' }}>
-            Autel voor alle auto merken
-          </ListItem>
-          <ListItem disablePadding sx={{ display: 'list-item' }}>
-            Delphi voor alle auto merken
-          </ListItem>
-        </List>
-      </Typography>
-      <Typography sx={{ textAlign: { md: 'justify' }, mb: 2 }}>
-        We kunnen uw storing uitlezen, diagnose stellen en als de storing is
-        verholpen weer wissen.
+        Brandt er een storingslampje op uw dashboard of geeft uw auto een
+        foutmelding? Geen paniek, bij <strong>Auto District Poeldijk</strong>{' '}
+        lossen we elektronische en mechanische storingen snel en efficiënt voor
+        u op. Met onze geavanceerde diagnoseapparatuur kunnen we elk automerk
+        diepgaand uitlezen. Voor voertuigen uit de VAG-groep (Volkswagen, Audi,
+        Seat, Skoda) gebruiken we de officiële dealersoftware{' '}
+        <strong>ODIS en VCDS</strong>, waarmee we exact dezelfde
+        diagnosemogelijkheden hebben als de merkdealer. Voor alle overige
+        automerken zetten we universele topsystemen van{' '}
+        <strong>Autel en Delphi</strong>
+        in. Tijdens de volledige diagnose sluiten we uw auto aan op een
+        professionele <strong>GYS acculader</strong>. Dit zorgt voor een
+        constante en stabiele spanning, waardoor vitale computersystemen niet
+        uitvallen en de accu gegarandeerd vol blijft.
         <br />
         <br />
-        Ook hebben we een GYS acculader. Hiermee zorgen we dat de accu geladen
-        blijft tijdens de diagnose zodat de accu niet leeg raakt.
-        <br />
-        <br />
-        Uiteraard maken we eerst een offerte en vragen we toestemming voordat we
-        de reparatie uitvoeren.
+        Nadat we de exacte oorzaak van de storing hebben gelokaliseerd, stellen
+        we een gerichte diagnose. Wij geloven in volledige transparantie: we
+        wissen de foutcodes pas definitief als het probleem écht is opgelost én
+        we maken altijd <strong>eerst een heldere offerte vooraf</strong>. Pas
+        na uw uitdrukkelijke toestemming gaan onze monteurs aan de slag met de
+        reparatie, zodat u achteraf nooit voor verrassingen komt te staan. Als
+        extra service van het huis leveren we uw auto na het verhelpen van de
+        storing niet alleen technisch storingsvrij af, maar{' '}
+        <strong>stofzuigen wij uw auto ook nog volledig uit</strong>. Heeft u
+        een brandend lampje of een vage storing in uw auto? Neem direct contact
+        op via onze{' '}
+        <Link href="contact" sx={{ fontWeight: 700 }}>
+          Contactpagina
+        </Link>{' '}
+        of kom langs in Poeldijk om uw auto vakkundig te laten uitlezen!
       </Typography>
     </Container>
   )
