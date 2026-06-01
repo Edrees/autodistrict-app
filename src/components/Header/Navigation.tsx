@@ -30,8 +30,9 @@ const services: PageProps[] = [
   { name: 'Reparatie', pageLink: 'reparatie' },
   { name: 'Storingen', pageLink: 'storingen' },
   { name: 'DSG', pageLink: 'dsg' },
-  { name: 'Airco Service', pageLink: 'airco' },
+  { name: 'Airco service', pageLink: 'airco' },
   { name: 'Bandenopslag', pageLink: 'bandenopslag' },
+  { name: 'Autosleutels inleren', pageLink: 'autosleutels-inleren' },
 ]
 
 const pages: PageProps[] = [

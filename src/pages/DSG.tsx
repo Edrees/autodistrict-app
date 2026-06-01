@@ -43,25 +43,27 @@ function DSG() {
       >
         DSG
       </Typography>
-      <List dense>
-        <ListItem disablePadding>
-          Heeft u een VAG auto met een DSG versnellingsbak dan bent u bij ons
-          aan het juiste adres. <br />
-          Wij kunnen:
-        </ListItem>
-        <ListItem disablePadding>
-          - Onderhoud uitvoeren aan de DSG-versnellingsbak.
-        </ListItem>
-        <ListItem disablePadding>
-          - DSG-koppeling vervangen en afstellen.
-        </ListItem>
-        <ListItem disablePadding>- Megatronic vervangen en inleren.</ListItem>
-        <ListItem disablePadding>
-          - Wij kunnen alles origineel monteren en als u liever een ander
-          goedkoop alternatief wilt kunnen we die ook aanbieden via onze
-          leveranciers.
-        </ListItem>
-      </List>
+      <Typography component="div" sx={{ textAlign: { md: 'justify' }, mb: 2 }}>
+        Heeft u een VAG auto met een DSG versnellingsbak dan bent u bij ons aan
+        het juiste adres. <br />
+        Wij kunnen:
+        <List dense component="ul" sx={{ listStyleType: 'disc', pl: 4 }}>
+          <ListItem disablePadding sx={{ display: 'list-item' }}>
+            Onderhoud uitvoeren aan de DSG-versnellingsbak.
+          </ListItem>
+          <ListItem disablePadding sx={{ display: 'list-item' }}>
+            DSG-koppeling vervangen en afstellen.
+          </ListItem>
+          <ListItem disablePadding sx={{ display: 'list-item' }}>
+            Megatronic vervangen en inleren.
+          </ListItem>
+          <ListItem disablePadding sx={{ display: 'list-item' }}>
+            Wij kunnen alles origineel monteren en als u liever een ander
+            goedkoop alternatief wilt kunnen we die ook aanbieden via onze
+            leveranciers.
+          </ListItem>
+        </List>
+      </Typography>
 
       <Grid container spacing={2}>
         <Grid
