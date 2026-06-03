@@ -53,7 +53,7 @@ function Airco() {
       }}
     >
       <Grid container spacing={2}>
-        <Grid size={{ xs: 12 }}>
+        <Grid size={{ xs: 12, lg: 7 }} sx={{ mb: 4 }}>
           <Typography
             variant={isSmallOrLarger ? 'h6' : 'body1'}
             component="div"
@@ -81,28 +81,7 @@ function Airco() {
             u van ons altijd een officiële uitdraai met de exacte specificaties
             van het onderhoud.
           </Typography>
-        </Grid>
-        <Grid
-          size={{ xs: 12 }}
-          sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}
-        >
-          <Paper
-            elevation={2}
-            sx={{
-              padding: 2,
-              display: 'flex',
-            }}
-          >
-            <img
-              src={aircoPagePic}
-              alt="Auto District Airco Service"
-              width="100%"
-            />
-          </Paper>
-        </Grid>
 
-        {/* NIEUW: Diepgaande sectie over Formeergas Lekdetectie */}
-        <Grid size={{ xs: 12 }} sx={{ mt: 2 }}>
           <Typography
             variant={isSmallOrLarger ? 'h6' : 'body1'}
             component="div"
@@ -165,6 +144,25 @@ function Airco() {
               </Grid>
             ))}
           </Grid>
+        </Grid>
+        <Grid
+          size={{ xs: 12, lg: 5 }}
+          sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}
+        >
+          <Paper
+            elevation={2}
+            sx={{
+              padding: 2,
+              display: 'flex',
+              alignSelf: 'center',
+            }}
+          >
+            <img
+              src={aircoPagePic}
+              alt="Auto District Airco Service"
+              width="100%"
+            />
+          </Paper>
         </Grid>
       </Grid>
     </Container>
