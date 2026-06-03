@@ -28,6 +28,14 @@ const footerLinks: FooterLinkProps[] = [
     text: 'REPXPERT',
     url: 'https://www.repxpert.nl/nl',
   },
+  {
+    text: 'Banden Concurrent Partner',
+    url: 'https://www.bandenconcurrent.nl/garages/poeldijk/19718-auto-district/',
+  },
+  {
+    text: 'Turbos Hoet - Turbo Partner Pro',
+    url: 'https://turbopartner.th-group.eu/turbopartnerpro/',
+  },
 ]
 
 function Footer() {
@@ -54,11 +62,21 @@ function Footer() {
         <Grid container sx={{ py: 2 }}>
           <Grid size={{ xs: 12, md: 4 }}>
             <List dense>
-              <ListItem sx={{ fontWeight: 'bold' }}>Links</ListItem>
+              <ListItem sx={{ fontWeight: 'bold', fontSize: 18 }}>
+                Links/ Partners
+              </ListItem>
               {footerLinks.map((item, index) => (
                 <ListItem key={`footer-link-${index}`}>
-                  <Link href={item.url}>
-                    <ListItemText primary={item.text} />
+                  <Link
+                    href={item.url}
+                    target="_blank"
+                    sx={{
+                      textDecoration: 'none',
+                      fontWeight: 500,
+                      color: theme.palette.secondary.main,
+                    }}
+                  >
+                    {item.text}
                   </Link>
                 </ListItem>
               ))}
@@ -67,7 +85,11 @@ function Footer() {
           <Grid size={{ xs: 12, md: 4 }}>
             <List dense>
               <ListItem
-                sx={{ fontWeight: 'bold', alignItems: { sm: 'flex-end' } }}
+                sx={{
+                  fontWeight: 'bold',
+                  fontSize: 18,
+                  alignItems: { sm: 'flex-end' },
+                }}
               >
                 Adres
               </ListItem>
