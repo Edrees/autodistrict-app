@@ -11,6 +11,7 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material'
+// import AppointmentForm from '../components/ContactForm/AppointmentForm'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import MailIcon from '@mui/icons-material/Mail'
 import PhoneIcon from '@mui/icons-material/Phone'
@@ -49,6 +50,7 @@ export default function Contact() {
         boxShadow: 1,
       }}
     >
+      {/* <AppointmentForm /> */}
       <Typography
         variant={isSmallOrLarger ? 'h6' : 'body1'}
         gutterBottom
