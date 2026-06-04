@@ -8,6 +8,8 @@ import {
 
 function Storingen() {
   const isSmallOrLarger = useMediaQuery(useTheme().breakpoints.up('sm'))
+  const theme = useTheme()
+
   return (
     <Container
       maxWidth={false}
@@ -58,7 +60,14 @@ function Storingen() {
         <strong>stofzuigen wij uw auto ook nog volledig uit</strong>. Heeft u
         een brandend lampje of een vage storing in uw auto? Neem direct contact
         op via onze{' '}
-        <Link href="contact" sx={{ fontWeight: 700 }}>
+        <Link
+          href="contact"
+          sx={{
+            textDecoration: 'none',
+            fontWeight: 500,
+            color: theme.palette.secondary.main,
+          }}
+        >
           Contactpagina
         </Link>{' '}
         of kom langs in Poeldijk om uw auto vakkundig te laten uitlezen!
