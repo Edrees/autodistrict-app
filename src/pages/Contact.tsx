@@ -71,7 +71,7 @@ export default function Contact() {
           fontWeight: theme.typography.fontWeightBold,
         }}
       >
-        Contact
+        Auto District Poeldijk
       </Typography>
       <Grid container spacing={2}>
         <Grid
@@ -79,23 +79,20 @@ export default function Contact() {
           sx={{ marginBottom: { xs: 2, md: 0 } }}
         >
           {/* Contactgegevens */}
-          <Typography sx={{ fontWeight: 'bold', mb: 1 }}>
-            Auto District
-          </Typography>
-          <List sx={{ mb: 3 }}>
-            <ListItem disablePadding sx={{ mb: 0.5 }}>
+          <List dense sx={{ mb: 3 }}>
+            <ListItem disablePadding>
               <ListItemIcon sx={{ minWidth: 36 }}>
                 <MailIcon fontSize="small" />
               </ListItemIcon>
               <ListItemText primary={email} />
             </ListItem>
-            <ListItem disablePadding sx={{ mb: 0.5 }}>
+            <ListItem disablePadding>
               <ListItemIcon sx={{ minWidth: 36 }}>
                 <PhoneIcon fontSize="small" />
               </ListItemIcon>
               <ListItemText primary={mobile} />
             </ListItem>
-            <ListItem disablePadding sx={{ mb: 0.5 }}>
+            <ListItem disablePadding>
               <ListItemIcon sx={{ minWidth: 36 }}>
                 <LocationOnIcon fontSize="small" />
               </ListItemIcon>
