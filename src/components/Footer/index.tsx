@@ -62,9 +62,7 @@ function Footer() {
         <Grid container sx={{ py: 2 }}>
           <Grid size={{ xs: 12, md: 4 }}>
             <List dense>
-              <ListItem sx={{ fontWeight: 'bold', fontSize: 18 }}>
-                Links/ Partners
-              </ListItem>
+              <ListItem sx={{ fontWeight: 'bold' }}>Partners</ListItem>
               {footerLinks.map((item, index) => (
                 <ListItem key={`footer-link-${index}`}>
                   <Link
@@ -72,8 +70,8 @@ function Footer() {
                     target="_blank"
                     sx={{
                       textDecoration: 'none',
-                      fontWeight: 500,
-                      color: theme.palette.secondary.main,
+                      fontWeight: 400,
+                      fontSize: 14,
                     }}
                   >
                     {item.text}
@@ -87,15 +85,13 @@ function Footer() {
               <ListItem
                 sx={{
                   fontWeight: 'bold',
-                  fontSize: 18,
-                  alignItems: { sm: 'flex-end' },
                 }}
               >
                 Adres
               </ListItem>
-              <ListItem>Auto District</ListItem>
-              <ListItem>Jupiter 39-B</ListItem>
-              <ListItem>2685 LV Poeldijk</ListItem>
+              <ListItem sx={{ fontSize: 14 }}>Auto District</ListItem>
+              <ListItem sx={{ fontSize: 14 }}>Jupiter 39-B</ListItem>
+              <ListItem sx={{ fontSize: 14 }}>2685 LV Poeldijk</ListItem>
             </List>
           </Grid>
           <Grid size={{ xs: 12, md: 4 }}>
