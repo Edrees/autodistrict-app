@@ -53,30 +53,30 @@ export default function Home() {
 
   const services: ServiceProps[] = [
     {
-      name: 'Airco',
-      desc: 'Service & recharge',
+      name: 'Onderhoud',
+      desc: 'APK, olie & filters',
       icon: (
-        <AirOutlinedIcon
+        <BuildOutlinedIcon
           sx={{
             color: ourServiceBlockIconColor,
             fontSize: ourServiceBlockIconSize,
           }}
         />
       ),
-      pageLink: 'airco',
+      pageLink: 'onderhoud',
     },
     {
-      name: 'Autosleutel',
-      desc: 'Sleutels inleren',
+      name: 'Reparatie',
+      desc: 'Motor & techniek',
       icon: (
-        <KeyIcon
+        <HandymanOutlinedIcon
           sx={{
             color: ourServiceBlockIconColor,
             fontSize: ourServiceBlockIconSize,
           }}
         />
       ),
-      pageLink: 'autosleutels-inleren',
+      pageLink: 'reparatie',
     },
     {
       name: 'DSG',
@@ -105,30 +105,30 @@ export default function Home() {
       pageLink: 'bandenopslag',
     },
     {
-      name: 'Onderhoud',
-      desc: 'APK, olie & filters',
+      name: 'Airco',
+      desc: 'Service & recharge',
       icon: (
-        <BuildOutlinedIcon
+        <AirOutlinedIcon
           sx={{
             color: ourServiceBlockIconColor,
             fontSize: ourServiceBlockIconSize,
           }}
         />
       ),
-      pageLink: 'onderhoud',
+      pageLink: 'airco',
     },
     {
-      name: 'Reparatie',
-      desc: 'Motor & techniek',
+      name: 'Autosleutel',
+      desc: 'Sleutels inleren',
       icon: (
-        <HandymanOutlinedIcon
+        <KeyIcon
           sx={{
             color: ourServiceBlockIconColor,
             fontSize: ourServiceBlockIconSize,
           }}
         />
       ),
-      pageLink: 'reparatie',
+      pageLink: 'autosleutels-inleren',
     },
     {
       name: 'Storingen',
@@ -212,13 +212,12 @@ export default function Home() {
       <Container fixed maxWidth="lg" disableGutters>
         <Grid container spacing={2} sx={{ mb: 4, justifyContent: 'center' }}>
           {services.map((service, index) => (
-            <Grid size={{ xs: 6, sm: 4, md: 3, lg: 2 }} key={index}>
+            <Grid size={{ xs: 6, sm: 4, md: 3 }} key={index}>
               <Card
                 component={Link}
                 to={service.pageLink}
                 variant="outlined"
                 sx={{
-                  width: 180,
                   height: 140,
                   margin: '0 auto',
                   borderRadius: 2,
