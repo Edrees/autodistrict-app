@@ -59,7 +59,7 @@ function BreadcrumbNav() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
-      <Box sx={{ py: 1, px: 0 }}>
+      <Box sx={{ py: 1, px: 1 }}>
         <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />}>
           {breadcrumbs.map((crumb, index) =>
             index < breadcrumbs.length - 1 ? (

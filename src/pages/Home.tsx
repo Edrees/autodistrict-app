@@ -276,7 +276,11 @@ export default function Home() {
   return (
     <>
       <Container fixed maxWidth="lg" disableGutters>
-        <Grid container spacing={2} sx={{ mb: 4, justifyContent: 'center' }}>
+        <Grid
+          container
+          spacing={2}
+          sx={{ mb: 4, justifyContent: 'center', px: { xs: 1, sm: 'inherit' } }}
+        >
           {services.map((service, index) => (
             <Grid size={{ xs: 6, sm: 4, md: 3 }} key={index}>
               <Card
