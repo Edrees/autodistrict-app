@@ -120,7 +120,7 @@ function Airco() {
                     >
                       <CheckCircleOutlineOutlinedIcon
                         color="primary"
-                        sx={{ mt: 0.3, fontSize: 20 }}
+                        sx={{ mt: 0.3, fontSize: 20, color: 'green' }}
                       />
                       <Box>
                         <Typography

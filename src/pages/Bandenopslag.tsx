@@ -11,6 +11,7 @@ import {
   useTheme,
 } from '@mui/material'
 import storagePagePic from '../assets/auto-district-bandenopslag.jpeg'
+import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined'
 
 function Bandenopslag() {
   const theme = useTheme()
@@ -131,20 +132,10 @@ function Bandenopslag() {
                         alignItems: 'flex-start',
                       }}
                     >
-                      {/* Inline SVG Vinkje in de primaire huiskleur */}
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke={theme.palette.primary.main}
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        style={{ marginTop: '2px', flexShrink: 0 }}
-                      >
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
+                      <CheckCircleOutlineOutlinedIcon
+                        color="primary"
+                        sx={{ mt: 0.3, fontSize: 20, color: 'green' }}
+                      />
                       <Box>
                         <Typography
                           variant="body1"
