@@ -44,7 +44,7 @@ const FooterHeading = ({ children }: { children: React.ReactNode }) => {
       variant="subtitle1"
       sx={{
         fontWeight: 700,
-        fontSize: 15,
+        fontSize: 16,
         textTransform: 'uppercase',
         letterSpacing: '0.08em',
         color: 'text.primary',
@@ -90,7 +90,7 @@ function Footer() {
                     sx={{
                       textDecoration: 'none',
                       fontWeight: 400,
-                      fontSize: 14,
+                      fontSize: 15,
                       color: 'text.secondary',
                       '&:hover': {
                         color: 'primary.main',
@@ -111,7 +111,7 @@ function Footer() {
                   <ListItem key={line}>
                     <Typography
                       variant="body2"
-                      sx={{ color: 'text.secondary', fontSize: 14 }}
+                      sx={{ color: 'text.secondary', fontSize: 15 }}
                     >
                       {line}
                     </Typography>
