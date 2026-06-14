@@ -121,7 +121,10 @@ export default function Home() {
       desc: 'Opslag & wisselen',
       icon: (
         <TripOriginOutlinedIcon
-          sx={{ color: ourServiceBlockIconColor, fontSize: 32 }}
+          sx={{
+            color: ourServiceBlockIconColor,
+            fontSize: ourServiceBlockIconSize,
+          }}
         />
       ),
       pageLink: 'bandenopslag',
@@ -245,6 +248,46 @@ export default function Home() {
             </Grid>
           ))}
         </Grid>
+        <Card variant="outlined" sx={{ margin: 'auto', mt: 4, mb: 4 }}>
+          <CardContent>
+            <Box
+              sx={{
+                display: 'grid',
+                gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
+                gap: 2,
+              }}
+            >
+              {trustItems.map((item) => (
+                <Box
+                  key={item.title}
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'flex-start',
+                  }}
+                >
+                  <VerifiedIcon
+                    sx={{ color: 'green', mr: 2, mt: 0.3 }}
+                    fontSize="small"
+                  />
+                  <Typography
+                    variant="body1"
+                    component="div"
+                    sx={{ fontWeight: 700 }}
+                  >
+                    {item.title}
+                    <Typography
+                      variant="body2"
+                      sx={{ color: 'text.secondary' }}
+                    >
+                      {item.desc}
+                    </Typography>
+                  </Typography>
+                </Box>
+              ))}
+            </Box>
+          </CardContent>
+        </Card>
       </Container>
       <Container
         sx={{
@@ -368,53 +411,6 @@ export default function Home() {
           </Grid>
         </Grid>
       </Container>
-      <Paper
-        sx={{
-          margin: 'auto',
-          mt: 4,
-        }}
-      >
-        <Card variant="outlined">
-          <CardContent>
-            <Box
-              sx={{
-                display: 'grid',
-                gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
-                gap: 2,
-              }}
-            >
-              {trustItems.map((item) => (
-                <Box
-                  key={item.title}
-                  sx={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    alignItems: 'flex-start',
-                  }}
-                >
-                  <VerifiedIcon
-                    sx={{ color: 'green', mr: 2, mt: 0.3 }}
-                    fontSize="small"
-                  />
-                  <Typography
-                    variant="body1"
-                    component="div"
-                    sx={{ fontWeight: 700 }}
-                  >
-                    {item.title}
-                    <Typography
-                      variant="body2"
-                      sx={{ color: 'text.secondary' }}
-                    >
-                      {item.desc}
-                    </Typography>
-                  </Typography>
-                </Box>
-              ))}
-            </Box>
-          </CardContent>
-        </Card>
-      </Paper>
     </>
   )
 }

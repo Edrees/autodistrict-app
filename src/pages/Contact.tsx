@@ -178,18 +178,16 @@ export default function Contact() {
               padding: 2,
             }}
           >
-            <Link
-              href="https://g.page/autodistrict"
-              underline="hover"
-              target="_blank"
-              sx={{ display: 'flex' }}
-            >
-              <img
-                src={googleMapsPic}
-                alt="Auto District Poeldijk"
-                width="100%"
-              />
-            </Link>
+            <iframe
+              title="Auto District locatie"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2452.0!2d4.1833!3d52.0167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5b5b5b5b5b5b5%3A0x0!2sJupiter+39-B%2C+2685+LV+Poeldijk!5e0!3m2!1snl!2snl!4v1"
+              width="100%"
+              height="360"
+              style={{ border: 0, borderRadius: 8 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </Paper>
         </Grid>
       </Grid>
