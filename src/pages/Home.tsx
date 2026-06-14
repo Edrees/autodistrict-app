@@ -162,6 +162,25 @@ export default function Home() {
     },
   ]
 
+  const trustItems: ServicesUSPProps[] = [
+    {
+      title: 'RDW-Erkend & Gecertificeerd',
+      desc: 'Al onze monteurs zijn gediplomeerde APK-keurmeesters.',
+    },
+    {
+      title: 'DSG Specialist',
+      desc: 'Diepgaande expertise in Volkswagen, Audi, SEAT en Škoda.',
+    },
+    {
+      title: 'Eerlijk & Transparant',
+      desc: 'Nooit onverwachte kosten. Wij bellen altijd vóór een reparatie.',
+    },
+    {
+      title: 'Klantbeoordeling 5.0 / 5',
+      desc: 'Trots op onze honderden positieve Google-reviews van tevreden rijders!',
+    },
+  ]
+
   return (
     <>
       <Container fixed maxWidth="lg" disableGutters>
@@ -248,27 +267,6 @@ export default function Home() {
               weer veilig op de weg zit. Ervaar het zelf en kom gerust eens
               langs in onze werkplaats!
             </Typography>
-            <Typography
-              variant={isSmallOrLarger ? 'h6' : 'body1'}
-              gutterBottom
-              sx={{
-                fontWeight: useTheme().typography.fontWeightBold,
-                mt: 4,
-              }}
-            >
-              Waarvoor kunt u bij Auto District terecht?
-            </Typography>
-
-            <List>
-              {servicesUSP.map((usp, index) => (
-                <ListItem key={index}>
-                  <ListItemIcon>
-                    <CircleIcon fontSize="small" color="primary" />
-                  </ListItemIcon>
-                  <ListItemText primary={usp.title} secondary={usp.desc} />
-                </ListItem>
-              ))}
-            </List>
           </Grid>
           <Grid size={{ xs: 12 }}>
             <Paper
@@ -298,6 +296,30 @@ export default function Home() {
             </Paper>
           </Grid>
           <Grid size={{ xs: 12 }}>
+            <Typography
+              variant={isSmallOrLarger ? 'h6' : 'body1'}
+              gutterBottom
+              sx={{
+                fontWeight: useTheme().typography.fontWeightBold,
+                mt: 4,
+              }}
+            >
+              Waarvoor kunt u bij Auto District terecht?
+            </Typography>
+
+            <List>
+              {servicesUSP.map((usp, index) => (
+                <ListItem key={index}>
+                  <ListItemIcon>
+                    <CircleIcon fontSize="small" color="primary" />
+                  </ListItemIcon>
+                  <ListItemText primary={usp.title} secondary={usp.desc} />
+                </ListItem>
+              ))}
+            </List>
+          </Grid>
+
+          <Grid size={{ xs: 12, md: 7 }}>
             <Typography sx={{ mb: 2 }} align="justify">
               Is uw auto toe aan de Algemene Periodieke Keuring? Als RDW-erkend
               autobedrijf keuren wij alle voertuigen binnen de APK2-categorie.
@@ -308,13 +330,12 @@ export default function Home() {
               snel voor u in.
             </Typography>
           </Grid>
-          <Grid size={{ xs: 12 }}>
+          <Grid size={{ xs: 12, md: 5 }}>
             <Paper
               elevation={2}
               sx={{
                 padding: 2,
                 display: 'flex',
-                maxWidth: 400,
                 margin: 'auto',
               }}
             >
@@ -325,7 +346,6 @@ export default function Home() {
       </Container>
       <Paper
         sx={{
-          maxWidth: 400,
           margin: 'auto',
           mt: 4,
         }}
@@ -334,85 +354,39 @@ export default function Home() {
           <CardContent>
             <Box
               sx={{
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-                mb: 2,
+                display: 'grid',
+                gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
+                gap: 2,
               }}
             >
-              <VerifiedIcon sx={{ color: 'green', mr: 2 }} fontSize="small" />
-              <Typography
-                variant="body1"
-                component="span"
-                sx={{ fontWeight: 700 }}
-              >
-                RDW-Erkend & Gecertificeerd
-                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                  Al onze monteurs zijn gediplomeerde APK-keurmeesters.
-                </Typography>
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-                mb: 2,
-              }}
-            >
-              <VerifiedIcon sx={{ color: 'green', mr: 2 }} fontSize="small" />
-              <Typography
-                variant="body1"
-                component="div"
-                sx={{ fontWeight: 700 }}
-              >
-                DSG Specialist
-                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                  Diepgaande expertise in Volkswagen, Audi, SEAT en Škoda.
-                </Typography>
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-                mb: 2,
-              }}
-            >
-              <VerifiedIcon sx={{ color: 'green', mr: 2 }} fontSize="small" />
-              <Typography
-                variant="body1"
-                component="div"
-                sx={{ fontWeight: 700 }}
-              >
-                Eerlijk & Transparant
-                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                  Nooit onverwachte kosten. Wij bellen altijd vóór een
-                  reparatie.
-                </Typography>
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-                mb: 2,
-              }}
-            >
-              <VerifiedIcon sx={{ color: 'green', mr: 2 }} fontSize="small" />
-              <Typography
-                variant="body1"
-                component="div"
-                sx={{ fontWeight: 700 }}
-              >
-                Klantbeoordeling 5.0 / 5
-                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                  Trots op onze honderden positieve Google-reviews van tevreden
-                  rijders!
-                </Typography>
-              </Typography>
+              {trustItems.map((item) => (
+                <Box
+                  key={item.title}
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'flex-start',
+                  }}
+                >
+                  <VerifiedIcon
+                    sx={{ color: 'green', mr: 2, mt: 0.3 }}
+                    fontSize="small"
+                  />
+                  <Typography
+                    variant="body1"
+                    component="div"
+                    sx={{ fontWeight: 700 }}
+                  >
+                    {item.title}
+                    <Typography
+                      variant="body2"
+                      sx={{ color: 'text.secondary' }}
+                    >
+                      {item.desc}
+                    </Typography>
+                  </Typography>
+                </Box>
+              ))}
             </Box>
           </CardContent>
         </Card>
