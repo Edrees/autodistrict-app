@@ -42,8 +42,13 @@ export default function Home() {
     desc: string
   }
 
+  interface TrustItemsProps {
+    title: string
+    desc: string
+  }
+
   const ourServiceBlockIconColor: string = '#d33535'
-  const ourServiceBlockIconSize: number = 32
+  const ourServiceBlockIconSize: number = 40
 
   const services: ServiceProps[] = [
     {
@@ -87,7 +92,7 @@ export default function Home() {
     },
     {
       name: 'DSG',
-      desc: 'Versnellingsbak service',
+      desc: 'Versnellingsbak',
       icon: (
         <SettingsOutlinedIcon
           sx={{
@@ -162,7 +167,7 @@ export default function Home() {
     },
   ]
 
-  const trustItems: ServicesUSPProps[] = [
+  const trustItems: TrustItemsProps[] = [
     {
       title: 'RDW-Erkend & Gecertificeerd',
       desc: 'Al onze monteurs zijn gediplomeerde APK-keurmeesters.',
@@ -187,37 +192,56 @@ export default function Home() {
         <Grid container spacing={2} sx={{ mb: 4, justifyContent: 'center' }}>
           {services.map((service, index) => (
             <Grid size={{ xs: 6, sm: 4, md: 3, lg: 2 }} key={index}>
-              <Paper sx={{ maxWidth: '180px', margin: '0 auto' }}>
-                <Card
-                  component={Link}
-                  to={service.pageLink}
+              <Card
+                component={Link}
+                to={service.pageLink}
+                variant="outlined"
+                sx={{
+                  width: 180,
+                  height: 140,
+                  margin: '0 auto',
+                  borderRadius: 2,
+                  border: '1px solid',
+                  borderColor: 'divider',
+                  textDecoration: 'none',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    borderColor: '#d33535',
+                    boxShadow: '0 4px 12px rgba(211,53,53,0.15)',
+                    transform: 'translateY(-2px)',
+                  },
+                }}
+              >
+                <CardContent
                   sx={{
-                    width: 180,
-                    height: 120,
-                    margin: '0 auto',
-                    borderRadius: 2,
-                    border: 'none',
-                    display: 'block',
-                    textAlign: 'center',
-                    textDecoration: 'none',
-                    cursor: 'pointer',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: 1,
+                    p: 2,
+                    '&:last-child': { pb: 2 },
                   }}
-                  variant="outlined"
                 >
-                  <CardContent sx={{ pl: 1, pr: 1 }}>
-                    {service.icon}
-                    <Typography variant="body1" sx={{ fontWeight: '500' }}>
-                      {service.name}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{ color: 'text.secondary' }}
-                    >
-                      {service.desc}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Paper>
+                  {service.icon}
+                  <Typography
+                    variant="body1"
+                    sx={{ fontWeight: 600, textAlign: 'center' }}
+                  >
+                    {service.name}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: 'text.secondary', textAlign: 'center' }}
+                  >
+                    {service.desc}
+                  </Typography>
+                </CardContent>
+              </Card>
             </Grid>
           ))}
         </Grid>

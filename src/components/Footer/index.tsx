@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import {
   useTheme,
   Box,
@@ -7,7 +7,7 @@ import {
   Link,
   List,
   ListItem,
-  ListItemText,
+  Typography,
 } from '@mui/material'
 
 interface FooterLinkProps {
@@ -38,6 +38,25 @@ const footerLinks: FooterLinkProps[] = [
   },
 ]
 
+const FooterHeading = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <Typography
+      variant="subtitle1"
+      sx={{
+        fontWeight: 700,
+        fontSize: 15,
+        textTransform: 'uppercase',
+        letterSpacing: '0.08em',
+        color: 'text.primary',
+        mb: 1,
+        px: 2,
+      }}
+    >
+      {children}
+    </Typography>
+  )
+}
+
 function Footer() {
   const theme = useTheme()
 
@@ -59,10 +78,10 @@ function Footer() {
       }}
     >
       <Container fixed maxWidth="lg" disableGutters>
-        <Grid container sx={{ py: 2 }}>
+        <Grid container sx={{ py: 3 }}>
           <Grid size={{ xs: 12, md: 4 }}>
-            <List dense>
-              <ListItem sx={{ fontWeight: 'bold' }}>Partners</ListItem>
+            <FooterHeading>Partners</FooterHeading>
+            <List dense disablePadding>
               {footerLinks.map((item, index) => (
                 <ListItem key={`footer-link-${index}`}>
                   <Link
@@ -72,6 +91,10 @@ function Footer() {
                       textDecoration: 'none',
                       fontWeight: 400,
                       fontSize: 14,
+                      color: 'text.secondary',
+                      '&:hover': {
+                        color: 'primary.main',
+                      },
                     }}
                   >
                     {item.text}
@@ -81,17 +104,20 @@ function Footer() {
             </List>
           </Grid>
           <Grid size={{ xs: 12, md: 4 }}>
-            <List dense>
-              <ListItem
-                sx={{
-                  fontWeight: 'bold',
-                }}
-              >
-                Adres
-              </ListItem>
-              <ListItem sx={{ fontSize: 14 }}>Auto District</ListItem>
-              <ListItem sx={{ fontSize: 14 }}>Jupiter 39-B</ListItem>
-              <ListItem sx={{ fontSize: 14 }}>2685 LV Poeldijk</ListItem>
+            <FooterHeading>Adres</FooterHeading>
+            <List dense disablePadding>
+              {['Auto District', 'Jupiter 39-B', '2685 LV Poeldijk'].map(
+                (line) => (
+                  <ListItem key={line}>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: 'text.secondary', fontSize: 14 }}
+                    >
+                      {line}
+                    </Typography>
+                  </ListItem>
+                )
+              )}
             </List>
           </Grid>
           <Grid size={{ xs: 12, md: 4 }}>
