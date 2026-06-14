@@ -15,6 +15,7 @@ import {
   useTheme,
 } from '@mui/material'
 
+import KeyIcon from '@mui/icons-material/Key'
 import BuildOutlinedIcon from '@mui/icons-material/BuildOutlined'
 import HandymanOutlinedIcon from '@mui/icons-material/HandymanOutlined'
 import WarningAmberOutlinedIcon from '@mui/icons-material/WarningAmberOutlined'
@@ -51,6 +52,58 @@ export default function Home() {
   const ourServiceBlockIconSize: number = 40
 
   const services: ServiceProps[] = [
+    {
+      name: 'Airco',
+      desc: 'Service & recharge',
+      icon: (
+        <AirOutlinedIcon
+          sx={{
+            color: ourServiceBlockIconColor,
+            fontSize: ourServiceBlockIconSize,
+          }}
+        />
+      ),
+      pageLink: 'airco',
+    },
+    {
+      name: 'Autosleutel',
+      desc: 'Sleutels inleren',
+      icon: (
+        <KeyIcon
+          sx={{
+            color: ourServiceBlockIconColor,
+            fontSize: ourServiceBlockIconSize,
+          }}
+        />
+      ),
+      pageLink: 'autosleutels-inleren',
+    },
+    {
+      name: 'DSG',
+      desc: 'Versnellingsbak',
+      icon: (
+        <SettingsOutlinedIcon
+          sx={{
+            color: ourServiceBlockIconColor,
+            fontSize: ourServiceBlockIconSize,
+          }}
+        />
+      ),
+      pageLink: 'dsg',
+    },
+    {
+      name: 'Bandenopslag',
+      desc: 'Opslag & wisselen',
+      icon: (
+        <TripOriginOutlinedIcon
+          sx={{
+            color: ourServiceBlockIconColor,
+            fontSize: ourServiceBlockIconSize,
+          }}
+        />
+      ),
+      pageLink: 'bandenopslag',
+    },
     {
       name: 'Onderhoud',
       desc: 'APK, olie & filters',
@@ -90,45 +143,6 @@ export default function Home() {
       ),
       pageLink: 'storingen',
     },
-    {
-      name: 'DSG',
-      desc: 'Versnellingsbak',
-      icon: (
-        <SettingsOutlinedIcon
-          sx={{
-            color: ourServiceBlockIconColor,
-            fontSize: ourServiceBlockIconSize,
-          }}
-        />
-      ),
-      pageLink: 'dsg',
-    },
-    {
-      name: 'Airco',
-      desc: 'Service & recharge',
-      icon: (
-        <AirOutlinedIcon
-          sx={{
-            color: ourServiceBlockIconColor,
-            fontSize: ourServiceBlockIconSize,
-          }}
-        />
-      ),
-      pageLink: 'airco',
-    },
-    {
-      name: 'Bandenopslag',
-      desc: 'Opslag & wisselen',
-      icon: (
-        <TripOriginOutlinedIcon
-          sx={{
-            color: ourServiceBlockIconColor,
-            fontSize: ourServiceBlockIconSize,
-          }}
-        />
-      ),
-      pageLink: 'bandenopslag',
-    },
   ]
 
   const servicesUSP: ServicesUSPProps[] = [
@@ -141,20 +155,28 @@ export default function Home() {
       desc: 'Grote of kleine beurt? Wij onderhouden elk merk met behoud van fabrieksgarantie en vullen uw (digitale) serviceboekje netjes in.',
     },
     {
+      title: 'Airco Service & Lekdetectie',
+      desc: 'Blijf koel in de zomer en voorkom storingen. Wij verzorgen het complete onderhoud, vullen aircosystemen (R134a & R1234yf) én sporen micro-lekkages nauwkeurig op met formeergas.',
+    },
+    {
       title: 'DSG & Automaat Service',
       desc: 'Haperingen of toe aan onderhoud? Wij zijn gespecialiseerd in het spoelen, repareren en inleren van DSG-versnellingsbakken.',
+    },
+    {
+      title: 'Autosleutels & Afstandsbedieningen Inleren',
+      desc: 'Kwijt, stuk of een extra sleutel nodig? Wij programmeren en inleren autosleutels en afstandsbedieningen voor de meeste merken en modellen.',
+    },
+    {
+      title: 'Banden & Professionele Montage',
+      desc: 'Bestel uw banden online via BandenConcurrent en kies Auto District Poeldijk als uw vaste montagepartner. Wij verzorgen de complete demontage, montage, balancering én veilige seizoensopslag.',
     },
     {
       title: 'Diagnose & Storingen',
       desc: 'Brandt er een storingslampje? Met geavanceerde diagnose-apparatuur achterhalen en verhelpen we snel de exacte oorzaak.',
     },
     {
-      title: 'Airco Service & Lekdetectie',
-      desc: 'Blijf koel in de zomer en voorkom storingen. Wij verzorgen het complete onderhoud, vullen aircosystemen (R134a & R1234yf) én sporen micro-lekkages nauwkeurig op met formeergas.',
-    },
-    {
-      title: 'Banden & Professionele Montage',
-      desc: 'Bestel uw banden online via BandenConcurrent en kies Auto District Poeldijk als uw vaste montagepartner. Wij verzorgen de complete demontage, montage, balancering én veilige seizoensopslag.',
+      title: 'Lekdetectie & Rookgas Diagnose',
+      desc: 'Heeft u last van een onverklaarbare storing, vermogensverlies of vocht? Met behulp van geavanceerde rookmachines sporen wij lucht-, vacuüm- en vloeistoflekkages snel en schadevrij op.',
     },
     {
       title: 'Walnut Blasting (Kleppen stralen)',
@@ -163,10 +185,6 @@ export default function Home() {
     {
       title: 'Elektronische Distributie Service',
       desc: 'De distributieriem is het hart van uw motor. Wij vervangen en stellen uw distributieriem of -ketting elektronisch uiterst nauwkeurig af, zodat uw motor weer perfect op tijd loopt.',
-    },
-    {
-      title: 'Lekdetectie & Rookgas Diagnose',
-      desc: 'Heeft u last van een onverklaarbare storing, vermogensverlies of vocht? Met behulp van geavanceerde rookmachines sporen wij lucht-, vacuüm- en vloeistoflekkages snel en schadevrij op.',
     },
   ]
 
