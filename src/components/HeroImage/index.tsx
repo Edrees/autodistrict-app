@@ -5,6 +5,10 @@ import pic1 from '../../assets/hpHeroImage1.jpeg'
 import pic2 from '../../assets/hpHeroImage2.jpeg'
 import pic3 from '../../assets/hpHeroImage3.jpeg'
 import pic4 from '../../assets/hpHeroImage4.jpeg'
+import pic5 from '../../assets/hpHeroImage5.jpg'
+import pic6 from '../../assets/hpHeroImage6.jpg'
+import pic7 from '../../assets/hpHeroImage7.jpg'
+import pic8 from '../../assets/hpHeroImage8.jpg'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -15,7 +19,7 @@ import './styles.css'
 import { Typography } from '@mui/material'
 
 export default function App() {
-  const heroImages: string[] = [pic1, pic2, pic3, pic4, pic1, pic2, pic3, pic4]
+  const heroImages: string[] = [pic1, pic8, pic2, pic7, pic3, pic6, pic4, pic5]
 
   return (
     <div style={{ position: 'relative', overflow: 'hidden', width: '100%' }}>
