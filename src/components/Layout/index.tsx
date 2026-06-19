@@ -15,6 +15,7 @@ import Footer from '../Footer'
 
 const routeLabels: Record<string, string> = {
   'over-ons': 'Over ons',
+  diensten: 'Diensten',
   onderhoud: 'Onderhoud',
   reparatie: 'Reparatie',
   storingen: 'Storingen',

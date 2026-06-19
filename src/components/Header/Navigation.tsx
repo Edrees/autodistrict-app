@@ -26,13 +26,13 @@ interface PageProps {
 }
 
 const services: PageProps[] = [
-  { name: 'Airco service', pageLink: 'airco' },
-  { name: 'Autosleutels inleren', pageLink: 'autosleutels-inleren' },
-  { name: 'Bandenopslag', pageLink: 'bandenopslag' },
-  { name: 'DSG', pageLink: 'dsg' },
-  { name: 'Onderhoud', pageLink: 'onderhoud' },
-  { name: 'Reparatie', pageLink: 'reparatie' },
-  { name: 'Storingen', pageLink: 'storingen' },
+  { name: 'Airco service', pageLink: 'diensten/airco' },
+  { name: 'Autosleutels inleren', pageLink: 'diensten/autosleutels-inleren' },
+  { name: 'Bandenopslag', pageLink: 'diensten/bandenopslag' },
+  { name: 'DSG', pageLink: 'diensten/dsg' },
+  { name: 'Onderhoud', pageLink: 'diensten/onderhoud' },
+  { name: 'Reparatie', pageLink: 'diensten/reparatie' },
+  { name: 'Storingen', pageLink: 'diensten/storingen' },
 ]
 
 const pages: PageProps[] = [
