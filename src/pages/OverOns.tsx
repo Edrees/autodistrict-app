@@ -7,6 +7,7 @@ import {
   useTheme,
 } from '@mui/material'
 import aboutUsPagePic from '../assets/auto-district-overons.jpeg'
+import { getYearsActive } from '../constants/company'
 
 function OverOns() {
   const isSmallOrLarger = useMediaQuery(useTheme().breakpoints.up('sm'))
@@ -35,10 +36,10 @@ function OverOns() {
             Wie zijn we
           </Typography>
           <Typography sx={{ textAlign: { md: 'justify' } }}>
-            We zijn een jong gemotiveerd team met veel passie voor het vak. Na
-            16 jaar ervaring blijven we telkens weer bijscholen op het gebied
-            van de allernieuwste technieken in de autowereld met als doel u zo
-            goed mogelijk van dienst te kunnen zijn.
+            We zijn een jong gemotiveerd team met veel passie voor het vak. Na{' '}
+            {getYearsActive()} jaar ervaring blijven we telkens weer bijscholen
+            op het gebied van de allernieuwste technieken in de autowereld met
+            als doel u zo goed mogelijk van dienst te kunnen zijn.
           </Typography>
         </Grid>
         <Grid

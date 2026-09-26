@@ -42,11 +42,11 @@ function Storingen() {
         <strong>ODIS en VCDS</strong>, waarmee we exact dezelfde
         diagnosemogelijkheden hebben als de merkdealer. Voor alle overige
         automerken zetten we universele topsystemen van{' '}
-        <strong>Autel en Delphi</strong>
-        in. Tijdens de volledige diagnose sluiten we uw auto aan op een
-        professionele <strong>GYS acculader</strong>. Dit zorgt voor een
-        constante en stabiele spanning, waardoor vitale computersystemen niet
-        uitvallen en de accu gegarandeerd vol blijft.
+        <strong>Autel en Delphi</strong> in. Tijdens de volledige diagnose
+        sluiten we uw auto aan op een professionele{' '}
+        <strong>GYS acculader</strong>. Dit zorgt voor een constante en stabiele
+        spanning, waardoor vitale computersystemen niet uitvallen en de accu
+        gegarandeerd vol blijft.
         <br />
         <br />
         Nadat we de exacte oorzaak van de storing hebben gelokaliseerd, stellen
@@ -66,7 +66,7 @@ function Storingen() {
             textDecoration: 'none',
             fontWeight: 500,
             color: theme.palette.secondary.main,
-          }}
+                      }}
         >
           Contactpagina
         </Link>{' '}

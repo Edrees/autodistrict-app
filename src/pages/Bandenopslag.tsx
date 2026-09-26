@@ -60,8 +60,8 @@ function Bandenopslag() {
           </Typography>
           <Typography sx={{ textAlign: { md: 'justify' }, mb: 2 }}>
             Bent u op zoek naar een betrouwbare bandenservice in Poeldijk? Sinds
-            2022 is
-            <strong> Auto District</strong> een officiële en hooggewaardeerde
+            2022 is{' '}
+            <strong>Auto District</strong> een officiële en hooggewaardeerde
             montagepartner van{' '}
             <Link
               href="https://www.bandenconcurrent.nl/garages/poeldijk/19718-auto-district/"
@@ -70,11 +70,11 @@ function Bandenopslag() {
                 fontWeight: 900,
                 textDecoration: 'none',
                 color: theme.palette.secondary.main,
-              }}
+                              }}
             >
               BandenConcurrent
             </Link>{' '}
-            (gemiddelde klantbeoordeling: 9,7!) . U bestelt uw nieuwe zomer-,
+            (gemiddelde klantbeoordeling: 9,7!). U bestelt uw nieuwe zomer-,
             winter- of all-season banden eenvoudig online, waarna ze
             rechtstreeks bij onze garage worden geleverd. Wij zorgen vervolgens
             voor een snelle, vakkundige montage en nauwkeurige balancering.

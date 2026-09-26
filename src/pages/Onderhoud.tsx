@@ -34,7 +34,7 @@ function Onderhoud() {
         Is uw auto toe aan een kleine beurt, grote beurt of specifiek
         fabrieksonderhoud? Bij <strong>Auto District Poeldijk</strong> is uw
         voertuig in deskundige handen. Als{' '}
-        <strong>RDW-erkend garagebedrijf</strong> en gecertificeerd
+        <strong>RDW-erkend garagebedrijf</strong> en gecertificeerd{' '}
         <strong>VAG-specialist</strong> (Volkswagen, Audi, Seat, Skoda)
         onderhouden wij alle merken en modellen volgens de officiële
         fabrieksvoorschriften. Zo blijft uw auto betrouwbaar, veilig en behoudt
@@ -80,8 +80,8 @@ function Onderhoud() {
           <ListItem disablePadding sx={{ display: 'list-item' }}>
             <strong>Kwalitatieve alternatieven:</strong> Kiest u liever voor een
             voordeliger alternatief? Wij werken uitsluitend met hoogwaardige
-            A-merk onderdelen (zoals Bosch, Continental en SKF) die voldoen aan
-            de strengste fabriekseisen.
+            A-merk onderdelen (zoals Bosch, Continental, Mann en SKF) die
+            voldoen aan de strengste fabriekseisen.
           </ListItem>
         </List>
         Dankzij ons netwerk met drie grote automaterialenpartners in de regio -
@@ -115,9 +115,6 @@ function Onderhoud() {
             mobiliteitsgarantie gewaarborgd.
           </ListItem>
         </List>
-        Dankzij ons netwerk met drie grote automaterialenpartners in de regio -
-        die wel vier keer per dag onderdelen leveren - hebben we benodigde
-        filters of onderdelen altijd razendsnel in huis.
       </Typography>
 
       <Typography

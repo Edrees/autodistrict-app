@@ -161,7 +161,8 @@ export default function Home() {
       desc: (
         <>
           Grote of kleine beurt? Wij onderhouden elk merk met behoud van
-          fabrieksgarantie en vullen uw (digitale) serviceboekje netjes in.
+          fabrieksgarantie en voor zover mogelijk vullen we u (digitale) service
+          boekje in.
         </>
       ),
     },
@@ -181,7 +182,7 @@ export default function Home() {
       desc: (
         <>
           Haperingen of toe aan onderhoud? Wij zijn gespecialiseerd in het
-          spoelen, repareren en inleren van{' '}
+          verversen automaat olie, repareren en inleren van{' '}
           <strong>DSG-versnellingsbakken</strong>.
         </>
       ),
@@ -409,8 +410,8 @@ export default function Home() {
               beurt, of specifiek onderhoud zoals een DSG-transmissieservice:
               ons team staat voor u klaar. Wij zijn uitgerust met de modernste
               diagnose- en uitleesapparatuur en werken uitsluitend met
-              hoogwaardige, originele onderdelen. Hierdoor blijft uw auto in
-              absolute topconditie en behoudt deze zijn waarde.
+              hoogwaardige(eventueel) originele onderdelen. Hierdoor blijft uw
+              auto in absolute topconditie en behoudt deze zijn waarde.
               <br />
               <br />
               Onze filosofie is simpel: wij behandelen uw auto alsof het die van

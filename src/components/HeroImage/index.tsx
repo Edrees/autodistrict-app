@@ -60,7 +60,7 @@ export default function App() {
           backgroundColor: 'rgba(255, 255, 255, 0.3)',
         }}
       >
-        Betrouwbaar auto-onderhoud & reparatie in Poeldijk
+        Betrouwbaar auto onderhoud & reparatie in Poeldijk
         <Typography sx={{ mb: 1, fontWeight: 500 }}>
           Vakkundige service voor alle merken & modellen
         </Typography>

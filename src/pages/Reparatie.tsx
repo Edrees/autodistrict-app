@@ -49,15 +49,6 @@ function Reparatie() {
         tussen originele fabrieksonderdelen via Partslink of voordeligere,
         hoogwaardige A-merk onderdelen die voldoen aan de strengste
         fabriekseisen.
-        <br />
-        <br />
-        Na de reparatie zorgen wij dat uw administratie direct klopt door de
-        werkzaamheden netjes te noteren in uw fysieke onderhoudsboekje of
-        officieel te registreren in het Digitaal Service Register (DSR) van de
-        fabriek. Als extra service van het huis leveren we uw auto niet alleen
-        technisch hersteld af, maar stofzuigen wij uw auto ook nog volledig uit.
-        Neem vandaag nog contact met ons op voor een afspraak of een
-        vrijblijvende prijsopgave op maat!
       </Typography>
 
       <Grid container spacing={2}>
