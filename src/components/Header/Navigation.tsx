@@ -24,6 +24,7 @@ import logo from '../../assets/auto-district-logo-light.png'
 import { BRAND_RED, BRAND_RED_TEXT } from '../../theme'
 import { NAV_PAGES, NAV_SERVICES } from '../../constants/services'
 import { BOOKING_PATH, CONTACT } from '../../constants/company'
+import { SERVICE_PAGES_ENABLED } from '../../constants/features'
 
 const navLinkSx = (isActive: boolean) => ({
   color: isActive ? BRAND_RED_TEXT : 'text.primary',
@@ -120,14 +121,24 @@ const Navigation = () => {
           </ListItem>
           {NAV_SERVICES.map((service) => (
             <ListItem key={service.path} sx={{ ...drawerItemSx, pl: 4 }}>
-              <Box
-                component={NavLink}
-                to={service.path}
-                onClick={closeDrawer}
-                sx={navLinkSx(isActive(service.path))}
-              >
-                {service.name}
-              </Box>
+              {SERVICE_PAGES_ENABLED ? (
+                <Box
+                  component={NavLink}
+                  to={service.path}
+                  onClick={closeDrawer}
+                  sx={navLinkSx(isActive(service.path))}
+                >
+                  {service.name}
+                </Box>
+              ) : (
+                <Box
+                  component="span"
+                  aria-disabled="true"
+                  sx={{ color: 'text.secondary', opacity: 0.6, fontSize: 16 }}
+                >
+                  {service.name}
+                </Box>
+              )}
             </ListItem>
           ))}
           {NAV_PAGES.map((page) => (
@@ -210,6 +221,13 @@ const Navigation = () => {
             >
               {NAV_SERVICES.map((service) => {
                 const active = isActive(service.path)
+                if (!SERVICE_PAGES_ENABLED) {
+                  return (
+                    <MenuItem key={service.path} disabled>
+                      {service.name}
+                    </MenuItem>
+                  )
+                }
                 return (
                   <MenuItem
                     key={service.path}

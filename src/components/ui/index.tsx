@@ -4,6 +4,7 @@ import { Box, Container, Typography } from '@mui/material'
 import type { SxProps, Theme } from '@mui/material/styles'
 import { BRAND_RED, DISPLAY_FONT } from '../../theme'
 import type { ServiceCard } from '../../constants/services'
+import { SERVICE_PAGES_ENABLED } from '../../constants/features'
 
 /*
  * Fades and slides its content up the first time it scrolls into view.
@@ -301,8 +302,38 @@ export function FeatureGrid({
   )
 }
 
-/* Clickable service tiles. */
+/* Service tiles: links to the sub-pages, or plain tiles while the
+   sub-pages are switched off (see constants/features.ts). */
 export function ServiceCardGrid({ services }: { services: ServiceCard[] }) {
+  const tileSx = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    gap: 1,
+    p: { xs: 2, md: 2.5 },
+    minHeight: 140,
+    borderRadius: 1,
+    border: 1,
+    borderColor: 'divider',
+    backgroundColor: 'background.paper',
+    color: 'text.primary',
+    textDecoration: 'none',
+  } as const
+
+  const linkSx = {
+    ...tileSx,
+    transition:
+      'border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease',
+    '&:hover': {
+      borderColor: BRAND_RED,
+      transform: 'translateY(-2px)',
+    },
+    '@media (prefers-reduced-motion: reduce)': {
+      transition: 'none',
+      '&:hover': { transform: 'none' },
+    },
+  }
+
   return (
     <Box
       sx={{
@@ -315,53 +346,36 @@ export function ServiceCardGrid({ services }: { services: ServiceCard[] }) {
         gap: 2,
       }}
     >
-      {services.map(({ name, desc, Icon, path }) => (
-        <Box
-          key={path}
-          component={RouterLink}
-          to={path}
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            gap: 1,
-            p: { xs: 2, md: 2.5 },
-            minHeight: 140,
-            borderRadius: 1,
-            border: 1,
-            borderColor: 'divider',
-            backgroundColor: 'background.paper',
-            color: 'text.primary',
-            textDecoration: 'none',
-            transition:
-              'border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease',
-            '&:hover': {
-              borderColor: BRAND_RED,
-              transform: 'translateY(-2px)',
-            },
-            '@media (prefers-reduced-motion: reduce)': {
-              transition: 'none',
-              '&:hover': { transform: 'none' },
-            },
-          }}
-        >
-          <Icon sx={{ color: BRAND_RED, fontSize: 34 }} />
-          <Typography
-            sx={{
-              fontFamily: DISPLAY_FONT,
-              fontWeight: 800,
-              fontSize: '1.5rem',
-              lineHeight: 1.1,
-              mt: 'auto',
-            }}
-          >
-            {name}
-          </Typography>
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            {desc}
-          </Typography>
-        </Box>
-      ))}
+      {services.map(({ name, desc, Icon, path }) => {
+        const content = (
+          <>
+            <Icon sx={{ color: BRAND_RED, fontSize: 34 }} />
+            <Typography
+              sx={{
+                fontFamily: DISPLAY_FONT,
+                fontWeight: 800,
+                fontSize: '1.5rem',
+                lineHeight: 1.1,
+                mt: 'auto',
+              }}
+            >
+              {name}
+            </Typography>
+            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+              {desc}
+            </Typography>
+          </>
+        )
+        return SERVICE_PAGES_ENABLED ? (
+          <Box key={path} component={RouterLink} to={path} sx={linkSx}>
+            {content}
+          </Box>
+        ) : (
+          <Box key={path} sx={tileSx}>
+            {content}
+          </Box>
+        )
+      })}
     </Box>
   )
 }
