@@ -59,8 +59,7 @@ function AutoSleutels() {
 
           <SubHeading>Wat neemt u mee naar de afspraak?</SubHeading>
           <Prose>
-            Wij zijn volledig uitgerust voor het programmeren van sleutels voor
-            diverse merken, met specifieke expertise in de VAG-groep:
+            Neem de volgende zaken mee naar uw afspraak:
             <BulletList items={meenemen} ordered />
           </Prose>
 
