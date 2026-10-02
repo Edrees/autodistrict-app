@@ -1,196 +1,220 @@
-import {
-  Grid,
-  Container,
-  Link,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Paper,
-  Typography,
-  useMediaQuery,
-  useTheme,
-  Box,
-} from '@mui/material'
+import { useEffect, useState, type ReactNode } from 'react'
+import { Box, Link, Typography } from '@mui/material'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import MailIcon from '@mui/icons-material/Mail'
 import PhoneIcon from '@mui/icons-material/Phone'
-import AccessTimeIcon from '@mui/icons-material/AccessTime'
-import googleMapsPic from '../assets/auto-district-maps.png'
+import PageHeader from '../components/PageHeader'
+import { Section } from '../components/ui'
+import { CONTACT } from '../constants/company'
+import {
+  OPENING_HOURS,
+  getGarageNow,
+  getOpenStatus,
+} from '../constants/openingHours'
+import { BRAND_RED, BRAND_RED_TEXT } from '../theme'
 
-export default function Contact() {
-  const theme = useTheme()
-  const isSmallOrLarger = useMediaQuery(theme.breakpoints.up('sm'))
+const OPEN_GREEN = '#3fb950'
 
-  const email = (
-    <Link href="mailto:info@autodistrict.nl" underline="hover">
-      info@autodistrict.nl
-    </Link>
-  )
+const contactRows: {
+  icon: ReactNode
+  label: string
+  href: string
+  external?: boolean
+}[] = [
+  { icon: <MailIcon />, label: CONTACT.email, href: `mailto:${CONTACT.email}` },
+  { icon: <PhoneIcon />, label: CONTACT.phoneDisplay, href: CONTACT.phoneHref },
+  {
+    icon: <LocationOnIcon />,
+    label: CONTACT.addressShort,
+    href: CONTACT.mapsHref,
+    external: true,
+  },
+]
 
-  const mobile = (
-    <Link href="tel:+31654977850" underline="hover">
-      +31654977850
-    </Link>
-  )
+const SmallHeading = ({ children }: { children: ReactNode }) => (
+  <Typography variant="h3" component="h2" sx={{ mb: 2.5 }}>
+    {children}
+  </Typography>
+)
 
-  const address = (
-    <Link href="https://g.page/autodistrict" underline="hover" target="_blank">
-      Jupiter 39-B, 2685 LV Poeldijk
-    </Link>
-  )
+/* Re-checks every 30 seconds so the badge flips at opening/closing time
+   without a page reload. */
+function useOpenStatus() {
+  const [now, setNow] = useState(() => new Date())
+  useEffect(() => {
+    const timer = window.setInterval(() => setNow(new Date()), 30_000)
+    return () => window.clearInterval(timer)
+  }, [])
+  return { status: getOpenStatus(now), today: getGarageNow(now).dayIndex }
+}
 
-  const openingstijden = [
-    { dag: 'Zondag', tijd: 'Gesloten' },
-    { dag: 'Maandag', tijd: '08:00 - 17:00' },
-    { dag: 'Dinsdag', tijd: '08:00 - 17:00' },
-    { dag: 'Woensdag', tijd: '08:00 - 17:00' },
-    { dag: 'Donderdag', tijd: '08:00 - 17:00' },
-    { dag: 'Vrijdag', time: '08:00 - 17:00' },
-    { dag: 'Zaterdag', tijd: '08:30 - 13:00' },
-  ]
-
-  const huidigeDagIndex = new Date().getDay()
-
+function OpenBadge({ isOpen, detail }: { isOpen: boolean; detail: string }) {
+  const color = isOpen ? OPEN_GREEN : BRAND_RED
+  const textColor = isOpen ? OPEN_GREEN : BRAND_RED_TEXT
   return (
-    <Container
-      maxWidth={false}
-      disableGutters
+    <Box
+      role="status"
+      aria-live="polite"
       sx={{
-        minHeight: theme.spacing(50),
-        padding: { xs: theme.spacing(4), md: theme.spacing(5) },
-        borderRadius: 1,
-        backgroundColor: 'white',
-        boxShadow: 1,
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 1.25,
+        mb: 2.5,
+        px: 1.75,
+        py: 0.75,
+        borderRadius: 999,
+        border: 1,
+        borderColor: color,
+        backgroundColor: isOpen
+          ? 'rgba(63, 185, 80, 0.1)'
+          : 'rgba(232, 0, 0, 0.12)',
       }}
     >
-      <Typography
-        variant={isSmallOrLarger ? 'h6' : 'body1'}
-        gutterBottom
+      <Box
+        aria-hidden="true"
         sx={{
-          fontWeight: theme.typography.fontWeightBold,
+          width: 9,
+          height: 9,
+          borderRadius: '50%',
+          backgroundColor: color,
+          boxShadow: `0 0 8px ${color}`,
         }}
-      >
-        Auto District Poeldijk
+      />
+      <Typography component="span" sx={{ fontWeight: 700, color: textColor }}>
+        {isOpen ? 'Nu geopend' : 'Nu gesloten'}
       </Typography>
-      <Grid container spacing={2}>
-        <Grid
-          size={{ xs: 12, md: 5, lg: 4 }}
-          sx={{ marginBottom: { xs: 2, md: 0 } }}
+      {detail && (
+        <Typography
+          component="span"
+          variant="body2"
+          sx={{ color: 'text.secondary' }}
         >
-          {/* Contactgegevens */}
-          <List dense sx={{ mb: 3 }}>
-            <ListItem disablePadding>
-              <ListItemIcon sx={{ minWidth: 36 }}>
-                <MailIcon fontSize="small" />
-              </ListItemIcon>
-              <ListItemText primary={email} />
-            </ListItem>
-            <ListItem disablePadding>
-              <ListItemIcon sx={{ minWidth: 36 }}>
-                <PhoneIcon fontSize="small" />
-              </ListItemIcon>
-              <ListItemText primary={mobile} />
-            </ListItem>
-            <ListItem disablePadding>
-              <ListItemIcon sx={{ minWidth: 36 }}>
-                <LocationOnIcon fontSize="small" />
-              </ListItemIcon>
-              <ListItemText primary={address} />
-            </ListItem>
-          </List>
+          - {detail}
+        </Typography>
+      )}
+    </Box>
+  )
+}
 
-          {/* Openingstijden Sectie */}
-          <Typography sx={{ fontWeight: 'bold', mb: 1 }}>
-            Openingstijden
-          </Typography>
-          <List>
-            {openingstijden.map((item, index) => {
-              // Controleer of deze regel de dag van vandaag is
-              const isVandaag = index === huidigeDagIndex
+export default function Contact() {
+  const { status, today: huidigeDagIndex } = useOpenStatus()
 
-              return (
-                <ListItem
-                  key={index}
-                  disablePadding
+  return (
+    <>
+      <PageHeader title="Auto District Poeldijk" />
+      <Section>
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: { xs: '1fr', md: '5fr 7fr' },
+            gap: { xs: 6, md: 8 },
+          }}
+        >
+          <Box>
+            <SmallHeading>Contact</SmallHeading>
+            <Box sx={{ display: 'grid', gap: 2, mb: 6 }}>
+              {contactRows.map((row) => (
+                <Link
+                  key={row.href}
+                  href={row.href}
+                  target={row.external ? '_blank' : undefined}
+                  rel={row.external ? 'noopener noreferrer' : undefined}
                   sx={{
-                    mb: 0.5,
-                    alignItems: 'flex-start',
-                    // Geef de dag van vandaag een subtiele achtergrond of extra padding indien gewenst
-                    bgcolor: isVandaag ? 'action.selected' : 'transparent',
-                    borderRadius: 0.5,
-                    py: isVandaag ? 0.5 : 0,
-                    px: isVandaag ? 0.5 : 0,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 1.5,
+                    color: 'text.primary',
+                    fontSize: '1.05rem',
+                    '& svg': { color: BRAND_RED, fontSize: 22 },
+                    '&:hover': { color: BRAND_RED_TEXT },
                   }}
                 >
-                  <ListItemIcon sx={{ minWidth: 36, mt: 0.3 }}>
-                    {/* Het klok-icoon verhuist nu automatisch mee naar de huidige dag */}
-                    {isVandaag && (
-                      <AccessTimeIcon fontSize="small" color="primary" />
-                    )}
-                  </ListItemIcon>
+                  {row.icon}
+                  {row.label}
+                </Link>
+              ))}
+            </Box>
+
+            <SmallHeading>Openingstijden</SmallHeading>
+            <OpenBadge isOpen={status.isOpen} detail={status.detail} />
+            <Box component="dl" sx={{ m: 0, display: 'grid', gap: 0.5 }}>
+              {OPENING_HOURS.map((item, index) => {
+                const isVandaag = index === huidigeDagIndex
+                const isGesloten = !item.open
+                const tijd = isGesloten
+                  ? 'Gesloten'
+                  : `${item.open} - ${item.close}`
+                return (
                   <Box
+                    key={item.dag}
                     sx={{
                       display: 'flex',
                       justifyContent: 'space-between',
-                      width: '100%',
-                      pr: 1,
+                      gap: 2,
+                      py: 1,
+                      px: 1.5,
+                      borderRadius: 1,
+                      borderLeft: '3px solid',
+                      borderColor: isVandaag ? BRAND_RED : 'transparent',
+                      backgroundColor: isVandaag
+                        ? 'rgba(232, 0, 0, 0.1)'
+                        : 'transparent',
                     }}
                   >
                     <Typography
-                      variant="body2"
+                      component="dt"
                       sx={{
-                        fontWeight: isVandaag ? 'bold' : 'normal',
-                        color:
-                          item.tijd === 'Gesloten'
-                            ? 'text.secondary'
-                            : 'text.primary',
+                        fontWeight: isVandaag ? 700 : 400,
+                        color: isVandaag ? 'text.primary' : 'text.secondary',
                       }}
                     >
                       {item.dag} {isVandaag && '(Vandaag)'}
                     </Typography>
                     <Typography
-                      variant="body2"
+                      component="dd"
                       sx={{
-                        fontWeight:
-                          isVandaag || item.tijd === 'Gesloten'
-                            ? 'bold'
-                            : 'medium',
+                        m: 0,
+                        fontWeight: isVandaag || isGesloten ? 700 : 500,
                         color: isVandaag
-                          ? theme.palette.primary.main
-                          : 'text.primary',
+                          ? BRAND_RED_TEXT
+                          : isGesloten
+                            ? 'text.secondary'
+                            : 'text.primary',
                       }}
                     >
-                      {item.tijd}
+                      {tijd}
                     </Typography>
                   </Box>
-                </ListItem>
-              )
-            })}
-          </List>
-        </Grid>
+                )
+              })}
+            </Box>
+          </Box>
 
-        {/* Google Maps Kaart */}
-        <Grid size={{ xs: 12, md: 7, lg: 8 }}>
-          <Paper
-            elevation={2}
-            sx={{
-              padding: 2,
-            }}
-          >
-            <iframe
-              title="Auto District locatie"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2452.0!2d4.1833!3d52.0167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5b5b5b5b5b5b5%3A0x0!2sJupiter+39-B%2C+2685+LV+Poeldijk!5e0!3m2!1snl!2snl!4v1"
-              width="100%"
-              height="360"
-              style={{ border: 0, borderRadius: 8 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </Paper>
-        </Grid>
-      </Grid>
-    </Container>
+          <Box>
+            <SmallHeading>Route</SmallHeading>
+            <Box
+              sx={{
+                borderRadius: 1,
+                overflow: 'hidden',
+                border: 1,
+                borderColor: 'divider',
+                lineHeight: 0,
+              }}
+            >
+              <iframe
+                title="Auto District locatie"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2452.0!2d4.1833!3d52.0167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5b5b5b5b5b5b5%3A0x0!2sJupiter+39-B%2C+2685+LV+Poeldijk!5e0!3m2!1snl!2snl!4v1"
+                width="100%"
+                height="440"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </Box>
+          </Box>
+        </Box>
+      </Section>
+    </>
   )
 }

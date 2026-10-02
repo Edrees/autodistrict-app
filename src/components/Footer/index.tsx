@@ -1,14 +1,6 @@
 import React, { useEffect } from 'react'
-import {
-  useTheme,
-  Box,
-  Container,
-  Grid,
-  Link,
-  List,
-  ListItem,
-  Typography,
-} from '@mui/material'
+import { Box, Container, Link, Typography } from '@mui/material'
+import { CONTACT } from '../../constants/company'
 
 interface FooterLinkProps {
   text: string
@@ -41,15 +33,14 @@ const footerLinks: FooterLinkProps[] = [
 const FooterHeading = ({ children }: { children: React.ReactNode }) => {
   return (
     <Typography
-      variant="subtitle1"
+      component="h2"
       sx={{
         fontWeight: 700,
-        fontSize: 16,
+        fontSize: 14,
         textTransform: 'uppercase',
         letterSpacing: '0.08em',
         color: 'text.primary',
-        mb: 1,
-        px: 2,
+        mb: 2,
       }}
     >
       {children}
@@ -57,9 +48,14 @@ const FooterHeading = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
-function Footer() {
-  const theme = useTheme()
+const footerLinkSx = {
+  fontWeight: 400,
+  fontSize: 15,
+  color: 'text.secondary',
+  '&:hover': { color: 'primary.light' },
+}
 
+function Footer() {
   useEffect(() => {
     const script = document.createElement('script')
     script.src = 'https://grwapi.net/widget.min.js'
@@ -72,56 +68,101 @@ function Footer() {
 
   return (
     <Box
+      component="footer"
       sx={{
-        zIndex: 99,
-        background: theme.palette.common.white,
+        backgroundColor: 'background.paper',
+        borderTop: 1,
+        borderColor: 'divider',
       }}
     >
-      <Container fixed maxWidth="lg" disableGutters>
-        <Grid container sx={{ py: 3 }}>
-          <Grid size={{ xs: 12, md: 4 }}>
+      <Container maxWidth="lg">
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
+            gap: { xs: 5, md: 6 },
+            py: { xs: 6, md: 8 },
+          }}
+        >
+          <Box>
             <FooterHeading>Partners</FooterHeading>
-            <List dense disablePadding>
-              {footerLinks.map((item, index) => (
-                <ListItem key={`footer-link-${index}`}>
+            <Box
+              component="ul"
+              sx={{ listStyle: 'none', p: 0, m: 0, display: 'grid', gap: 1 }}
+            >
+              {footerLinks.map((item) => (
+                <li key={item.url}>
                   <Link
                     href={item.url}
                     target="_blank"
-                    sx={{
-                      textDecoration: 'none',
-                      fontWeight: 400,
-                      fontSize: 15,
-                      color: 'text.secondary',
-                      '&:hover': {
-                        color: 'primary.main',
-                      },
-                    }}
+                    rel="noopener noreferrer"
+                    sx={footerLinkSx}
                   >
                     {item.text}
                   </Link>
-                </ListItem>
+                </li>
               ))}
-            </List>
-          </Grid>
-          <Grid size={{ xs: 12, md: 4 }}>
+            </Box>
+          </Box>
+          <Box>
             <FooterHeading>Adres</FooterHeading>
-            <List dense disablePadding>
-              {['Auto District', 'Jupiter 39-B', '2685 LV Poeldijk'].map(
-                (line) => (
-                  <ListItem key={line}>
-                    <Typography
-                      variant="body2"
-                      sx={{ color: 'text.secondary', fontSize: 15 }}
-                    >
-                      {line}
-                    </Typography>
-                  </ListItem>
-                )
-              )}
-            </List>
-          </Grid>
-          <Grid size={{ xs: 12, md: 4 }}>
-            <Box sx={{ margin: '0 auto', '& a': { border: 0 } }}>
+            <Typography
+              component="address"
+              sx={{
+                fontStyle: 'normal',
+                color: 'text.secondary',
+                fontSize: 15,
+              }}
+            >
+              {CONTACT.addressLines.map((line) => (
+                <Box key={line} component="span" sx={{ display: 'block' }}>
+                  {line}
+                </Box>
+              ))}
+            </Typography>
+            <Box sx={{ mt: 2, display: 'grid', gap: 1 }}>
+              <Link href={`mailto:${CONTACT.email}`} sx={footerLinkSx}>
+                {CONTACT.email}
+              </Link>
+              <Link href={CONTACT.phoneHref} sx={footerLinkSx}>
+                {CONTACT.phoneDisplay}
+              </Link>
+            </Box>
+          </Box>
+          <Box>
+            <FooterHeading>Reviews</FooterHeading>
+            <Box
+              sx={{
+                // review-widget.net injects plain HTML with a white card.
+                // These selectors outrank its stylesheet so the card follows
+                // the footer colours instead.
+                '& .review-widget_net .grw-net-widget': {
+                  fontFamily: 'inherit',
+                  // The widget centres itself with auto margins; align it
+                  // left under the "Reviews" heading like the other columns.
+                  marginLeft: 0,
+                  marginRight: 0,
+                },
+                '& .review-widget_net .grw-net-widget .grw-net-widget-four': {
+                  backgroundColor: 'transparent',
+                  border: 1,
+                  borderColor: 'divider',
+                  borderRadius: 1,
+                  transition: 'border-color 0.2s ease',
+                  '&:hover': { borderColor: 'primary.main' },
+                },
+                '& .review-widget_net .grw-net-widget .grw-net-text-big, & .review-widget_net .grw-net-widget .grw-net-text-extra-big':
+                  { color: 'text.primary' },
+                '& .review-widget_net .grw-net-widget .grw-net-text-small': {
+                  color: 'text.secondary',
+                },
+                '& .review-widget_net .branding a': {
+                  color: 'text.secondary',
+                  fontWeight: 400,
+                  '&:hover': { color: 'primary.light' },
+                },
+              }}
+            >
               <div
                 className="review-widget_net"
                 data-uuid="89c01f66-4b4a-4fc8-a8f8-efcc4bc3fbcc"
@@ -130,7 +171,7 @@ function Footer() {
                 data-lang="en"
                 data-theme="light"
               >
-                <a
+                <Link
                   href="https://www.review-widget.net/"
                   target="_blank"
                   rel="noreferrer"
@@ -141,24 +182,19 @@ function Footer() {
                     alt="review-widget.net"
                     loading="lazy"
                   />
-                </a>
+                </Link>
               </div>
             </Box>
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
       </Container>
-      <Box
-        sx={{
-          height: theme.spacing(5),
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          background: theme.palette.primary.main,
-          color: theme.palette.common.white,
-          textAlign: 'center',
-        }}
-      >
-        © {new Date().getFullYear()} Auto District. Alle rechten voorbehouden.
+      <Box sx={{ borderTop: 1, borderColor: 'divider', py: 2.5 }}>
+        <Container maxWidth="lg">
+          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+            © {new Date().getFullYear()} Auto District. Alle rechten
+            voorbehouden.
+          </Typography>
+        </Container>
       </Box>
     </Box>
   )
