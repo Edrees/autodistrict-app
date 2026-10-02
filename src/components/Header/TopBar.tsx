@@ -1,4 +1,4 @@
-import { useTheme, Box, Container, Link, Typography } from '@mui/material'
+import { Box, Container, Link, Typography } from '@mui/material'
 import MailIcon from '@mui/icons-material/Mail'
 import PhoneIcon from '@mui/icons-material/Phone'
 
@@ -7,36 +7,45 @@ interface TopBarProps {
   phoneNumber: string
 }
 
+const linkSx = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: 1,
+  color: 'text.secondary',
+  fontWeight: 500,
+  fontSize: 14,
+  '&:hover': { color: 'text.primary' },
+  '& svg': { fontSize: 18 },
+}
+
 const TopBar = ({ email, phoneNumber }: TopBarProps) => {
-  const theme = useTheme()
-
-  const linkSx = {
-    color: theme.palette.common.white,
-    ml: 1,
-    display: 'flex',
-    alignItems: 'center',
-    '& svg': { mr: 1 },
-  }
-
   return (
-    <Box sx={{ background: theme.palette.primary.main }}>
+    <Box
+      sx={{
+        backgroundColor: '#060708',
+        borderBottom: 1,
+        borderColor: 'divider',
+      }}
+    >
       <Container
-        fixed
         maxWidth="lg"
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          height: theme.spacing(5),
+          height: 36,
         }}
       >
-        <Link href={`mailto:${email}`} sx={linkSx}>
+        <Link href={`mailto:${email}`} underline="none" sx={linkSx}>
           <MailIcon />
-          <Typography sx={{ display: { xs: 'none', sm: 'inline-block' } }}>
+          <Typography
+            component="span"
+            sx={{ display: { xs: 'none', sm: 'inline' }, fontSize: 'inherit' }}
+          >
             {email}
           </Typography>
         </Link>
-        <Link href={`tel:${phoneNumber}`} sx={linkSx}>
+        <Link href={`tel:${phoneNumber}`} underline="none" sx={linkSx}>
           <PhoneIcon />
           {phoneNumber}
         </Link>

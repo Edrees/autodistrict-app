@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { Route, Routes, Navigate } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
@@ -11,6 +12,12 @@ import Airco from './pages/Airco'
 import Bandenopslag from './pages/Bandenopslag'
 import AutoSleutels from './pages/AutoSleutels'
 import Contact from './pages/Contact'
+import { SERVICE_PAGES_ENABLED } from './constants/features'
+
+// While the service pages are switched off for the demo, every sub-page
+// route (including typed URLs) lands on the Diensten overview instead.
+const servicePage = (page: ReactNode) =>
+  SERVICE_PAGES_ENABLED ? page : <Navigate to="/diensten/" replace />
 
 function App() {
   return (
@@ -22,15 +29,15 @@ function App() {
 
         {/* New nested Diensten routes */}
         <Route path="diensten/" element={<Diensten />} />
-        <Route path="diensten/onderhoud/" element={<Onderhoud />} />
-        <Route path="diensten/reparatie/" element={<Reparatie />} />
-        <Route path="diensten/storingen/" element={<Storingen />} />
-        <Route path="diensten/dsg/" element={<DSG />} />
-        <Route path="diensten/airco/" element={<Airco />} />
-        <Route path="diensten/bandenopslag/" element={<Bandenopslag />} />
+        <Route path="diensten/onderhoud/" element={servicePage(<Onderhoud />)} />
+        <Route path="diensten/reparatie/" element={servicePage(<Reparatie />)} />
+        <Route path="diensten/storingen/" element={servicePage(<Storingen />)} />
+        <Route path="diensten/dsg/" element={servicePage(<DSG />)} />
+        <Route path="diensten/airco/" element={servicePage(<Airco />)} />
+        <Route path="diensten/bandenopslag/" element={servicePage(<Bandenopslag />)} />
         <Route
           path="diensten/autosleutels-inleren/"
-          element={<AutoSleutels />}
+          element={servicePage(<AutoSleutels />)}
         />
 
         {/* Redirects from old flat URLs (already indexed by Google) */}

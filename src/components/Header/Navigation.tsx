@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import {
-  useTheme,
   AppBar,
   Box,
   Button,
@@ -12,71 +11,58 @@ import {
   ListItem,
   Menu,
   MenuItem,
-  Paper,
   Toolbar,
+  Typography,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
+import CloseIcon from '@mui/icons-material/Close'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import TopBar from './TopBar'
-import logo from '../../assets/auto-district-logo.png'
+// Light variant: the grey 'auto' letters are recoloured so they read on the
+// dark header. The original stays in assets for light backgrounds.
+import logo from '../../assets/auto-district-logo-light.png'
+import { BRAND_RED, BRAND_RED_TEXT } from '../../theme'
+import { NAV_PAGES, NAV_SERVICES } from '../../constants/services'
+import { BOOKING_PATH, CONTACT } from '../../constants/company'
+import { SERVICE_PAGES_ENABLED } from '../../constants/features'
 
-interface PageProps {
-  name: string
-  pageLink: string
+const navLinkSx = (isActive: boolean) => ({
+  color: isActive ? BRAND_RED_TEXT : 'text.primary',
+  fontWeight: isActive ? 700 : 500,
+  fontSize: 16,
+  textDecoration: 'none',
+  borderBottom: '2px solid',
+  borderColor: isActive ? BRAND_RED : 'transparent',
+  py: 0.5,
+  '&:hover': { color: BRAND_RED_TEXT },
+})
+
+const drawerItemSx = {
+  borderBottom: 1,
+  borderColor: 'divider',
+  py: 1.5,
 }
 
-const services: PageProps[] = [
-  { name: 'Airco service', pageLink: 'diensten/airco' },
-  { name: 'Autosleutels inleren', pageLink: 'diensten/autosleutels-inleren' },
-  { name: 'Bandenopslag', pageLink: 'diensten/bandenopslag' },
-  { name: 'DSG', pageLink: 'diensten/dsg' },
-  { name: 'Onderhoud', pageLink: 'diensten/onderhoud' },
-  { name: 'Reparatie', pageLink: 'diensten/reparatie' },
-  { name: 'Storingen', pageLink: 'diensten/storingen' },
-]
-
-const pages: PageProps[] = [
-  { name: 'Over ons', pageLink: 'over-ons' },
-  { name: 'Contact', pageLink: 'contact' },
-]
-
 const Navigation = () => {
-  const theme = useTheme()
-  const [drawerState, setDrawerState] = React.useState({ top: false })
+  const [drawerOpen, setDrawerOpen] = React.useState(false)
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
-  // Setting Active Link Via Router
   const location = useLocation()
-  const isServicesActive = services.some((s) =>
-    location.pathname.includes(s.pageLink)
-  )
+  // Normalise to a trailing slash so '/contact' and '/contact/' both match.
+  const pathname = location.pathname.replace(/\/?$/, '/')
+  const isActive = (path: string) => pathname.startsWith(path)
+  const isServicesActive = NAV_SERVICES.some((s) => isActive(s.path))
 
-  const handleServicesOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget)
-  }
-
-  const handleServicesClose = () => {
-    setAnchorEl(null)
-  }
-
-  const toggleDrawer =
-    (anchor: string, open: boolean) =>
-    (event: React.KeyboardEvent | React.MouseEvent) => {
-      if (
-        event.type === 'keydown' &&
-        ((event as React.KeyboardEvent).key === 'Tab' ||
-          (event as React.KeyboardEvent).key === 'Shift')
-      ) {
-        return
-      }
-      setDrawerState({ ...drawerState, [anchor]: open })
-    }
+  const closeDrawer = () => setDrawerOpen(false)
 
   const appLogo = (
-    <Box sx={{ width: 150 }}>
-      <NavLink to="/">
-        <img alt="Auto District" src={logo} width="100%" />
-      </NavLink>
+    <Box
+      component={NavLink}
+      to="/"
+      aria-label="Auto District, naar de homepage"
+      sx={{ display: 'block', width: { xs: 130, md: 150 }, lineHeight: 0 }}
+    >
+      <img alt="Auto District" src={logo} width="100%" />
     </Box>
   )
 
@@ -86,177 +72,202 @@ const Navigation = () => {
         flexGrow: 1,
         display: { xs: 'flex', md: 'none' },
         justifyContent: 'flex-end',
-        color: theme.palette.primary.main,
       }}
     >
       <IconButton
         size="large"
-        aria-label="menu"
-        aria-controls="menu-appbar"
+        aria-label="Menu openen"
         aria-haspopup="true"
-        onClick={toggleDrawer('top', true)}
-        color="inherit"
+        onClick={() => setDrawerOpen(true)}
+        sx={{ color: 'text.primary' }}
       >
         <MenuIcon />
       </IconButton>
       <Drawer
         anchor="top"
-        open={drawerState['top']}
-        onClose={toggleDrawer('top', false)}
+        open={drawerOpen}
+        onClose={closeDrawer}
+        slotProps={{
+          paper: {
+            sx: { backgroundColor: 'background.default', backgroundImage: 'none' },
+          },
+        }}
       >
-        <List sx={{ padding: 0 }}>
+        <List sx={{ p: 0 }}>
           <ListItem
-            sx={{ borderBottom: `1px solid ${theme.palette.grey[200]}` }}
+            sx={{ ...drawerItemSx, justifyContent: 'space-between' }}
           >
             {appLogo}
+            <IconButton
+              aria-label="Menu sluiten"
+              onClick={closeDrawer}
+              sx={{ color: 'text.primary' }}
+            >
+              <CloseIcon />
+            </IconButton>
           </ListItem>
-          <ListItem
-            sx={{
-              borderBottom: `1px solid ${theme.palette.grey[200]}`,
-              fontWeight: 500,
-              color: theme.palette.text.secondary,
-              fontSize: 16,
-              pl: 2,
-            }}
-          >
-            Diensten
-          </ListItem>
-          {services.map((service, index) => (
-            <ListItem
-              key={`mobile-service-${index}`}
+          <ListItem sx={drawerItemSx}>
+            <Typography
               sx={{
-                borderBottom: `1px solid ${theme.palette.grey[200]}`,
-                pl: 4,
+                fontSize: 13,
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em',
+                color: 'text.secondary',
               }}
             >
-              <NavLink
-                to={service.pageLink}
-                onClick={toggleDrawer('top', false)}
-                style={({ isActive }) => ({
-                  color: isActive ? theme.palette.secondary.main : 'initial',
-                  textDecoration: 'none',
-                  fontWeight: isActive ? 700 : 400,
-                  borderBottom: isActive
-                    ? `2px solid ${theme.palette.secondary.main}`
-                    : 'none',
-                })}
-              >
-                {service.name}
-              </NavLink>
+              Diensten
+            </Typography>
+          </ListItem>
+          {NAV_SERVICES.map((service) => (
+            <ListItem key={service.path} sx={{ ...drawerItemSx, pl: 4 }}>
+              {SERVICE_PAGES_ENABLED ? (
+                <Box
+                  component={NavLink}
+                  to={service.path}
+                  onClick={closeDrawer}
+                  sx={navLinkSx(isActive(service.path))}
+                >
+                  {service.name}
+                </Box>
+              ) : (
+                <Box
+                  component="span"
+                  aria-disabled="true"
+                  sx={{ color: 'text.secondary', opacity: 0.6, fontSize: 16 }}
+                >
+                  {service.name}
+                </Box>
+              )}
             </ListItem>
           ))}
-          {pages.map((page, index) => (
-            <ListItem
-              key={`mobile-menu-${index}`}
-              sx={{ borderBottom: `1px solid ${theme.palette.grey[200]}` }}
-            >
-              <NavLink
-                to={page.pageLink}
-                style={({ isActive }) => ({
-                  color: isActive ? theme.palette.secondary.main : 'initial',
-                  textDecoration: 'none',
-                  fontWeight: isActive ? 700 : 400,
-                  borderBottom: isActive
-                    ? `2px solid ${theme.palette.secondary.main}`
-                    : 'none',
-                })}
-                onClick={toggleDrawer('top', false)}
+          {NAV_PAGES.map((page) => (
+            <ListItem key={page.path} sx={drawerItemSx}>
+              <Box
+                component={NavLink}
+                to={page.path}
+                onClick={closeDrawer}
+                sx={navLinkSx(isActive(page.path))}
               >
                 {page.name}
-              </NavLink>
+              </Box>
             </ListItem>
           ))}
+          <ListItem sx={{ py: 2 }}>
+            <Button
+              variant="contained"
+              fullWidth
+              component={NavLink}
+              to={BOOKING_PATH}
+              onClick={closeDrawer}
+            >
+              Afspraak maken
+            </Button>
+          </ListItem>
         </List>
       </Drawer>
     </Box>
   )
 
   return (
-    <Paper>
-      <AppBar position="sticky">
-        <TopBar email="info@autodistrict.nl" phoneNumber="+31654977850" />
-        <Container fixed maxWidth="lg">
-          <Toolbar disableGutters>
-            {appLogo}
-            {mobileMenu}
-            <Box
+    <AppBar
+      position="sticky"
+      color="transparent"
+      elevation={0}
+      sx={{
+        backgroundColor: 'rgba(10, 11, 13, 0.82)',
+        backdropFilter: 'blur(12px)',
+        borderBottom: 1,
+        borderColor: 'divider',
+        backgroundImage: 'none',
+      }}
+    >
+      <TopBar email={CONTACT.email} phoneNumber={CONTACT.phoneDisplay} />
+      <Container maxWidth="lg">
+        <Toolbar disableGutters sx={{ minHeight: { xs: 64, md: 76 }, gap: 3 }}>
+          {appLogo}
+          {mobileMenu}
+          <Box
+            component="nav"
+            aria-label="Hoofdmenu"
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'none', md: 'flex' },
+              justifyContent: 'flex-end',
+              alignItems: 'center',
+              gap: 3.5,
+            }}
+          >
+            <Button
+              onClick={(event) => setAnchorEl(event.currentTarget)}
+              endIcon={<KeyboardArrowDownIcon />}
+              aria-haspopup="true"
+              aria-expanded={Boolean(anchorEl)}
               sx={{
-                flexGrow: 1,
-                display: { xs: 'none', md: 'flex' },
-                justifyContent: 'flex-end',
-                alignItems: 'center',
+                ...navLinkSx(isServicesActive),
+                p: 0,
+                py: 0.5,
+                minWidth: 0,
+                borderRadius: 0,
+                '&:hover': { color: BRAND_RED_TEXT, backgroundColor: 'transparent' },
               }}
             >
-              <Button
-                onClick={handleServicesOpen}
-                endIcon={<KeyboardArrowDownIcon />}
-                sx={{
-                  color: isServicesActive
-                    ? theme.palette.secondary.main
-                    : 'initial',
-                  fontWeight: isServicesActive ? 500 : 400,
-                  textTransform: 'none',
-                  borderBottom: isServicesActive
-                    ? `2px solid ${theme.palette.secondary.main}`
-                    : 'none',
-                  borderRadius: 0,
-                  fontSize: 16,
-                }}
-              >
-                Diensten
-              </Button>
-              <Menu
-                anchorEl={anchorEl}
-                open={Boolean(anchorEl)}
-                onClose={handleServicesClose}
-              >
-                {services.map((service, index) => {
-                  const isActive = location.pathname.includes(service.pageLink)
+              Diensten
+            </Button>
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={() => setAnchorEl(null)}
+            >
+              {NAV_SERVICES.map((service) => {
+                const active = isActive(service.path)
+                if (!SERVICE_PAGES_ENABLED) {
                   return (
-                    <MenuItem
-                      key={`service-${index}`}
-                      component={NavLink}
-                      to={service.pageLink}
-                      onClick={handleServicesClose}
-                      sx={{
-                        color: isActive
-                          ? theme.palette.secondary.main
-                          : 'initial',
-                        fontWeight: isActive ? 500 : 400,
-                        borderLeft: isActive
-                          ? `3px solid ${theme.palette.secondary.main}`
-                          : '3px solid transparent',
-                      }}
-                    >
+                    <MenuItem key={service.path} disabled>
                       {service.name}
                     </MenuItem>
                   )
-                })}
-              </Menu>
-              {pages.map((page, index) => (
-                <Box sx={{ ml: 2 }} key={`desktop-menu-${index}`}>
-                  <NavLink
-                    to={page.pageLink}
-                    style={({ isActive }) => ({
-                      color: isActive
-                        ? theme.palette.secondary.main
-                        : 'initial',
-                      textDecoration: 'none',
-                      fontWeight: isActive ? 700 : 400,
-                      borderBottom: isActive
-                        ? `2px solid ${theme.palette.secondary.main}`
-                        : 'none',
-                    })}
+                }
+                return (
+                  <MenuItem
+                    key={service.path}
+                    component={NavLink}
+                    to={service.path}
+                    onClick={() => setAnchorEl(null)}
+                    sx={{
+                      color: active ? BRAND_RED_TEXT : 'text.primary',
+                      fontWeight: active ? 700 : 400,
+                      borderLeft: '3px solid',
+                      borderColor: active ? BRAND_RED : 'transparent',
+                    }}
                   >
-                    {page.name}
-                  </NavLink>
-                </Box>
-              ))}
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
-    </Paper>
+                    {service.name}
+                  </MenuItem>
+                )
+              })}
+            </Menu>
+            {NAV_PAGES.map((page) => (
+              <Box
+                key={page.path}
+                component={NavLink}
+                to={page.path}
+                sx={navLinkSx(isActive(page.path))}
+              >
+                {page.name}
+              </Box>
+            ))}
+            <Button
+              variant="contained"
+              size="small"
+              component={NavLink}
+              to={BOOKING_PATH}
+            >
+              Afspraak maken
+            </Button>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
   )
 }
 
